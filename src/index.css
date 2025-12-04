@@ -15,7 +15,7 @@
     --popover: 0 0% 100%;
     --popover-foreground: 220 60% 20%;
 
-    --primary: 220 78% 20%;
+    --primary: 212 100% 14%;
     --primary-foreground: 0 0% 100%;
 
     --secondary: 220 20% 96%;
@@ -37,23 +37,23 @@
     --radius: 0.75rem;
 
     /* Custom School Theme Variables */
-    --navy: 220 78% 20%;
-    --navy-light: 220 60% 30%;
-    --navy-dark: 220 80% 15%;
+    --navy: 212 100% 14%;
+    --navy-light: 212 80% 22%;
+    --navy-dark: 212 100% 10%;
     --gold: 38 58% 60%;
     --gold-light: 38 70% 75%;
     --gold-dark: 38 50% 45%;
     --cream: 40 30% 97%;
 
     /* Gradients */
-    --gradient-navy: linear-gradient(135deg, hsl(220 78% 20%) 0%, hsl(220 60% 30%) 100%);
+    --gradient-navy: linear-gradient(135deg, hsl(212 100% 14%) 0%, hsl(212 80% 22%) 100%);
     --gradient-gold: linear-gradient(135deg, hsl(38 58% 60%) 0%, hsl(38 70% 75%) 100%);
-    --gradient-hero: linear-gradient(135deg, hsl(220 78% 20% / 0.9) 0%, hsl(220 60% 30% / 0.7) 100%);
+    --gradient-hero: linear-gradient(135deg, hsl(212 100% 14% / 0.9) 0%, hsl(212 80% 22% / 0.7) 100%);
 
     /* Shadows */
-    --shadow-sm: 0 2px 8px hsl(220 78% 20% / 0.08);
-    --shadow-md: 0 4px 20px hsl(220 78% 20% / 0.12);
-    --shadow-lg: 0 8px 40px hsl(220 78% 20% / 0.16);
+    --shadow-sm: 0 2px 8px hsl(212 100% 14% / 0.08);
+    --shadow-md: 0 4px 20px hsl(212 100% 14% / 0.12);
+    --shadow-lg: 0 8px 40px hsl(212 100% 14% / 0.16);
     --shadow-gold: 0 4px 20px hsl(38 58% 60% / 0.3);
 
     --sidebar-background: 0 0% 98%;
@@ -67,7 +67,7 @@
   }
 
   .dark {
-    --background: 220 78% 10%;
+    --background: 212 100% 6%;
     --foreground: 0 0% 98%;
 
     --card: 220 60% 15%;
