@@ -19,10 +19,10 @@ const Footer = () => {
           <div className="space-y-4">
             <div className="flex items-center gap-3">
               <div className="w-12 h-12 rounded-full bg-accent flex items-center justify-center">
-                <span className="text-accent-foreground font-bold text-xl">GS</span>
+                <span className="text-accent-foreground font-bold text-xl">AS</span>
               </div>
               <div>
-                <h3 className="text-lg font-bold">Global School</h3>
+                <h3 className="text-lg font-bold">Alif School</h3>
                 <p className="text-xs opacity-80">Excellence in Education</p>
               </div>
             </div>
@@ -122,7 +122,7 @@ const Footer = () => {
       <div className="border-t border-primary-foreground/10">
         <div className="container-custom py-6 flex flex-col md:flex-row items-center justify-between gap-4">
           <p className="text-sm opacity-60">
-            © {new Date().getFullYear()} Global School. All Rights Reserved.
+            © {new Date().getFullYear()} Alif School. All Rights Reserved.
           </p>
           <div className="flex items-center gap-6 text-sm opacity-60">
             <Link to="/privacy" className="hover:opacity-100 transition-opacity">Privacy Policy</Link>

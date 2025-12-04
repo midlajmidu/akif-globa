@@ -23,7 +23,7 @@ const HeroSection = () => {
           
           <h1 className="text-4xl md:text-5xl lg:text-7xl font-bold text-primary-foreground leading-tight mb-6 animate-fade-in-up">
             Welcome to{' '}
-            <span className="text-accent">Global School</span>
+            <span className="text-accent">Alif School</span>
           </h1>
           
           <p className="text-lg md:text-xl text-primary-foreground/80 max-w-2xl mx-auto mb-10 animate-fade-in-up animation-delay-200">
