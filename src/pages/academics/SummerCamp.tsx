@@ -1,46 +1,134 @@
 import Layout from '@/components/Layout';
 import PageHeader from '@/components/PageHeader';
-import { Sun, Palette, Music, Dumbbell } from 'lucide-react';
-
-const activities = [
-  { icon: Palette, title: 'Arts & Crafts', desc: 'Creative expression through art' },
-  { icon: Music, title: 'Music & Dance', desc: 'Rhythm and movement activities' },
-  { icon: Dumbbell, title: 'Sports', desc: 'Swimming, cricket, football & more' },
-  { icon: Sun, title: 'Outdoor Adventures', desc: 'Nature walks and exploration' },
-];
+import { useState } from 'react';
+import { X, ChevronLeft, ChevronRight } from 'lucide-react';
 
 const SummerCamp = () => {
-  return (
-    <Layout>
-      <PageHeader title="Summer Camp" breadcrumb={[{ name: 'Academics', path: '/academics' }, { name: 'Summer Camp' }]} />
-      <section className="section-padding">
-        <div className="container-custom">
-          <div className="max-w-4xl mx-auto">
-            <div className="text-center mb-12">
-              <h2 className="heading-secondary mb-4">Summer Camp 2025</h2>
-              <p className="text-body">
-                An exciting summer filled with fun activities, learning experiences, and new friendships!
-              </p>
-            </div>
-            <div className="grid sm:grid-cols-2 md:grid-cols-4 gap-6 mb-12">
-              {activities.map((item, index) => (
-                <div key={index} className="bg-card p-6 rounded-xl shadow-soft text-center card-hover">
-                  <item.icon className="w-12 h-12 text-accent mx-auto mb-4" />
-                  <h3 className="font-semibold text-foreground mb-2">{item.title}</h3>
-                  <p className="text-sm text-muted-foreground">{item.desc}</p>
+    const [selectedImage, setSelectedImage] = useState<number | null>(null);
+
+    const images = [
+        "https://images.unsplash.com/photo-1472162072942-cd5147eb3902?q=80&w=2069&auto=format&fit=crop",
+        "https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?q=80&w=2070&auto=format&fit=crop",
+        "https://images.unsplash.com/photo-1502086223501-7ea6ecd79368?q=80&w=2038&auto=format&fit=crop",
+        "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?q=80&w=2020&auto=format&fit=crop",
+        "https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?q=80&w=2070&auto=format&fit=crop",
+        "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?q=80&w=2022&auto=format&fit=crop",
+        "https://images.unsplash.com/photo-1509062522246-3755977927d7?q=80&w=2070&auto=format&fit=crop",
+        "https://images.unsplash.com/photo-1516627145497-ae6968895b74?q=80&w=2070&auto=format&fit=crop",
+        "https://images.unsplash.com/photo-1540479859555-17af45c78602?q=80&w=2070&auto=format&fit=crop",
+        "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?q=80&w=2070&auto=format&fit=crop",
+        "https://images.unsplash.com/photo-1523050853064-85a17f009c5f?q=80&w=2070&auto=format&fit=crop",
+        "https://images.unsplash.com/photo-1523580494863-6f3031224c94?q=80&w=2070&auto=format&fit=crop",
+        "https://images.unsplash.com/photo-1524178232363-1fb2b075b655?q=80&w=2070&auto=format&fit=crop",
+        "https://images.unsplash.com/photo-1522661067900-ab829854a57f?q=80&w=2070&auto=format&fit=crop",
+        "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=2070&auto=format&fit=crop",
+        "https://images.unsplash.com/photo-1507537297725-24a1c029d3ca?q=80&w=2070&auto=format&fit=crop",
+        "https://images.unsplash.com/photo-1529390079861-591de354faf5?q=80&w=2070&auto=format&fit=crop",
+        "https://images.unsplash.com/photo-1531482615713-2afd69097998?q=80&w=2070&auto=format&fit=crop",
+        "https://images.unsplash.com/photo-1503676382389-4809596d5290?q=80&w=2076&auto=format&fit=crop",
+        "https://images.unsplash.com/photo-1511949860663-92c5c57d48a7?q=80&w=2070&auto=format&fit=crop",
+        "https://images.unsplash.com/photo-1516534775068-ba3e84529519?q=80&w=2070&auto=format&fit=crop",
+        "https://images.unsplash.com/photo-1519331379826-f10be5486c6f?q=80&w=2070&auto=format&fit=crop",
+        "https://images.unsplash.com/photo-1502444330042-d1a1ddf9bb5b?q=80&w=2073&auto=format&fit=crop",
+        "https://images.unsplash.com/photo-1491438590914-bc09fcaaf77a?q=80&w=2070&auto=format&fit=crop",
+        "https://images.unsplash.com/photo-1517486808906-6ca8b3f04846?q=80&w=2049&auto=format&fit=crop",
+        "https://images.unsplash.com/photo-1526721940322-145d6f95c46e?q=80&w=2070&auto=format&fit=crop",
+        "https://images.unsplash.com/photo-1536337005238-94b997371b40?q=80&w=2069&auto=format&fit=crop",
+        "https://images.unsplash.com/photo-1502086223501-7ea6ecd79368?q=80&w=2038&auto=format&fit=crop",
+        "https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?q=80&w=2070&auto=format&fit=crop",
+        "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?q=80&w=2020&auto=format&fit=crop",
+    ];
+
+    const openLightbox = (index: number) => {
+        setSelectedImage(index);
+        document.body.style.overflow = 'hidden';
+    };
+
+    const closeLightbox = () => {
+        setSelectedImage(null);
+        document.body.style.overflow = 'auto';
+    };
+
+    const nextImage = (e: React.MouseEvent) => {
+        e.stopPropagation();
+        if (selectedImage !== null) {
+            setSelectedImage((selectedImage + 1) % images.length);
+        }
+    };
+
+    const prevImage = (e: React.MouseEvent) => {
+        e.stopPropagation();
+        if (selectedImage !== null) {
+            setSelectedImage((selectedImage - 1 + images.length) % images.length);
+        }
+    };
+
+    return (
+        <Layout>
+            <PageHeader title="Summer Camp" breadcrumb={[{ name: 'Academics', path: '/academics' }, { name: 'Summer Camp' }]} />
+
+            <section className="section-padding bg-background">
+                <div className="container-custom">
+                    <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-1 md:gap-2">
+                        {images.map((src, index) => (
+                            <div
+                                key={index}
+                                className="aspect-square cursor-pointer overflow-hidden rounded-lg shadow-sm"
+                                onClick={() => openLightbox(index)}
+                            >
+                                <img
+                                    src={src}
+                                    alt={`Summer Camp ${index + 1}`}
+                                    className="w-full h-full object-cover"
+                                />
+                            </div>
+                        ))}
+                    </div>
                 </div>
-              ))}
-            </div>
-            <div className="bg-primary text-primary-foreground p-8 rounded-xl text-center">
-              <h3 className="text-xl font-bold mb-2">Registrations Opening Soon!</h3>
-              <p className="opacity-80 mb-4">Stay tuned for dates and registration details</p>
-              <button className="btn-accent">Notify Me</button>
-            </div>
-          </div>
-        </div>
-      </section>
-    </Layout>
-  );
+            </section>
+
+            {/* Lightbox */}
+            {selectedImage !== null && (
+                <div
+                    className="fixed inset-0 z-[100] bg-black/95 flex items-center justify-center p-4 md:p-8"
+                    onClick={closeLightbox}
+                >
+                    <button
+                        className="absolute top-6 right-6 text-white hover:text-accent transition-colors z-[110]"
+                        onClick={closeLightbox}
+                    >
+                        <X className="w-8 h-8" />
+                    </button>
+
+                    <button
+                        className="absolute left-4 md:left-8 text-white hover:text-accent transition-colors z-[110]"
+                        onClick={prevImage}
+                    >
+                        <ChevronLeft className="w-10 h-10" />
+                    </button>
+
+                    <div className="relative max-w-5xl max-h-full flex items-center justify-center">
+                        <img
+                            src={images[selectedImage]}
+                            alt="Summer Camp Full View"
+                            className="max-w-full max-h-[85vh] object-contain rounded-lg shadow-2xl"
+                            onClick={(e) => e.stopPropagation()}
+                        />
+                        <div className="absolute -bottom-12 left-0 right-0 text-center text-white font-medium">
+                            Image {selectedImage + 1} of {images.length}
+                        </div>
+                    </div>
+
+                    <button
+                        className="absolute right-4 md:right-8 text-white hover:text-accent transition-colors z-[110]"
+                        onClick={nextImage}
+                    >
+                        <ChevronRight className="w-10 h-10" />
+                    </button>
+                </div>
+            )}
+        </Layout>
+    );
 };
 
 export default SummerCamp;

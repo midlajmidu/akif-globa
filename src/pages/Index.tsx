@@ -4,6 +4,7 @@ import AboutSection from '@/components/home/AboutSection';
 import LogoSlider from '@/components/home/LogoSlider';
 import FeaturesSection from '@/components/home/FeaturesSection';
 import VisionMissionSection from '@/components/home/VisionMissionSection';
+import NewsEventsSection from '@/components/home/NewsEventsSection';
 import TestimonialsSection from '@/components/home/TestimonialsSection';
 import ProgramsSection from '@/components/home/ProgramsSection';
 import WhyChooseSection from '@/components/home/WhyChooseSection';
@@ -17,6 +18,7 @@ const Index = () => {
       <LogoSlider />
       <FeaturesSection />
       <VisionMissionSection />
+      <NewsEventsSection />
       <TestimonialsSection />
       <ProgramsSection />
       <WhyChooseSection />

@@ -50,6 +50,14 @@ import ProgramSkillSurge from "./pages/programs/SkillSurge";
 import ProgramKhelo from "./pages/programs/Khelo";
 import ProgramCrossRoads from "./pages/programs/CrossRoads";
 
+// Academic Level Pages
+import FoundationPage from "./pages/programs/academic-levels/Foundation";
+import PreparatoryPage from "./pages/programs/academic-levels/Preparatory";
+import MiddlePage from "./pages/programs/academic-levels/Middle";
+import SecondaryPage from "./pages/programs/academic-levels/Secondary";
+import SeniorSecondaryPage from "./pages/programs/academic-levels/SeniorSecondary";
+import SpecialPage from "./pages/programs/academic-levels/Special";
+
 const queryClient = new QueryClient();
 
 const App = () => (
@@ -67,12 +75,12 @@ const App = () => (
           <Route path="/about/residence" element={<AboutResidence />} />
           <Route path="/about/testimonials" element={<AboutTestimonials />} />
           <Route path="/about/virtual-tour" element={<AboutVirtualTour />} />
-          
+
           <Route path="/admission" element={<Admission />} />
           <Route path="/admission/test" element={<AdmissionTest />} />
           <Route path="/admission/apply" element={<AdmissionApply />} />
           <Route path="/admission/scholarships" element={<AdmissionScholarships />} />
-          
+
           <Route path="/academics" element={<Academics />} />
           <Route path="/academics/principal" element={<AcademicPrincipal />} />
           <Route path="/academics/zeeque" element={<AcademicZeeque />} />
@@ -85,8 +93,15 @@ const App = () => (
           <Route path="/academics/career" element={<AcademicCareer />} />
           <Route path="/academics/tc-download" element={<AcademicTCDownload />} />
           <Route path="/academics/summer-camp" element={<AcademicSummerCamp />} />
-          
+
           <Route path="/programs" element={<Programs />} />
+          <Route path="/programs/foundation" element={<FoundationPage />} />
+          <Route path="/programs/preparatory" element={<PreparatoryPage />} />
+          <Route path="/programs/middle" element={<MiddlePage />} />
+          <Route path="/programs/secondary" element={<SecondaryPage />} />
+          <Route path="/programs/senior-secondary" element={<SeniorSecondaryPage />} />
+          <Route path="/programs/special" element={<SpecialPage />} />
+
           <Route path="/programs/ags-talks" element={<ProgramAGSTalks />} />
           <Route path="/programs/street-buzz" element={<ProgramStreetBuzz />} />
           <Route path="/programs/palette" element={<ProgramPalette />} />
@@ -95,7 +110,7 @@ const App = () => (
           <Route path="/programs/skill-surge" element={<ProgramSkillSurge />} />
           <Route path="/programs/khelo" element={<ProgramKhelo />} />
           <Route path="/programs/cross-roads" element={<ProgramCrossRoads />} />
-          
+
           <Route path="/facilities" element={<Facilities />} />
           <Route path="/disclosure" element={<Disclosure />} />
           <Route path="/contact" element={<Contact />} />

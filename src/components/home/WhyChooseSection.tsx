@@ -69,35 +69,20 @@ const WhyChooseSection = () => {
             >
               <div className="relative inline-block">
                 {/* Circular Progress Ring */}
-                <div className="w-36 h-36 md:w-44 md:h-44 relative">
-                  <svg className="w-full h-full transform -rotate-90">
-                    <circle
-                      cx="50%"
-                      cy="50%"
-                      r="45%"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth="6"
-                      className="text-border"
-                    />
-                    <circle
-                      cx="50%"
-                      cy="50%"
-                      r="45%"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth="6"
-                      strokeDasharray="283"
-                      strokeDashoffset={isVisible ? '0' : '283'}
-                      className="text-accent transition-all duration-1000"
-                      style={{ transitionDelay: `${index * 200 + 300}ms` }}
-                    />
-                  </svg>
-                  <div className="absolute inset-0 flex flex-col items-center justify-center">
-                    <div className={`w-12 h-12 rounded-full ${stat.color} flex items-center justify-center mb-1`}>
-                      <stat.icon className="w-6 h-6" />
+                <div className="w-36 h-36 md:w-44 md:h-44 relative flex items-center justify-center">
+                  <div
+                    className={`absolute inset-0 rounded-full bg-accent/10 border-4 border-accent/20 transition-all duration-1000`}
+                    style={{
+                      transform: isVisible ? 'scale(1)' : 'scale(0.8)',
+                      opacity: isVisible ? 1 : 0,
+                      transitionDelay: `${index * 200}ms`
+                    }}
+                  />
+                  <div className="relative z-10 flex flex-col items-center justify-center">
+                    <div className={`w-16 h-16 rounded-full ${stat.color} flex items-center justify-center mb-2 shadow-sm`}>
+                      <stat.icon className="w-8 h-8" />
                     </div>
-                    <span className="text-2xl font-bold text-primary">{stat.value}</span>
+                    <span className="text-3xl font-bold text-primary">{stat.value}</span>
                   </div>
                 </div>
               </div>

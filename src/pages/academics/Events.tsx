@@ -2,11 +2,11 @@ import Layout from '@/components/Layout';
 import PageHeader from '@/components/PageHeader';
 import { Calendar } from 'lucide-react';
 
-const events = [
-  { date: 'Jan 15', title: 'Annual Day', desc: 'Annual day celebrations with cultural performances' },
-  { date: 'Feb 20', title: 'Sports Day', desc: 'Inter-house sports competition' },
-  { date: 'Mar 10', title: 'Science Fair', desc: 'Student science project exhibition' },
-  { date: 'Apr 5', title: 'Parent Meet', desc: 'Parent-teacher meeting' },
+export const events = [
+  { date: '15', month: 'JAN', title: 'Annual Day', desc: 'Annual day celebrations with cultural performances' },
+  { date: '20', month: 'FEB', title: 'Sports Day', desc: 'Inter-house sports competition' },
+  { date: '10', month: 'MAR', title: 'Science Fair', desc: 'Student science project exhibition' },
+  { date: '05', month: 'APR', title: 'Parent Meet', desc: 'Parent-teacher meeting' },
 ];
 
 const Events = () => {
@@ -16,17 +16,17 @@ const Events = () => {
       <section className="section-padding">
         <div className="container-custom">
           <div className="max-w-4xl mx-auto">
-            <h2 className="heading-secondary mb-6">Upcoming Events</h2>
-            <div className="space-y-4">
+            <h2 className="heading-secondary mb-12 text-center">Upcoming Events</h2>
+            <div className="space-y-6">
               {events.map((event, index) => (
-                <div key={index} className="bg-card p-6 rounded-xl shadow-soft flex gap-4 items-start card-hover">
-                  <div className="bg-primary text-primary-foreground px-4 py-2 rounded-lg text-center min-w-[80px]">
-                    <Calendar className="w-5 h-5 mx-auto mb-1" />
-                    <span className="text-sm font-semibold">{event.date}</span>
+                <div key={index} className="bg-white p-6 rounded-2xl shadow-soft flex gap-6 items-center border border-border hover:border-accent/30 transition-all group">
+                  <div className="bg-primary text-white w-20 h-20 rounded-2xl flex flex-col items-center justify-center flex-shrink-0 group-hover:bg-accent transition-colors">
+                    <span className="text-2xl font-bold leading-none">{event.date}</span>
+                    <span className="text-xs font-bold uppercase tracking-wider opacity-80">{event.month}</span>
                   </div>
                   <div>
-                    <h3 className="font-semibold text-foreground mb-1">{event.title}</h3>
-                    <p className="text-sm text-muted-foreground">{event.desc}</p>
+                    <h3 className="text-xl font-bold text-primary mb-2 group-hover:text-accent transition-colors">{event.title}</h3>
+                    <p className="text-body text-sm">{event.desc}</p>
                   </div>
                 </div>
               ))}

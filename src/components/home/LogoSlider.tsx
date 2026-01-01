@@ -1,18 +1,12 @@
 import { useEffect, useRef } from 'react';
 
 const logos = [
-  { name: 'Partner 1', initials: 'P1' },
-  { name: 'Partner 2', initials: 'P2' },
-  { name: 'Partner 3', initials: 'P3' },
-  { name: 'Partner 4', initials: 'P4' },
-  { name: 'Partner 5', initials: 'P5' },
-  { name: 'Partner 6', initials: 'P6' },
-  { name: 'Partner 7', initials: 'P7' },
-  { name: 'Partner 8', initials: 'P8' },
-  { name: 'Partner 9', initials: 'P9' },
-  { name: 'Partner 10', initials: 'P10' },
-  { name: 'Partner 11', initials: 'P11' },
-  { name: 'Partner 12', initials: 'P12' },
+  { name: 'Connected', src: '/src/assets/slider-logos/Connected.png' },
+  { name: 'Rankhel', src: '/src/assets/slider-logos/Rankhel.png' },
+  { name: 'Cross Road', src: '/src/assets/slider-logos/cross-road.png' },
+  { name: 'Palette', src: '/src/assets/slider-logos/palette.png' },
+  { name: 'Skill Surge', src: '/src/assets/slider-logos/skill-surge-logo.png' },
+  { name: 'Squad', src: '/src/assets/slider-logos/squad-logo.png' },
 ];
 
 const LogoSlider = () => {
@@ -40,29 +34,23 @@ const LogoSlider = () => {
   }, []);
 
   return (
-    <section className="py-12 md:py-16 bg-background overflow-hidden">
-      <div className="container-custom mb-8">
-        <h2 className="text-center text-lg font-semibold text-muted-foreground uppercase tracking-wider">
-          Our Trusted Partners & Affiliations
-        </h2>
-      </div>
-
+    <section className="py-8 bg-background overflow-hidden">
       <div
         ref={scrollRef}
-        className="flex gap-12 overflow-hidden whitespace-nowrap"
+        className="flex gap-16 overflow-hidden whitespace-nowrap items-center"
         style={{ scrollBehavior: 'auto' }}
       >
         {/* Double the logos for seamless infinite scroll */}
         {[...logos, ...logos].map((logo, index) => (
           <div
             key={index}
-            className="flex-shrink-0 w-32 h-20 flex items-center justify-center grayscale hover:grayscale-0 transition-all duration-300"
+            className="flex-shrink-0 w-48 h-32 flex items-center justify-center grayscale hover:grayscale-0 transition-all duration-300"
           >
-            <div className="w-24 h-16 rounded-lg bg-secondary flex items-center justify-center border border-border hover:border-accent hover:shadow-gold transition-all duration-300">
-              <span className="text-xl font-bold text-muted-foreground hover:text-accent transition-colors">
-                {logo.initials}
-              </span>
-            </div>
+            <img
+              src={logo.src}
+              alt={logo.name}
+              className="max-w-full max-h-full object-contain"
+            />
           </div>
         ))}
       </div>

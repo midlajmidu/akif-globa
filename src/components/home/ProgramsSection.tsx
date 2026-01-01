@@ -6,38 +6,44 @@ const programs = [
   {
     icon: Sparkles,
     title: 'Foundation School',
-    description: 'Early childhood education with play-based learning for ages 3-5',
-    grades: 'Pre-KG to UKG',
+    description: 'Early childhood education with play-based learning for ages 3-7',
+    grades: 'LZQ to Grade 2',
+    link: '/programs/foundation',
   },
   {
     icon: BookOpen,
     title: 'Preparatory School',
     description: 'Building strong fundamentals in literacy and numeracy',
-    grades: 'Grade 1 to 3',
+    grades: 'Grade 3 to 5',
+    link: '/programs/preparatory',
   },
   {
     icon: Users,
     title: 'Middle School',
     description: 'Developing critical thinking and subject expertise',
-    grades: 'Grade 4 to 6',
+    grades: 'Grade 6 to 8',
+    link: '/programs/middle',
   },
   {
     icon: School,
     title: 'Secondary School',
     description: 'Comprehensive education preparing for board examinations',
-    grades: 'Grade 7 to 10',
+    grades: 'Grade 9 to 10',
+    link: '/programs/secondary',
   },
   {
     icon: GraduationCap,
     title: 'Senior Secondary',
     description: 'Specialized streams for future academic and career paths',
     grades: 'Grade 11 to 12',
+    link: '/programs/senior-secondary',
   },
   {
     icon: Award,
     title: 'Special Programs',
     description: 'Olympiad training, skill development, and enrichment courses',
     grades: 'All Grades',
+    link: '/programs/special',
   },
 ];
 
@@ -98,7 +104,7 @@ const ProgramsSection = () => {
                   {program.grades}
                 </span>
                 <Link
-                  to="/programs"
+                  to={program.link}
                   className="text-primary font-medium text-sm flex items-center gap-1 group-hover:text-accent transition-colors"
                 >
                   Learn More

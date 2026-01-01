@@ -73,7 +73,7 @@ const GallerySection = () => {
 
         <div className="text-center mt-10">
           <Link
-            to="/facilities"
+            to="/academics/gallery"
             className="inline-flex items-center gap-2 bg-primary text-primary-foreground px-8 py-4 rounded-full font-semibold transition-all duration-300 hover:bg-navy-light hover:shadow-strong group"
           >
             View More

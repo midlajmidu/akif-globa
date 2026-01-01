@@ -17,30 +17,23 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
           {/* School Info */}
           <div className="space-y-4">
-            <div className="flex items-center gap-3">
-              <div className="w-12 h-12 rounded-full bg-accent flex items-center justify-center">
-                <span className="text-accent-foreground font-bold text-xl">AS</span>
-              </div>
-              <div>
-                <h3 className="text-lg font-bold">Alif School</h3>
-                <p className="text-xs opacity-80">Excellence in Education</p>
-              </div>
-            </div>
+            <Link to="/" className="inline-block">
+              <img src="/src/assets/alif-logo.png" alt="Alif Global School" className="h-16 w-auto object-contain brightness-0 invert" />
+            </Link>
             <p className="text-sm opacity-80 leading-relaxed">
-              Nurturing young minds to become global citizens with strong values, 
-              critical thinking skills, and a passion for lifelong learning.
+              a top-notch international school in Kozhikode, we believe that every child has the potential to succeed.
             </p>
             <div className="flex items-center gap-4">
-              <a href="#" className="w-10 h-10 rounded-full bg-primary-foreground/10 flex items-center justify-center hover:bg-accent hover:text-accent-foreground transition-all duration-300" aria-label="Facebook">
+              <a href="https://www.facebook.com/AlifGlobalSchool/" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-primary-foreground/10 flex items-center justify-center hover:bg-accent hover:text-accent-foreground transition-all duration-300" aria-label="Facebook">
                 <Facebook className="w-5 h-5" />
               </a>
-              <a href="#" className="w-10 h-10 rounded-full bg-primary-foreground/10 flex items-center justify-center hover:bg-accent hover:text-accent-foreground transition-all duration-300" aria-label="Twitter">
+              <a href="https://x.com/AlifGloblschool" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-primary-foreground/10 flex items-center justify-center hover:bg-accent hover:text-accent-foreground transition-all duration-300" aria-label="Twitter">
                 <Twitter className="w-5 h-5" />
               </a>
-              <a href="#" className="w-10 h-10 rounded-full bg-primary-foreground/10 flex items-center justify-center hover:bg-accent hover:text-accent-foreground transition-all duration-300" aria-label="YouTube">
+              <a href="https://www.youtube.com/channel/UCM0nmgTXk2ZMiiz7CYWEvBQ" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-primary-foreground/10 flex items-center justify-center hover:bg-accent hover:text-accent-foreground transition-all duration-300" aria-label="YouTube">
                 <Youtube className="w-5 h-5" />
               </a>
-              <a href="#" className="w-10 h-10 rounded-full bg-primary-foreground/10 flex items-center justify-center hover:bg-accent hover:text-accent-foreground transition-all duration-300" aria-label="Instagram">
+              <a href="https://www.instagram.com/alifglobalschool/" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-primary-foreground/10 flex items-center justify-center hover:bg-accent hover:text-accent-foreground transition-all duration-300" aria-label="Instagram">
                 <Instagram className="w-5 h-5" />
               </a>
             </div>
@@ -56,17 +49,17 @@ const Footer = () => {
               <div className="flex items-start gap-3">
                 <MapPin className="w-5 h-5 text-accent shrink-0 mt-0.5" />
                 <p className="text-sm opacity-80">
-                  123 Education Lane, Knowledge City,<br />
-                  Kerala, India - 682001
+                  Markaz Knowledge City, Unnikulam,<br />
+                  Kozhikode, Kerala 673574
                 </p>
               </div>
               <div className="flex items-center gap-3">
                 <Phone className="w-5 h-5 text-accent shrink-0" />
-                <p className="text-sm opacity-80">+91 1234 567 890</p>
+                <p className="text-sm opacity-80">+91 8012800100</p>
               </div>
               <div className="flex items-center gap-3">
                 <Mail className="w-5 h-5 text-accent shrink-0" />
-                <p className="text-sm opacity-80">info@yourschool.edu</p>
+                <p className="text-sm opacity-80">info@alifglobalschool.com</p>
               </div>
             </div>
           </div>

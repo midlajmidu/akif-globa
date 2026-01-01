@@ -28,36 +28,30 @@ const AboutSection = () => {
           <span className="inline-block px-4 py-2 bg-primary/10 text-primary rounded-full text-sm font-medium mb-4">
             Who We Are
           </span>
-          
+
           <h2 className="heading-primary mb-6">
             About <span className="text-accent">Global School</span>
           </h2>
-          
+
           <p className="text-body mb-8">
-            Global School stands as a beacon of educational excellence, committed to nurturing 
-            young minds and shaping future leaders. With a perfect blend of traditional values 
-            and modern pedagogy, we provide a comprehensive learning environment that fosters 
-            intellectual curiosity, creativity, and character development.
+            At Alif, a top-notch international school in Kozhikode, we believe that every child has the potential to succeed. Through an encouraging, balanced, and caring approach, we nurture each student’s abilities and help them grow with confidence. Our dedicated educators and supportive environment ensure that learning is both meaningful and inspiring
           </p>
-          
+
           <p className="text-body">
-            Our state-of-the-art campus, experienced faculty, and innovative curriculum ensure 
-            that every student receives personalized attention and opportunities to excel in 
-            academics, sports, arts, and co-curricular activities. We believe in creating 
-            global citizens who are equipped to face the challenges of tomorrow.
+            With exceptional staff and superb facilities, Alif provides a strong foundation for outstanding achievement. Every student is valued as an individual, and our holistic approach creates multiple opportunities to learn, have fun, and flourish—academically, socially, and personally.
           </p>
-          
+
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mt-12">
             {[
-              { number: '25+', label: 'Years of Excellence' },
-              { number: '2000+', label: 'Students' },
-              { number: '150+', label: 'Expert Faculty' },
+              { number: '15+', label: 'Years of Excellence' },
+              { number: '1000+', label: 'Students' },
+              { number: '50+', label: 'Expert Faculty' },
               { number: '100%', label: 'Success Rate' },
             ].map((stat, index) => (
-              <div 
+              <div
                 key={stat.label}
                 className={`text-center transition-all duration-500 delay-${index * 100}`}
-                style={{ 
+                style={{
                   transitionDelay: `${index * 100}ms`,
                   opacity: isVisible ? 1 : 0,
                   transform: isVisible ? 'translateY(0)' : 'translateY(20px)'

@@ -2,6 +2,7 @@ import Layout from '@/components/Layout';
 import PageHeader from '@/components/PageHeader';
 import { useEffect, useRef, useState } from 'react';
 import { FileText, Calendar, CheckCircle, ArrowRight } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const Admission = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -45,7 +46,7 @@ const Admission = () => {
   return (
     <Layout>
       <PageHeader title="Admission" breadcrumb="Admission" />
-      
+
       <section ref={sectionRef} className="section-padding bg-background">
         <div className="container-custom">
           {/* Admission Process */}
@@ -58,7 +59,7 @@ const Admission = () => {
               Our streamlined admission process ensures a smooth experience for parents and students
             </p>
           </div>
-          
+
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-20">
             {steps.map((item, index) => (
               <div
@@ -79,7 +80,7 @@ const Admission = () => {
               </div>
             ))}
           </div>
-          
+
           {/* Requirements & Form */}
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
             <div
@@ -105,7 +106,7 @@ const Admission = () => {
                 </div>
               </div>
             </div>
-            
+
             <div
               className={`transition-all duration-700`}
               style={{
@@ -114,61 +115,25 @@ const Admission = () => {
                 transform: isVisible ? 'translateX(0)' : 'translateX(30px)',
               }}
             >
-              <div className="bg-cream rounded-2xl p-8">
-                <div className="flex items-center gap-3 mb-6">
-                  <Calendar className="w-8 h-8 text-primary" />
-                  <h3 className="text-2xl font-bold text-primary">Enquiry Form</h3>
+              <div className="bg-cream rounded-2xl p-8 h-full flex flex-col justify-center text-center">
+                <div className="w-20 h-20 bg-accent/10 rounded-full flex items-center justify-center mx-auto mb-6">
+                  <CheckCircle className="w-10 h-10 text-accent" />
                 </div>
-                <form className="space-y-4">
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                    <input
-                      type="text"
-                      placeholder="Student Name"
-                      className="w-full px-4 py-3 rounded-lg border border-border focus:border-accent focus:ring-2 focus:ring-accent/20 outline-none transition-all"
-                    />
-                    <input
-                      type="text"
-                      placeholder="Parent Name"
-                      className="w-full px-4 py-3 rounded-lg border border-border focus:border-accent focus:ring-2 focus:ring-accent/20 outline-none transition-all"
-                    />
-                  </div>
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                    <input
-                      type="email"
-                      placeholder="Email Address"
-                      className="w-full px-4 py-3 rounded-lg border border-border focus:border-accent focus:ring-2 focus:ring-accent/20 outline-none transition-all"
-                    />
-                    <input
-                      type="tel"
-                      placeholder="Phone Number"
-                      className="w-full px-4 py-3 rounded-lg border border-border focus:border-accent focus:ring-2 focus:ring-accent/20 outline-none transition-all"
-                    />
-                  </div>
-                  <select className="w-full px-4 py-3 rounded-lg border border-border focus:border-accent focus:ring-2 focus:ring-accent/20 outline-none transition-all text-muted-foreground">
-                    <option value="">Select Grade</option>
-                    <option value="pre-kg">Pre-KG</option>
-                    <option value="lkg">LKG</option>
-                    <option value="ukg">UKG</option>
-                    <option value="1">Grade 1</option>
-                    <option value="2">Grade 2</option>
-                    <option value="3">Grade 3</option>
-                    <option value="4">Grade 4</option>
-                    <option value="5">Grade 5</option>
-                    <option value="6-10">Grade 6-10</option>
-                    <option value="11-12">Grade 11-12</option>
-                  </select>
-                  <textarea
-                    placeholder="Message (Optional)"
-                    rows={4}
-                    className="w-full px-4 py-3 rounded-lg border border-border focus:border-accent focus:ring-2 focus:ring-accent/20 outline-none transition-all resize-none"
-                  />
-                  <button
-                    type="submit"
-                    className="w-full bg-accent text-accent-foreground py-4 rounded-lg font-semibold transition-all duration-300 hover:bg-gold-dark hover:shadow-gold"
-                  >
-                    Submit Enquiry
-                  </button>
-                </form>
+                <h3 className="text-3xl font-bold text-primary mb-4">Apply Online</h3>
+                <p className="text-body mb-8">
+                  Ready to join the Alif family? Start your journey today by filling out our online application form. It's quick, easy, and the first step towards a bright future.
+                </p>
+                <Link
+                  to="/admission/apply"
+                  className="inline-flex items-center justify-center gap-2 bg-accent text-accent-foreground px-8 py-4 rounded-xl font-bold text-lg transition-all duration-300 hover:bg-gold-dark hover:shadow-gold"
+                >
+                  Start Application
+                  <ArrowRight className="w-5 h-5" />
+                </Link>
+                <p className="mt-6 text-sm text-muted-foreground">
+                  Need help? Contact our admissions office at <br />
+                  <a href="tel:+918012800100" className="text-primary font-semibold hover:text-accent transition-colors">+91 8012800100</a>
+                </p>
               </div>
             </div>
           </div>

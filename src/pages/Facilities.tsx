@@ -1,10 +1,7 @@
 import Layout from '@/components/Layout';
 import PageHeader from '@/components/PageHeader';
 import { useEffect, useRef, useState } from 'react';
-import { Building, FlaskConical, Library, Laptop, Dumbbell, Bus, Coffee, Shield } from 'lucide-react';
-import campusImg from '@/assets/campus.jpg';
-import sportsImg from '@/assets/sports.jpg';
-import activitiesImg from '@/assets/activities.jpg';
+import { CheckCircle2 } from 'lucide-react';
 
 const Facilities = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -27,90 +24,131 @@ const Facilities = () => {
     return () => observer.disconnect();
   }, []);
 
-  const facilities = [
-    { icon: Building, title: 'Smart Classrooms', description: 'Air-conditioned classrooms with interactive boards and modern teaching aids' },
-    { icon: FlaskConical, title: 'Science Labs', description: 'Well-equipped Physics, Chemistry, Biology, and Computer laboratories' },
-    { icon: Library, title: 'Library', description: 'Extensive collection of books, journals, and digital resources' },
-    { icon: Laptop, title: 'Computer Lab', description: 'State-of-the-art computers with high-speed internet connectivity' },
-    { icon: Dumbbell, title: 'Sports Complex', description: 'Indoor and outdoor sports facilities including swimming pool' },
-    { icon: Bus, title: 'Transportation', description: 'GPS-enabled buses covering all major routes' },
-    { icon: Coffee, title: 'Cafeteria', description: 'Hygienic cafeteria serving nutritious and delicious meals' },
-    { icon: Shield, title: 'Security', description: '24/7 CCTV surveillance and trained security personnel' },
-  ];
-
-  const galleryImages = [
-    { src: campusImg, alt: 'Campus Overview' },
-    { src: sportsImg, alt: 'Sports Facilities' },
-    { src: activitiesImg, alt: 'Activity Rooms' },
-    { src: campusImg, alt: 'Library' },
-    { src: sportsImg, alt: 'Playground' },
-    { src: activitiesImg, alt: 'Laboratories' },
+  const infrastructure = [
+    {
+      title: 'Modern Classrooms',
+      image: 'https://images.unsplash.com/photo-1509062522246-3755977927d7?q=80&w=2070&auto=format&fit=crop',
+      description: 'Spacious, air-conditioned classrooms equipped with smart boards and ergonomic furniture.'
+    },
+    {
+      title: 'Biology Lab',
+      image: 'https://images.unsplash.com/photo-1532187863486-abf51ad9f69d?q=80&w=2070&auto=format&fit=crop',
+      description: 'Advanced biological equipment and specimens for hands-on life science exploration.'
+    },
+    {
+      title: 'Physics Lab',
+      image: 'https://images.unsplash.com/photo-1581093458791-9f3c3900df4b?q=80&w=2070&auto=format&fit=crop',
+      description: 'Precision instruments and experimental setups to master the laws of physics.'
+    },
+    {
+      title: 'Chemistry Lab',
+      image: 'https://images.unsplash.com/photo-1532187643603-ba119ca4109e?q=80&w=2070&auto=format&fit=crop',
+      description: 'Modern laboratory with safety features for conducting diverse chemical experiments.'
+    },
+    {
+      title: 'Football Turf',
+      image: 'https://images.unsplash.com/photo-1574629810360-7efbbe195018?q=80&w=2070&auto=format&fit=crop',
+      description: 'International standard artificial turf for football and other outdoor sports activities.'
+    },
+    {
+      title: 'Computer Lab',
+      image: 'https://images.unsplash.com/photo-1517694712202-14dd9538aa97?q=80&w=2070&auto=format&fit=crop',
+      description: 'High-speed internet and latest computing systems for digital literacy and coding.'
+    }
   ];
 
   return (
     <Layout>
       <PageHeader title="Facilities" breadcrumb="Facilities" />
-      
+
       <section ref={sectionRef} className="section-padding bg-background">
         <div className="container-custom">
-          <div className="max-w-3xl mx-auto text-center mb-16">
-            <span className="inline-block px-4 py-2 bg-accent/10 text-accent rounded-full text-sm font-medium mb-4">
-              World-Class Infrastructure
-            </span>
-            <h2 className="heading-primary mb-4">Our Facilities</h2>
-            <p className="text-body">
-              Our campus is designed to provide the best learning environment with 
-              modern facilities and amenities for holistic development.
+          {/* First Section: Our Facilities */}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-24">
+            <div
+              className={`transition-all duration-700`}
+              style={{
+                opacity: isVisible ? 1 : 0,
+                transform: isVisible ? 'translateX(0)' : 'translateX(-30px)',
+              }}
+            >
+              <span className="inline-block px-4 py-2 bg-accent/10 text-accent rounded-full text-sm font-medium mb-4">
+                World-Class Campus
+              </span>
+              <h2 className="heading-primary mb-6">Our Facilities</h2>
+              <p className="text-body mb-6">
+                At Alif , we provide top-notch facilities to ensure a comfortable learning environment for our students. The modern classrooms are equipped with smart boards and interactive learning tools. We have libraries, science and computer labs & spacious playgrounds for sports and co-curricular activities.
+              </p>
+              <p className="text-body mb-8">
+                Safety is our priority, the campus is secured with CCTV surveillance and also offer transportation, a mess facility and a well-equipped medical room. With all these facilities, we make sure every child gets the best learning experience in a safe and inspiring.
+
+              </p>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                {['Smart Learning Spaces', 'Advanced Science Labs', 'Professional Sports Turf', 'Secure & Safe Campus'].map((item) => (
+                  <div key={item} className="flex items-center gap-2">
+                    <CheckCircle2 className="w-5 h-5 text-accent" />
+                    <span className="font-medium text-primary">{item}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            <div
+              className={`transition-all duration-700`}
+              style={{
+                transitionDelay: '200ms',
+                opacity: isVisible ? 1 : 0,
+                transform: isVisible ? 'translateX(0)' : 'translateX(30px)',
+              }}
+            >
+              <div className="relative rounded-3xl overflow-hidden shadow-strong border-8 border-white">
+                <img
+                  src="https://images.unsplash.com/photo-1523050853064-85a17f009c5f?q=80&w=2070&auto=format&fit=crop"
+                  alt="Alif Campus"
+                  className="w-full h-full object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-primary/40 to-transparent" />
+              </div>
+            </div>
+          </div>
+
+          {/* Infrastructure Section */}
+          <div className="text-center mb-16">
+            <h2 className="heading-primary mb-4">Infrastructure</h2>
+            <p className="text-body max-w-2xl mx-auto">
+              Explore our specialized infrastructure designed to support diverse learning needs and extracurricular activities.
             </p>
           </div>
-          
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-20">
-            {facilities.map((facility, index) => (
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {infrastructure.map((item, index) => (
               <div
-                key={facility.title}
-                className={`bg-cream rounded-2xl p-6 text-center transition-all duration-500 hover:shadow-medium hover:-translate-y-1`}
+                key={item.title}
+                className={`group bg-cream rounded-3xl overflow-hidden shadow-soft hover:shadow-strong transition-all duration-500`}
                 style={{
-                  transitionDelay: `${index * 50}ms`,
+                  transitionDelay: `${index * 100 + 400}ms`,
                   opacity: isVisible ? 1 : 0,
                   transform: isVisible ? 'translateY(0)' : 'translateY(30px)',
                 }}
               >
-                <div className="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center mx-auto mb-4">
-                  <facility.icon className="w-7 h-7 text-primary" />
+                <div className="relative h-64 overflow-hidden">
+                  <img
+                    src={item.image}
+                    alt={item.title}
+                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-primary/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                 </div>
-                <h3 className="text-lg font-bold text-primary mb-2">{facility.title}</h3>
-                <p className="text-sm text-muted-foreground">{facility.description}</p>
+                <div className="p-8">
+                  <h3 className="text-xl font-bold text-primary mb-3 group-hover:text-accent transition-colors">
+                    {item.title}
+                  </h3>
+                  <p className="text-sm text-muted-foreground leading-relaxed">
+                    {item.description}
+                  </p>
+                </div>
               </div>
             ))}
-          </div>
-          
-          {/* Gallery */}
-          <div className="mb-12">
-            <h3 className="heading-secondary text-center mb-8">Campus Gallery</h3>
-            <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
-              {galleryImages.map((image, index) => (
-                <div
-                  key={index}
-                  className={`group relative overflow-hidden rounded-xl aspect-[4/3] cursor-pointer transition-all duration-500`}
-                  style={{
-                    transitionDelay: `${index * 100 + 400}ms`,
-                    opacity: isVisible ? 1 : 0,
-                    transform: isVisible ? 'scale(1)' : 'scale(0.9)',
-                  }}
-                >
-                  <img
-                    src={image.src}
-                    alt={image.alt}
-                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                  />
-                  <div className="absolute inset-0 bg-primary/0 group-hover:bg-primary/60 transition-all duration-300 flex items-center justify-center">
-                    <span className="text-primary-foreground font-medium opacity-0 group-hover:opacity-100 transition-opacity">
-                      {image.alt}
-                    </span>
-                  </div>
-                </div>
-              ))}
-            </div>
           </div>
         </div>
       </section>

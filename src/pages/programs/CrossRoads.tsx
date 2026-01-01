@@ -1,26 +1,44 @@
-import Layout from '@/components/Layout';
-import PageHeader from '@/components/PageHeader';
+import ProgramPageTemplate from '@/components/programs/ProgramPageTemplate';
 import { Compass } from 'lucide-react';
 
 const CrossRoads = () => {
+  const images = [
+    "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=2071&auto=format&fit=crop",
+    "https://images.unsplash.com/photo-1523240795612-9a054b0db644?q=80&w=2070&auto=format&fit=crop",
+    "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?q=80&w=2070&auto=format&fit=crop",
+    "https://images.unsplash.com/photo-1529390079861-591de354faf5?q=80&w=2070&auto=format&fit=crop",
+    "https://images.unsplash.com/photo-1531482615713-2afd69097998?q=80&w=2070&auto=format&fit=crop",
+    "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=2070&auto=format&fit=crop",
+    "https://images.unsplash.com/photo-1507537297725-24a1c029d3ca?q=80&w=2070&auto=format&fit=crop",
+    "https://images.unsplash.com/photo-1522661067900-ab829854a57f?q=80&w=2070&auto=format&fit=crop",
+    "https://images.unsplash.com/photo-1531482615713-2afd69097998?q=80&w=2070&auto=format&fit=crop",
+    "https://images.unsplash.com/photo-1503676382389-4809596d5290?q=80&w=2076&auto=format&fit=crop",
+    "https://images.unsplash.com/photo-1511949860663-92c5c57d48a7?q=80&w=2070&auto=format&fit=crop",
+    "https://images.unsplash.com/photo-1516534775068-ba3e84529519?q=80&w=2070&auto=format&fit=crop",
+    "https://images.unsplash.com/photo-1519331379826-f10be5486c6f?q=80&w=2070&auto=format&fit=crop",
+    "https://images.unsplash.com/photo-1502444330042-d1a1ddf9bb5b?q=80&w=2073&auto=format&fit=crop",
+    "https://images.unsplash.com/photo-1491438590914-bc09fcaaf77a?q=80&w=2070&auto=format&fit=crop",
+    "https://images.unsplash.com/photo-1517486808906-6ca8b3f04846?q=80&w=2049&auto=format&fit=crop",
+    "https://images.unsplash.com/photo-1526721940322-145d6f95c46e?q=80&w=2070&auto=format&fit=crop",
+    "https://images.unsplash.com/photo-1536337005238-94b997371b40?q=80&w=2069&auto=format&fit=crop",
+    "https://images.unsplash.com/photo-1502086223501-7ea6ecd79368?q=80&w=2038&auto=format&fit=crop",
+    "https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?q=80&w=2070&auto=format&fit=crop",
+  ];
+
+  const videos = [
+    "dQw4w9WgXcQ",
+    "jNQXAC9IVRw",
+    "9bZkp7q19f0"
+  ];
+
   return (
-    <Layout>
-      <PageHeader title="Cross Roads" breadcrumb={[{ name: 'Programs', path: '/programs' }, { name: 'Cross Roads' }]} />
-      <section className="section-padding">
-        <div className="container-custom">
-          <div className="max-w-4xl mx-auto text-center">
-            <Compass className="w-16 h-16 text-accent mx-auto mb-6" />
-            <h2 className="heading-secondary mb-6">Cross Roads</h2>
-            <p className="text-body mb-8">
-              Career guidance and counseling program helping students navigate their educational and professional paths.
-            </p>
-            <div className="bg-secondary p-8 rounded-xl">
-              <p className="text-muted-foreground">Content coming soon...</p>
-            </div>
-          </div>
-        </div>
-      </section>
-    </Layout>
+    <ProgramPageTemplate
+      title="Cross Roads"
+      description="Guiding students through critical career and academic decisions with expert advice and resources. Cross Roads provides mentorship, workshops, and information to help students navigate their future paths with confidence."
+      images={images}
+      videos={videos}
+      icon={<Compass className="w-16 h-16 text-accent" />}
+    />
   );
 };
 

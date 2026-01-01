@@ -48,9 +48,9 @@ const VisionMissionSection = () => {
             </div>
             <h3 className="text-2xl font-bold text-primary-foreground mb-4">Our Vision</h3>
             <p className="text-primary-foreground/80 leading-relaxed">
-              To be a globally recognized institution of academic excellence that nurtures 
-              innovative thinkers, compassionate leaders, and responsible global citizens 
-              who contribute positively to society and drive meaningful change in the world.
+              To set a benchmark in educational excellence coupled with ethical standards by continual research and bona fide analysis.
+
+
             </p>
           </div>
 
@@ -68,9 +68,9 @@ const VisionMissionSection = () => {
             </div>
             <h3 className="text-2xl font-bold text-primary-foreground mb-4">Our Mission</h3>
             <p className="text-primary-foreground/80 leading-relaxed">
-              To provide a transformative educational experience through innovative pedagogy, 
-              personalized learning, and a supportive environment that develops intellectual 
-              curiosity, critical thinking, creativity, and strong moral values in every student.
+              Fostering responsible human beings of harmony and integration with wisdom and core values of life.
+
+
             </p>
           </div>
         </div>

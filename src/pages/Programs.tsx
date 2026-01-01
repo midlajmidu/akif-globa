@@ -29,34 +29,38 @@ const Programs = () => {
     {
       icon: Sparkles,
       title: 'Foundation School',
-      grades: 'Pre-KG to UKG',
-      age: 'Ages 3-5',
+      grades: 'LZQ to Grade 2',
+      age: 'Ages 3-7',
       description: 'Our early childhood program focuses on play-based learning, developing motor skills, social interaction, and foundational literacy and numeracy concepts in a nurturing environment.',
       features: ['Play-based Learning', 'Motor Skill Development', 'Language Development', 'Creative Expression'],
+      link: '/programs/foundation',
     },
     {
       icon: BookOpen,
       title: 'Preparatory School',
-      grades: 'Grade 1 to 3',
-      age: 'Ages 6-8',
+      grades: 'Grade 3 to 5',
+      age: 'Ages 8-10',
       description: 'Building strong fundamentals in reading, writing, and arithmetic while fostering curiosity and a love for learning through interactive and engaging activities.',
       features: ['Strong Fundamentals', 'Reading Programs', 'Math Concepts', 'Science Exploration'],
+      link: '/programs/preparatory',
     },
     {
       icon: Users,
       title: 'Middle School',
-      grades: 'Grade 4 to 6',
-      age: 'Ages 9-11',
+      grades: 'Grade 6 to 8',
+      age: 'Ages 11-13',
       description: 'Developing critical thinking skills and subject expertise with increased academic rigor and opportunities for leadership and co-curricular participation.',
       features: ['Critical Thinking', 'Subject Specialization', 'Leadership Skills', 'Project-Based Learning'],
+      link: '/programs/middle',
     },
     {
       icon: School,
       title: 'Secondary School',
-      grades: 'Grade 7 to 10',
-      age: 'Ages 12-15',
+      grades: 'Grade 9 to 10',
+      age: 'Ages 14-15',
       description: 'Comprehensive education following CBSE curriculum with focus on board examination preparation and career guidance for future academic paths.',
       features: ['CBSE Curriculum', 'Board Preparation', 'Career Counseling', 'Skill Development'],
+      link: '/programs/secondary',
     },
     {
       icon: GraduationCap,
@@ -65,6 +69,7 @@ const Programs = () => {
       age: 'Ages 16-17',
       description: 'Specialized streams including Science, Commerce, and Humanities with focus on competitive exam preparation and college readiness.',
       features: ['Stream Specialization', 'JEE/NEET Preparation', 'College Guidance', 'Research Projects'],
+      link: '/programs/senior-secondary',
     },
     {
       icon: Award,
@@ -73,13 +78,14 @@ const Programs = () => {
       age: 'All Ages',
       description: 'Additional enrichment programs including Olympiad training, robotics, coding, foreign languages, and various skill development courses.',
       features: ['Olympiad Training', 'Robotics & Coding', 'Foreign Languages', 'Skill Workshops'],
+      link: '/programs/special',
     },
   ];
 
   return (
     <Layout>
       <PageHeader title="Programs" breadcrumb="Programs" />
-      
+
       <section ref={sectionRef} className="section-padding bg-background">
         <div className="container-custom">
           <div className="max-w-3xl mx-auto text-center mb-16">
@@ -88,16 +94,16 @@ const Programs = () => {
             </span>
             <h2 className="heading-primary mb-4">Programs for Every Stage</h2>
             <p className="text-body">
-              From early childhood to senior secondary, our comprehensive programs are designed 
+              From early childhood to senior secondary, our comprehensive programs are designed
               to nurture every stage of your child's educational journey.
             </p>
           </div>
-          
+
           <div className="space-y-8">
             {programs.map((program, index) => (
               <div
                 key={program.title}
-                className={`bg-cream rounded-2xl overflow-hidden transition-all duration-500`}
+                className={`bg-cream rounded-2xl overflow-hidden transition-all duration-500 shadow-soft hover:shadow-strong`}
                 style={{
                   transitionDelay: `${index * 100}ms`,
                   opacity: isVisible ? 1 : 0,
@@ -119,10 +125,10 @@ const Programs = () => {
                       </span>
                     </div>
                   </div>
-                  
-                  <div className="lg:col-span-2 p-8">
+
+                  <div className="lg:col-span-2 p-8 flex flex-col">
                     <p className="text-muted-foreground mb-6">{program.description}</p>
-                    <div className="grid grid-cols-2 gap-4">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
                       {program.features.map((feature) => (
                         <div key={feature} className="flex items-center gap-2">
                           <div className="w-2 h-2 rounded-full bg-accent" />
@@ -130,12 +136,21 @@ const Programs = () => {
                         </div>
                       ))}
                     </div>
+                    <div className="mt-auto">
+                      <Link
+                        to={program.link}
+                        className="inline-flex items-center gap-2 text-primary font-bold hover:text-accent transition-colors group"
+                      >
+                        Learn More About {program.title}
+                        <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                      </Link>
+                    </div>
                   </div>
                 </div>
               </div>
             ))}
           </div>
-          
+
           <div className="text-center mt-12">
             <Link
               to="/admission"

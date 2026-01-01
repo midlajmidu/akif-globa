@@ -4,24 +4,17 @@ import { ChevronLeft, ChevronRight, Quote } from 'lucide-react';
 const testimonials = [
   {
     id: 1,
-    name: 'Dr. Rajesh Kumar',
-    designation: 'Parent',
-    content: 'Global School has been instrumental in shaping my child\'s future. The dedicated faculty and excellent infrastructure provide the perfect environment for holistic development.',
-    avatar: 'RK',
+    name: 'Pinarayi Vijayan',
+    designation: 'CM, Kerala',
+    content: 'I was delighted to spend some time with Alif Team. The enthusiasm, nuanced educational thoughts and ideas were fabulous. In field practices and achievements, Alif is at the top of the graph. Wishing you a good future.',
+    image: '/src/assets/testimonial/Pinarayi Vijayan.webp',
   },
   {
     id: 2,
-    name: 'Priya Menon',
-    designation: 'Alumni - Batch 2020',
-    content: 'My years at Global School were transformative. The school not only prepared me academically but also instilled values that continue to guide me in my professional journey.',
-    avatar: 'PM',
-  },
-  {
-    id: 3,
-    name: 'Anitha Sharma',
-    designation: 'Parent',
-    content: 'The personalized attention each student receives is remarkable. The teachers go above and beyond to ensure every child reaches their full potential.',
-    avatar: 'AS',
+    name: 'Dr Abdussalam Muhammed',
+    designation: 'CEO, MKC',
+    content: 'Alif always surprises us with something unique in all fields. The dedicated educators and student excellence place Alif at a great height. We hope for more surprises ahead.',
+    image: '/src/assets/testimonial/abdusalam.png',
   },
 ];
 
@@ -50,7 +43,7 @@ const TestimonialsSection = () => {
   useEffect(() => {
     const timer = setInterval(() => {
       setCurrentIndex((prev) => (prev + 1) % testimonials.length);
-    }, 5000);
+    }, 8000);
 
     return () => clearInterval(timer);
   }, []);
@@ -82,22 +75,26 @@ const TestimonialsSection = () => {
         >
           <div className="relative bg-background rounded-3xl p-8 md:p-12 shadow-medium">
             <Quote className="absolute top-6 left-6 w-12 h-12 text-accent/20" />
-            
+
             <div className="relative z-10">
               <div className="min-h-[150px] flex items-center justify-center">
-                <p className="text-lg md:text-xl text-center text-muted-foreground leading-relaxed">
+                <p className="text-lg md:text-xl text-center text-muted-foreground leading-relaxed italic">
                   "{testimonials[currentIndex].content}"
                 </p>
               </div>
-              
+
               <div className="flex flex-col items-center mt-8">
-                <div className="w-16 h-16 rounded-full bg-primary flex items-center justify-center text-primary-foreground font-bold text-xl mb-4">
-                  {testimonials[currentIndex].avatar}
+                <div className="w-24 h-24 rounded-full overflow-hidden border-4 border-accent/20 mb-4 shadow-lg">
+                  <img
+                    src={testimonials[currentIndex].image}
+                    alt={testimonials[currentIndex].name}
+                    className="w-full h-full object-cover"
+                  />
                 </div>
-                <h4 className="text-lg font-bold text-primary">
+                <h4 className="text-xl font-bold text-primary">
                   {testimonials[currentIndex].name}
                 </h4>
-                <p className="text-sm text-muted-foreground">
+                <p className="text-base font-medium text-accent">
                   {testimonials[currentIndex].designation}
                 </p>
               </div>
@@ -112,20 +109,19 @@ const TestimonialsSection = () => {
               >
                 <ChevronLeft className="w-5 h-5" />
               </button>
-              
+
               <div className="flex items-center gap-2">
                 {testimonials.map((_, index) => (
                   <button
                     key={index}
                     onClick={() => setCurrentIndex(index)}
-                    className={`w-2 h-2 rounded-full transition-all duration-300 ${
-                      index === currentIndex ? 'w-8 bg-accent' : 'bg-border'
-                    }`}
+                    className={`w-2 h-2 rounded-full transition-all duration-300 ${index === currentIndex ? 'w-8 bg-accent' : 'bg-border'
+                      }`}
                     aria-label={`Go to testimonial ${index + 1}`}
                   />
                 ))}
               </div>
-              
+
               <button
                 onClick={goToNext}
                 className="w-10 h-10 rounded-full bg-secondary flex items-center justify-center text-primary hover:bg-accent hover:text-accent-foreground transition-all duration-300"

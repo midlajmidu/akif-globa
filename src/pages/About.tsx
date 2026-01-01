@@ -35,7 +35,7 @@ const About = () => {
   return (
     <Layout>
       <PageHeader title="About Us" breadcrumb="About" />
-      
+
       <section ref={sectionRef} className="section-padding bg-background">
         <div className="container-custom">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
@@ -50,27 +50,26 @@ const About = () => {
                 Our Story
               </span>
               <h2 className="heading-primary mb-6">
-                Shaping Future Leaders Since 1999
+                About Alif
+
               </h2>
               <p className="text-body mb-6">
-                Global School was established with a vision to provide world-class education 
-                that nurtures young minds and prepares them for the challenges of tomorrow. 
-                Our journey began with a small group of dedicated educators who believed in 
-                the transformative power of education.
+                At Alif, we genuinely believe that every child has the potential to succeed, and that our encouraging, balanced and caring approach can realize this. Our school with exceptional staff and superb facilities provides the foundation for outstanding achievement. Every student is valued as an individual and our ‘holistic approach’ provides multiple opportunities where our students can learn, have fun, and flourish.
+
+
               </p>
               <p className="text-body mb-6">
-                Today, we stand as one of the leading educational institutions in the region, 
-                known for our innovative teaching methods, state-of-the-art facilities, and 
-                commitment to holistic development.
+                Since Alif International School was founded in Riyadh, Kingdom of Saudi Arabia in 2009 it has remained true to the spirit that guided its founders by providing an education that equips our students with the knowledge, skills and character that prepare them to contribute enormously to society. Alif Global School is one of the endeavors of Alif Group of Schools to impart quality education in international standards while nurturing human values.
+
+
               </p>
               <p className="text-body">
-                Our alumni have gone on to achieve remarkable success in various fields, 
-                carrying forward the values and skills they acquired at Global School. 
-                We continue to evolve and adapt, ensuring that our students receive an 
-                education that is relevant, engaging, and empowering.
+                Our collective mission and vision is to motivate and energize students to develop the knowledge, creativity, and skill to realize their fullest potential as caring, responsible and productive citizens, leaders, and lifelong learners.
+
+
               </p>
             </div>
-            
+
             <div
               className={`transition-all duration-700`}
               style={{
@@ -86,13 +85,13 @@ const About = () => {
                   className="rounded-2xl shadow-strong"
                 />
                 <div className="absolute -bottom-6 -left-6 bg-accent text-accent-foreground p-6 rounded-2xl shadow-gold">
-                  <div className="text-4xl font-bold">25+</div>
+                  <div className="text-4xl font-bold">10+</div>
                   <div className="text-sm">Years of Excellence</div>
                 </div>
               </div>
             </div>
           </div>
-          
+
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mt-20">
             {features.map((feature, index) => (
               <div

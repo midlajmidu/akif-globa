@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Menu, X, Search, ChevronDown } from 'lucide-react';
+import { Menu, X, ChevronDown } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
 interface NavItem {
@@ -82,18 +82,12 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="bg-background sticky top-0 z-50 shadow-soft">
+    <nav className="bg-primary sticky top-0 z-50 shadow-lg">
       <div className="container-custom">
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
-          <Link to="/" className="flex items-center gap-3">
-            <div className="w-12 h-12 rounded-full bg-primary flex items-center justify-center">
-              <span className="text-primary-foreground font-bold text-xl">AS</span>
-            </div>
-            <div className="hidden sm:block">
-              <h1 className="text-lg font-bold text-primary leading-tight">Alif School</h1>
-              <p className="text-xs text-muted-foreground">Excellence in Education</p>
-            </div>
+          <Link to="/" className="flex items-center">
+            <img src="/src/assets/alif-logo.png" alt="Alif Global School" className="h-16 w-auto object-contain" />
           </Link>
 
           {/* Desktop Navigation */}
@@ -103,8 +97,8 @@ const Navbar = () => {
               className={cn(
                 "px-3 py-2 text-sm font-medium transition-all duration-300 relative group",
                 location.pathname === '/'
-                  ? "text-primary"
-                  : "text-muted-foreground hover:text-primary"
+                  ? "text-accent"
+                  : "text-primary-foreground/90 hover:text-accent"
               )}
             >
               Home
@@ -127,8 +121,8 @@ const Navbar = () => {
                   className={cn(
                     "px-3 py-2 text-sm font-medium transition-all duration-300 relative group flex items-center gap-1",
                     location.pathname === item.path || location.pathname.startsWith(item.path + '/')
-                      ? "text-primary"
-                      : "text-muted-foreground hover:text-primary"
+                      ? "text-accent"
+                      : "text-primary-foreground/90 hover:text-accent"
                   )}
                 >
                   {item.name}
@@ -147,7 +141,7 @@ const Navbar = () => {
                 {item.children && (
                   <div
                     className={cn(
-                      "absolute top-full left-0 mt-0 w-64 bg-background rounded-lg shadow-lg border border-border overflow-hidden transition-all duration-300 origin-top",
+                      "absolute top-full left-0 mt-0 w-64 bg-primary border-t border-white/10 rounded-b-lg shadow-xl overflow-hidden transition-all duration-300 origin-top",
                       activeDropdown === item.name
                         ? "opacity-100 scale-y-100 translate-y-0"
                         : "opacity-0 scale-y-95 -translate-y-2 pointer-events-none"
@@ -158,7 +152,7 @@ const Navbar = () => {
                         <Link
                           key={child.path}
                           to={child.path}
-                          className="block px-4 py-2.5 text-sm text-muted-foreground hover:text-primary hover:bg-secondary transition-colors"
+                          className="block px-4 py-2.5 text-sm text-primary-foreground/80 hover:text-accent hover:bg-white/5 transition-colors"
                         >
                           {child.name}
                         </Link>
@@ -168,14 +162,12 @@ const Navbar = () => {
                 )}
               </div>
             ))}
-            <button className="ml-2 p-2 text-muted-foreground hover:text-primary transition-colors" aria-label="Search">
-              <Search className="w-5 h-5" />
-            </button>
+
           </div>
 
           {/* Mobile Menu Button */}
           <button
-            className="xl:hidden p-2 text-primary"
+            className="xl:hidden p-2 text-primary-foreground"
             onClick={() => setIsOpen(!isOpen)}
             aria-label="Toggle menu"
           >
@@ -197,8 +189,8 @@ const Navbar = () => {
               className={cn(
                 "px-4 py-3 text-sm font-medium transition-colors rounded-lg",
                 location.pathname === '/'
-                  ? "bg-primary text-primary-foreground"
-                  : "text-muted-foreground hover:bg-secondary"
+                  ? "bg-accent text-accent-foreground"
+                  : "text-primary-foreground/90 hover:bg-white/10"
               )}
             >
               Home
@@ -212,8 +204,8 @@ const Navbar = () => {
                     className={cn(
                       "flex-1 px-4 py-3 text-sm font-medium transition-colors rounded-lg",
                       location.pathname === item.path || location.pathname.startsWith(item.path + '/')
-                        ? "bg-primary text-primary-foreground"
-                        : "text-muted-foreground hover:bg-secondary"
+                        ? "bg-accent text-accent-foreground"
+                        : "text-primary-foreground/90 hover:bg-white/10"
                     )}
                   >
                     {item.name}
@@ -221,7 +213,7 @@ const Navbar = () => {
                   {item.children && (
                     <button
                       onClick={() => toggleMobileExpand(item.name)}
-                      className="p-3 text-muted-foreground hover:text-primary"
+                      className="p-3 text-primary-foreground/80 hover:text-accent"
                     >
                       <ChevronDown
                         className={cn(
@@ -239,7 +231,7 @@ const Navbar = () => {
                         key={child.path}
                         to={child.path}
                         onClick={() => setIsOpen(false)}
-                        className="block px-4 py-2 text-sm text-muted-foreground hover:text-primary transition-colors"
+                        className="block px-4 py-2 text-sm text-primary-foreground/70 hover:text-accent transition-colors"
                       >
                         {child.name}
                       </Link>

@@ -25,16 +25,16 @@ const Contact = () => {
   }, []);
 
   const contactInfo = [
-    { icon: MapPin, title: 'Address', content: '123 Education Lane, Knowledge City, Kerala, India - 682001' },
-    { icon: Phone, title: 'Phone', content: '+91 1234 567 890' },
-    { icon: Mail, title: 'Email', content: 'info@yourschool.edu' },
+    { icon: MapPin, title: 'Address', content: 'Markaz Knowledge City, Unnikulam,\nKozhikode, Kerala 673574' },
+    { icon: Phone, title: 'Phone', content: '+91 8012800100' },
+    { icon: Mail, title: 'Email', content: 'info@alifglobalschool.com' },
     { icon: Clock, title: 'Office Hours', content: 'Mon - Fri: 8:00 AM - 4:00 PM\nSat: 9:00 AM - 1:00 PM' },
   ];
 
   return (
     <Layout>
       <PageHeader title="Contact Us" breadcrumb="Contact" />
-      
+
       <section ref={sectionRef} className="section-padding bg-background">
         <div className="container-custom">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
@@ -51,10 +51,10 @@ const Contact = () => {
               </span>
               <h2 className="heading-primary mb-6">Send Us a Message</h2>
               <p className="text-body mb-8">
-                Have questions? We'd love to hear from you. Send us a message and we'll 
+                Have questions? We'd love to hear from you. Send us a message and we'll
                 respond as soon as possible.
               </p>
-              
+
               <form className="space-y-4">
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <input
@@ -92,7 +92,7 @@ const Contact = () => {
                 </button>
               </form>
             </div>
-            
+
             {/* Contact Info & Map */}
             <div
               className={`transition-all duration-700`}
@@ -118,17 +118,29 @@ const Contact = () => {
                   ))}
                 </div>
               </div>
-              
-              {/* Map Placeholder */}
-              <div className="bg-cream rounded-2xl overflow-hidden h-64">
-                <div className="w-full h-full bg-border flex items-center justify-center">
-                  <div className="text-center">
-                    <MapPin className="w-12 h-12 text-muted-foreground mx-auto mb-2" />
-                    <p className="text-muted-foreground">Map Placeholder</p>
-                    <p className="text-sm text-muted-foreground/70">Google Maps integration coming soon</p>
-                  </div>
-                </div>
+
+              {/* Map Section */}
+              <div className="bg-cream rounded-2xl overflow-hidden h-64 shadow-soft border border-primary/5">
+                <iframe
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3910.113389586524!2d76.00654!3d11.4717407!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ba66da0743f6ded%3A0x2f191d88b5627616!2sAlif%20Global%20School!5e0!3m2!1sen!2sin!4v1767098595562!5m2!1sen!2sin"
+                  width="100%"
+                  height="100%"
+                  style={{ border: 0 }}
+                  allowFullScreen
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                  title="Alif Global School Location"
+                ></iframe>
               </div>
+              <a
+                href="https://www.google.com/maps/dir//MARKAZ+KNOWLEDGE+CITY+,Kaithapoyil+,+673586(PIN,+Kerala+673580/@11.355173,75.9579352,14z/data=!3m1!4b1!4m8!4m7!1m0!1m5!1m1!1s0x3ba66da0743f6ded:0x2f191d88b5627616!2m2!1d76.00654!2d11.4717407"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-4 flex items-center justify-center gap-2 text-accent font-bold hover:underline"
+              >
+                <MapPin className="w-4 h-4" />
+                Get Directions on Google Maps
+              </a>
             </div>
           </div>
         </div>

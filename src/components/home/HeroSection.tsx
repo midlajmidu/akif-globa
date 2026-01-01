@@ -1,36 +1,36 @@
 import { Link } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
-import heroImage from '@/assets/hero-school.jpg';
+import heroImage from '@/assets/alifou.jpeg';
 
 const HeroSection = () => {
   return (
     <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden">
       {/* Background Image */}
-      <div 
+      <div
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
         style={{ backgroundImage: `url(${heroImage})` }}
       />
-      
+
       {/* Overlay */}
       <div className="absolute inset-0 bg-gradient-to-r from-primary/95 via-primary/80 to-primary/60" />
-      
+
       {/* Content */}
       <div className="relative z-10 container-custom text-center px-4">
         <div className="max-w-4xl mx-auto">
           <span className="inline-block px-4 py-2 bg-accent/20 text-accent rounded-full text-sm font-medium mb-6 animate-fade-in-down">
             Best International School in Kerala
           </span>
-          
+
           <h1 className="text-4xl md:text-5xl lg:text-7xl font-bold text-primary-foreground leading-tight mb-6 animate-fade-in-up">
-            Welcome to{' '}
-            <span className="text-accent">Alif School</span>
+            Welcome to{' '} <br />
+            <span className="text-accent">Alif Global School</span>
           </h1>
-          
+
           <p className="text-lg md:text-xl text-primary-foreground/80 max-w-2xl mx-auto mb-10 animate-fade-in-up animation-delay-200">
-            Empowering young minds with world-class education, innovative learning experiences, 
+            Empowering young minds with world-class education, innovative learning experiences,
             and a nurturing environment for holistic development.
           </p>
-          
+
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 animate-fade-in-up animation-delay-300">
             <Link
               to="/admission"
@@ -48,7 +48,7 @@ const HeroSection = () => {
           </div>
         </div>
       </div>
-      
+
       {/* Scroll Indicator */}
       <div className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce">
         <div className="w-6 h-10 rounded-full border-2 border-primary-foreground/40 flex items-start justify-center p-2">
