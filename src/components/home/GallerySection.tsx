@@ -76,6 +76,7 @@ const GallerySection = () => {
               <img
                 src={image.src}
                 alt={image.alt}
+                loading="lazy"
                 className="w-full h-full object-cover"
               />
             </div>
@@ -86,9 +87,10 @@ const GallerySection = () => {
           <Link
             to="/academics/gallery"
             className="inline-flex items-center gap-2 bg-primary text-primary-foreground px-8 py-4 rounded-full font-semibold transition-all duration-300 hover:bg-navy-light hover:shadow-strong group"
+            aria-label="View more photos in our campus gallery"
           >
             View More
-            <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+            <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" aria-hidden="true" />
           </Link>
         </div>
       </div>

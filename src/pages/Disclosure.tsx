@@ -98,9 +98,7 @@ const Disclosure = () => {
             <div className={`mb-16 transition-all duration-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
               <div className="flex items-center gap-3 mb-8">
                 <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center shadow-sm">
-                  <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center shadow-sm">
-                    <Info className="w-6 h-6 text-primary" />
-                  </div>
+                  <Info className="w-6 h-6 text-primary" />
                 </div>
                 <div>
                   <h2 className="text-2xl font-bold text-primary">A: General Information</h2>

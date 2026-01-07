@@ -132,6 +132,7 @@ const TestimonialsSection = () => {
                     <img
                       src={testimonials.current[currentIndex].image}
                       alt={testimonials.current[currentIndex].name}
+                      loading="lazy"
                       className="w-full h-full object-cover"
                     />
                   </div>
@@ -156,6 +157,8 @@ const TestimonialsSection = () => {
                       onClick={() => setCurrentIndex(index)}
                       className={`h-1.5 rounded-full transition-all duration-500 ${index === currentIndex ? 'w-12 bg-accent' : 'w-4 bg-white/20'
                         }`}
+                      aria-label={`Go to testimonial ${index + 1}`}
+                      aria-current={index === currentIndex}
                     />
                   ))}
                 </div>
@@ -177,12 +180,14 @@ const TestimonialsSection = () => {
                 <button
                   onClick={scrollPrev}
                   className="p-2 rounded-full bg-primary/5 hover:bg-accent hover:text-white transition-colors"
+                  aria-label="Previous parent testimonials"
                 >
                   <ChevronUp className="w-4 h-4" />
                 </button>
                 <button
                   onClick={scrollNext}
                   className="p-2 rounded-full bg-primary/5 hover:bg-accent hover:text-white transition-colors"
+                  aria-label="Next parent testimonials"
                 >
                   <ChevronDown className="w-4 h-4" />
                 </button>

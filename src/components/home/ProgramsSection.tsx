@@ -95,7 +95,7 @@ const ProgramsSection = () => {
               }}
             >
               <div className="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center mb-4 group-hover:bg-accent/20 transition-colors">
-                <program.icon className="w-7 h-7 text-primary group-hover:text-accent transition-colors" />
+                <program.icon className="w-7 h-7 text-primary group-hover:text-accent transition-colors" aria-hidden="true" />
               </div>
               <h3 className="text-xl font-bold text-primary mb-2">{program.title}</h3>
               <p className="text-muted-foreground text-sm mb-4">{program.description}</p>
@@ -106,9 +106,10 @@ const ProgramsSection = () => {
                 <Link
                   to={program.link}
                   className="text-primary font-medium text-sm flex items-center gap-1 group-hover:text-accent transition-colors"
+                  aria-label={`Learn more about our ${program.title} program`}
                 >
                   Learn More
-                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" aria-hidden="true" />
                 </Link>
               </div>
             </div>

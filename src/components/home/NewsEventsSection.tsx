@@ -84,6 +84,7 @@ const NewsEventsSection = () => {
                                         <img
                                             src={item.image}
                                             alt={item.title}
+                                            loading="lazy"
                                             className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                                         />
                                     </div>
@@ -95,8 +96,12 @@ const NewsEventsSection = () => {
                                         <p className="text-body text-sm line-clamp-2 mb-4">
                                             {item.desc}
                                         </p>
-                                        <Link to="/academics/news" className="text-primary font-bold text-xs flex items-center gap-1 hover:gap-2 transition-all uppercase tracking-widest">
-                                            Read More <ArrowRight className="w-3 h-3" />
+                                        <Link
+                                            to="/academics/news"
+                                            className="text-primary font-bold text-xs flex items-center gap-1 hover:gap-2 transition-all uppercase tracking-widest"
+                                            aria-label={`Read more about ${item.title}`}
+                                        >
+                                            Read More <ArrowRight className="w-3 h-3" aria-hidden="true" />
                                         </Link>
                                     </div>
                                 </div>

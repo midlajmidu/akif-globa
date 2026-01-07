@@ -186,91 +186,124 @@ const Alumni = () => {
                 <h3 className="text-2xl font-bold text-primary mb-6">Alumni Registration</h3>
                 <form className="space-y-4" onSubmit={handleSubmit}>
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div className="space-y-1">
+                      <label htmlFor="firstName" className="text-sm font-semibold text-primary">First Name</label>
+                      <input
+                        id="firstName"
+                        type="text"
+                        name="firstName"
+                        value={formData.firstName}
+                        onChange={handleChange}
+                        placeholder="First Name"
+                        required
+                        className="w-full px-4 py-3 rounded-lg border border-border focus:border-accent focus:ring-2 focus:ring-accent/20 outline-none transition-all"
+                      />
+                    </div>
+                    <div className="space-y-1">
+                      <label htmlFor="lastName" className="text-sm font-semibold text-primary">Last Name</label>
+                      <input
+                        id="lastName"
+                        type="text"
+                        name="lastName"
+                        value={formData.lastName}
+                        onChange={handleChange}
+                        placeholder="Last Name"
+                        required
+                        className="w-full px-4 py-3 rounded-lg border border-border focus:border-accent focus:ring-2 focus:ring-accent/20 outline-none transition-all"
+                      />
+                    </div>
+                  </div>
+                  <div className="space-y-1">
+                    <label htmlFor="email" className="text-sm font-semibold text-primary">Email Address</label>
                     <input
-                      type="text"
-                      name="firstName"
-                      value={formData.firstName}
+                      id="email"
+                      type="email"
+                      name="email"
+                      value={formData.email}
                       onChange={handleChange}
-                      placeholder="First Name"
-                      required
-                      className="w-full px-4 py-3 rounded-lg border border-border focus:border-accent focus:ring-2 focus:ring-accent/20 outline-none transition-all"
-                    />
-                    <input
-                      type="text"
-                      name="lastName"
-                      value={formData.lastName}
-                      onChange={handleChange}
-                      placeholder="Last Name"
+                      placeholder="Email Address"
                       required
                       className="w-full px-4 py-3 rounded-lg border border-border focus:border-accent focus:ring-2 focus:ring-accent/20 outline-none transition-all"
                     />
                   </div>
-                  <input
-                    type="email"
-                    name="email"
-                    value={formData.email}
-                    onChange={handleChange}
-                    placeholder="Email Address"
-                    required
-                    className="w-full px-4 py-3 rounded-lg border border-border focus:border-accent focus:ring-2 focus:ring-accent/20 outline-none transition-all"
-                  />
-                  <input
-                    type="tel"
-                    name="phone"
-                    value={formData.phone}
-                    onChange={handleChange}
-                    placeholder="Phone Number"
-                    required
-                    className="w-full px-4 py-3 rounded-lg border border-border focus:border-accent focus:ring-2 focus:ring-accent/20 outline-none transition-all"
-                  />
+                  <div className="space-y-1">
+                    <label htmlFor="phone" className="text-sm font-semibold text-primary">Phone Number</label>
+                    <input
+                      id="phone"
+                      type="tel"
+                      name="phone"
+                      value={formData.phone}
+                      onChange={handleChange}
+                      placeholder="Phone Number"
+                      required
+                      className="w-full px-4 py-3 rounded-lg border border-border focus:border-accent focus:ring-2 focus:ring-accent/20 outline-none transition-all"
+                    />
+                  </div>
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                    <select
-                      name="graduationYear"
-                      value={formData.graduationYear}
-                      onChange={handleChange}
-                      required
-                      className="w-full px-4 py-3 rounded-lg border border-border focus:border-accent focus:ring-2 focus:ring-accent/20 outline-none transition-all text-muted-foreground"
-                    >
-                      <option value="">Graduation Year</option>
-                      {Array.from({ length: 30 }, (_, i) => 2024 - i).map((year) => (
-                        <option key={year} value={year}>{year}</option>
-                      ))}
-                    </select>
+                    <div className="space-y-1">
+                      <label htmlFor="graduationYear" className="text-sm font-semibold text-primary">Graduation Year</label>
+                      <select
+                        id="graduationYear"
+                        name="graduationYear"
+                        value={formData.graduationYear}
+                        onChange={handleChange}
+                        required
+                        className="w-full px-4 py-3 rounded-lg border border-border focus:border-accent focus:ring-2 focus:ring-accent/20 outline-none transition-all text-muted-foreground"
+                      >
+                        <option value="">Graduation Year</option>
+                        {Array.from({ length: 30 }, (_, i) => 2024 - i).map((year) => (
+                          <option key={year} value={year}>{year}</option>
+                        ))}
+                      </select>
+                    </div>
+                    <div className="space-y-1">
+                      <label htmlFor="batch" className="text-sm font-semibold text-primary">Batch/Section</label>
+                      <input
+                        id="batch"
+                        type="text"
+                        name="batch"
+                        value={formData.batch}
+                        onChange={handleChange}
+                        placeholder="Batch/Section"
+                        required
+                        className="w-full px-4 py-3 rounded-lg border border-border focus:border-accent focus:ring-2 focus:ring-accent/20 outline-none transition-all"
+                      />
+                    </div>
+                  </div>
+                  <div className="space-y-1">
+                    <label htmlFor="occupation" className="text-sm font-semibold text-primary">Current Occupation</label>
                     <input
+                      id="occupation"
                       type="text"
-                      name="batch"
-                      value={formData.batch}
+                      name="occupation"
+                      value={formData.occupation}
                       onChange={handleChange}
-                      placeholder="Batch/Section"
+                      placeholder="Current Occupation"
                       required
                       className="w-full px-4 py-3 rounded-lg border border-border focus:border-accent focus:ring-2 focus:ring-accent/20 outline-none transition-all"
                     />
                   </div>
-                  <input
-                    type="text"
-                    name="occupation"
-                    value={formData.occupation}
-                    onChange={handleChange}
-                    placeholder="Current Occupation"
-                    required
-                    className="w-full px-4 py-3 rounded-lg border border-border focus:border-accent focus:ring-2 focus:ring-accent/20 outline-none transition-all"
-                  />
-                  <input
-                    type="text"
-                    name="location"
-                    value={formData.location}
-                    onChange={handleChange}
-                    placeholder="Current Location (City, Country)"
-                    required
-                    className="w-full px-4 py-3 rounded-lg border border-border focus:border-accent focus:ring-2 focus:ring-accent/20 outline-none transition-all"
-                  />
+                  <div className="space-y-1">
+                    <label htmlFor="location" className="text-sm font-semibold text-primary">Current Location</label>
+                    <input
+                      id="location"
+                      type="text"
+                      name="location"
+                      value={formData.location}
+                      onChange={handleChange}
+                      placeholder="Current Location (City, Country)"
+                      required
+                      className="w-full px-4 py-3 rounded-lg border border-border focus:border-accent focus:ring-2 focus:ring-accent/20 outline-none transition-all"
+                    />
+                  </div>
                   <div className="space-y-2">
-                    <label className="text-sm font-semibold text-primary block">Upload Photo</label>
+                    <label htmlFor="photo" className="text-sm font-semibold text-primary block">Upload Photo</label>
                     <div className="relative group">
                       <div className="absolute left-4 top-1/2 -translate-y-1/2 text-muted-foreground group-focus-within:text-accent transition-colors">
-                        <Camera className="w-5 h-5" />
+                        <Camera className="w-5 h-5" aria-hidden="true" />
                       </div>
                       <input
+                        id="photo"
                         type="file"
                         accept="image/*"
                         onChange={handleFileChange}
@@ -278,17 +311,21 @@ const Alumni = () => {
                       />
                     </div>
                   </div>
-                  <textarea
-                    name="message"
-                    value={formData.message}
-                    onChange={handleChange}
-                    placeholder="Brief message or memories from school (Optional)"
-                    rows={4}
-                    className="w-full px-4 py-3 rounded-lg border border-border focus:border-accent focus:ring-2 focus:ring-accent/20 outline-none transition-all resize-none"
-                  />
+                  <div className="space-y-1">
+                    <label htmlFor="message" className="text-sm font-semibold text-primary">Memories/Message</label>
+                    <textarea
+                      id="message"
+                      name="message"
+                      value={formData.message}
+                      onChange={handleChange}
+                      placeholder="Brief message or memories from school (Optional)"
+                      rows={4}
+                      className="w-full px-4 py-3 rounded-lg border border-border focus:border-accent focus:ring-2 focus:ring-accent/20 outline-none transition-all resize-none"
+                    />
+                  </div>
 
                   {status.message && (
-                    <div className={`p-4 rounded-lg text-sm font-medium ${status.type === 'success' ? 'bg-green-100 text-green-800' : 'bg-red-100 text-red-800'}`}>
+                    <div className={`p-4 rounded-lg text-sm font-medium ${status.type === 'success' ? 'bg-green-100 text-green-800' : 'bg-red-100 text-red-800'}`} role="alert">
                       {status.message}
                     </div>
                   )}
@@ -297,6 +334,7 @@ const Alumni = () => {
                     type="submit"
                     disabled={isSubmitting}
                     className="w-full bg-accent text-accent-foreground py-4 rounded-lg font-semibold transition-all duration-300 hover:bg-gold-dark hover:shadow-gold disabled:opacity-70 disabled:cursor-not-allowed"
+                    aria-label="Submit alumni registration form"
                   >
                     {isSubmitting ? 'Submitting...' : 'Join Alumni Network'}
                   </button>

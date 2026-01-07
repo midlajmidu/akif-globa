@@ -168,13 +168,16 @@ const Navbar = () => {
             className="xl:hidden p-2 text-primary-foreground"
             onClick={() => setIsOpen(!isOpen)}
             aria-label="Toggle menu"
+            aria-expanded={isOpen}
+            aria-controls="mobile-menu"
           >
-            {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+            {isOpen ? <X className="w-6 h-6" aria-hidden="true" /> : <Menu className="w-6 h-6" aria-hidden="true" />}
           </button>
         </div>
 
         {/* Mobile Navigation */}
         <div
+          id="mobile-menu"
           className={cn(
             "xl:hidden overflow-hidden transition-all duration-300",
             isOpen ? "max-h-[80vh] pb-4 overflow-y-auto" : "max-h-0"

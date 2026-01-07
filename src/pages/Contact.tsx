@@ -67,38 +67,64 @@ const Contact = () => {
 
               <form className="space-y-4">
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <div className="space-y-1">
+                    <label htmlFor="name" className="text-sm font-semibold text-primary">Your Name</label>
+                    <input
+                      id="name"
+                      type="text"
+                      placeholder="Your Name"
+                      className="w-full px-4 py-3 rounded-lg border border-border focus:border-accent focus:ring-2 focus:ring-accent/20 outline-none transition-all"
+                      required
+                    />
+                  </div>
+                  <div className="space-y-1">
+                    <label htmlFor="email" className="text-sm font-semibold text-primary">Email Address</label>
+                    <input
+                      id="email"
+                      type="email"
+                      placeholder="Email Address"
+                      className="w-full px-4 py-3 rounded-lg border border-border focus:border-accent focus:ring-2 focus:ring-accent/20 outline-none transition-all"
+                      required
+                    />
+                  </div>
+                </div>
+                <div className="space-y-1">
+                  <label htmlFor="phone" className="text-sm font-semibold text-primary">Phone Number</label>
                   <input
-                    type="text"
-                    placeholder="Your Name"
+                    id="phone"
+                    type="tel"
+                    placeholder="Phone Number"
                     className="w-full px-4 py-3 rounded-lg border border-border focus:border-accent focus:ring-2 focus:ring-accent/20 outline-none transition-all"
-                  />
-                  <input
-                    type="email"
-                    placeholder="Email Address"
-                    className="w-full px-4 py-3 rounded-lg border border-border focus:border-accent focus:ring-2 focus:ring-accent/20 outline-none transition-all"
+                    required
                   />
                 </div>
-                <input
-                  type="tel"
-                  placeholder="Phone Number"
-                  className="w-full px-4 py-3 rounded-lg border border-border focus:border-accent focus:ring-2 focus:ring-accent/20 outline-none transition-all"
-                />
-                <input
-                  type="text"
-                  placeholder="Subject"
-                  className="w-full px-4 py-3 rounded-lg border border-border focus:border-accent focus:ring-2 focus:ring-accent/20 outline-none transition-all"
-                />
-                <textarea
-                  placeholder="Your Message"
-                  rows={5}
-                  className="w-full px-4 py-3 rounded-lg border border-border focus:border-accent focus:ring-2 focus:ring-accent/20 outline-none transition-all resize-none"
-                />
+                <div className="space-y-1">
+                  <label htmlFor="subject" className="text-sm font-semibold text-primary">Subject</label>
+                  <input
+                    id="subject"
+                    type="text"
+                    placeholder="Subject"
+                    className="w-full px-4 py-3 rounded-lg border border-border focus:border-accent focus:ring-2 focus:ring-accent/20 outline-none transition-all"
+                    required
+                  />
+                </div>
+                <div className="space-y-1">
+                  <label htmlFor="message" className="text-sm font-semibold text-primary">Your Message</label>
+                  <textarea
+                    id="message"
+                    placeholder="Your Message"
+                    rows={5}
+                    className="w-full px-4 py-3 rounded-lg border border-border focus:border-accent focus:ring-2 focus:ring-accent/20 outline-none transition-all resize-none"
+                    required
+                  />
+                </div>
                 <button
                   type="submit"
                   className="w-full flex items-center justify-center gap-2 bg-accent text-accent-foreground py-4 rounded-lg font-semibold transition-all duration-300 hover:bg-gold-dark hover:shadow-gold group"
+                  aria-label="Send your message to Alif Global School"
                 >
                   Send Message
-                  <Send className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                  <Send className="w-5 h-5 group-hover:translate-x-1 transition-transform" aria-hidden="true" />
                 </button>
               </form>
             </div>

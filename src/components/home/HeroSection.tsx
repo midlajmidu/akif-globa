@@ -8,24 +8,36 @@ const HeroSection = () => {
   const [showVideo, setShowVideo] = useState(false);
 
   useEffect(() => {
-    const timer = setTimeout(() => {
-      setShowVideo(true);
-    }, 2000);
-
-    return () => clearTimeout(timer);
+    // Only show video on desktop screens to save bandwidth and improve performance on mobile
+    const isMobile = window.innerWidth < 768;
+    if (!isMobile) {
+      const timer = setTimeout(() => {
+        setShowVideo(true);
+      }, 2000);
+      return () => clearTimeout(timer);
+    }
   }, []);
 
   return (
-    <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden">
+    <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden bg-[#0A2A4F]">
       {/* Background Media */}
       <div className="absolute inset-0 w-full h-full">
-        {/* Image Background (Always present initially, fades out or stays behind) */}
-        <div
-          className={`absolute inset-0 bg-cover bg-center bg-no-repeat transition-opacity duration-1000 ${showVideo ? 'md:opacity-0' : 'opacity-100'}`}
-          style={{ backgroundImage: `url(${heroImage})` }}
-        />
+        {/* LCP Image Background */}
+        <picture>
+          <source
+            media="(max-width: 767px)"
+            srcSet={heroImage}
+          />
+          <img
+            src={heroImage}
+            alt="Students at Alif Global School - Best Residential School in Kerala"
+            fetchPriority="high"
+            loading="eager"
+            className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ${showVideo ? 'md:opacity-0' : 'opacity-100'}`}
+          />
+        </picture>
 
-        {/* Video Background */}
+        {/* Video Background (Desktop Only) */}
         {showVideo && (
           <video
             autoPlay
@@ -33,9 +45,9 @@ const HeroSection = () => {
             muted
             playsInline
             className="hidden md:block absolute inset-0 w-full h-full object-cover animate-fade-in"
+            aria-hidden="true"
           >
             <source src={heroVideo} type="video/mp4" />
-            Your browser does not support the video tag.
           </video>
         )}
       </div>
@@ -64,13 +76,15 @@ const HeroSection = () => {
             <Link
               to="/admission"
               className="group flex items-center gap-2 bg-[#E6B65C] text-[#0A2A4F] px-8 py-4 rounded-full font-semibold transition-all duration-300 hover:bg-[#d4a347] hover:shadow-[0_0_20px_rgba(230,182,92,0.5)] hover:-translate-y-1"
+              aria-label="Get Admission to Alif Global School"
             >
               Get Admission
-              <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+              <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" aria-hidden="true" />
             </Link>
             <Link
               to="/about"
               className="flex items-center gap-2 bg-white/10 text-white px-8 py-4 rounded-full font-semibold backdrop-blur-md border border-white/20 transition-all duration-300 hover:bg-white/20 hover:border-white/40 hover:-translate-y-1"
+              aria-label="Learn more about Alif Global School"
             >
               Learn More
             </Link>
@@ -79,7 +93,7 @@ const HeroSection = () => {
       </div>
 
       {/* Scroll Indicator */}
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce">
+      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce" aria-hidden="true">
         <div className="w-6 h-10 rounded-full border-2 border-white/30 flex items-start justify-center p-2 backdrop-blur-sm">
           <div className="w-1.5 h-3 bg-white/60 rounded-full animate-pulse" />
         </div>

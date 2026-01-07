@@ -26,16 +26,16 @@ const Footer = () => {
             </p>
             <div className="flex items-center gap-4">
               <a href="https://www.facebook.com/AlifGlobalSchool/" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-primary-foreground/10 flex items-center justify-center hover:bg-accent hover:text-accent-foreground transition-all duration-300" aria-label="Facebook">
-                <Facebook className="w-5 h-5" />
+                <Facebook className="w-5 h-5" aria-hidden="true" />
               </a>
               <a href="https://x.com/AlifGloblschool" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-primary-foreground/10 flex items-center justify-center hover:bg-accent hover:text-accent-foreground transition-all duration-300" aria-label="Twitter">
-                <Twitter className="w-5 h-5" />
+                <Twitter className="w-5 h-5" aria-hidden="true" />
               </a>
               <a href="https://www.youtube.com/channel/UCM0nmgTXk2ZMiiz7CYWEvBQ" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-primary-foreground/10 flex items-center justify-center hover:bg-accent hover:text-accent-foreground transition-all duration-300" aria-label="YouTube">
-                <Youtube className="w-5 h-5" />
+                <Youtube className="w-5 h-5" aria-hidden="true" />
               </a>
               <a href="https://www.instagram.com/alifglobalschool/" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-primary-foreground/10 flex items-center justify-center hover:bg-accent hover:text-accent-foreground transition-all duration-300" aria-label="Instagram">
-                <Instagram className="w-5 h-5" />
+                <Instagram className="w-5 h-5" aria-hidden="true" />
               </a>
             </div>
           </div>
@@ -48,18 +48,18 @@ const Footer = () => {
             </h3>
             <div className="space-y-4 mt-6">
               <div className="flex items-start gap-3">
-                <MapPin className="w-5 h-5 text-accent shrink-0 mt-0.5" />
+                <MapPin className="w-5 h-5 text-accent shrink-0 mt-0.5" aria-hidden="true" />
                 <p className="text-sm opacity-80">
                   Markaz Knowledge City, Unnikulam,<br />
                   Kozhikode, Kerala 673574
                 </p>
               </div>
               <div className="flex items-center gap-3">
-                <Phone className="w-5 h-5 text-accent shrink-0" />
+                <Phone className="w-5 h-5 text-accent shrink-0" aria-hidden="true" />
                 <p className="text-sm opacity-80">+91 8012800100</p>
               </div>
               <div className="flex items-center gap-3">
-                <Mail className="w-5 h-5 text-accent shrink-0" />
+                <Mail className="w-5 h-5 text-accent shrink-0" aria-hidden="true" />
                 <p className="text-sm opacity-80">info@alifglobalschool.com</p>
               </div>
             </div>
@@ -73,14 +73,14 @@ const Footer = () => {
             </h3>
             <div className="space-y-4 mt-6">
               <div className="flex items-start gap-3">
-                <Clock className="w-5 h-5 text-accent shrink-0 mt-0.5" />
+                <Clock className="w-5 h-5 text-accent shrink-0 mt-0.5" aria-hidden="true" />
                 <div className="text-sm opacity-80">
                   <p className="font-medium text-primary-foreground">Monday - Friday</p>
                   <p>8:00 AM - 4:00 PM</p>
                 </div>
               </div>
               <div className="flex items-start gap-3">
-                <Clock className="w-5 h-5 text-accent shrink-0 mt-0.5" />
+                <Clock className="w-5 h-5 text-accent shrink-0 mt-0.5" aria-hidden="true" />
                 <div className="text-sm opacity-80">
                   <p className="font-medium text-primary-foreground">Saturday</p>
                   <p>9:00 AM - 1:00 PM</p>
@@ -103,7 +103,7 @@ const Footer = () => {
                   to={link.path}
                   className="flex items-center gap-2 text-sm opacity-80 hover:opacity-100 hover:text-accent transition-all duration-300 group"
                 >
-                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" aria-hidden="true" />
                   {link.name}
                 </Link>
               ))}

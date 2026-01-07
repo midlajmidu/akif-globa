@@ -85,6 +85,7 @@ const About = () => {
                 <img
                   src={campusImg}
                   alt="Alif Global School Campus"
+                  loading="lazy"
                   className="rounded-2xl shadow-strong"
                 />
               </div>

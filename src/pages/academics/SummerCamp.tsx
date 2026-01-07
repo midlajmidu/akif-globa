@@ -60,6 +60,7 @@ const SummerCamp = () => {
                                 <img
                                     src={src}
                                     alt={`Summer Camp Activity ${index + 1}`}
+                                    loading="lazy"
                                     className="w-full h-full object-cover"
                                 />
                             </div>
