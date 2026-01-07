@@ -54,6 +54,8 @@ const LogoSlider = () => {
               src={logo.src}
               alt={logo.name}
               loading="lazy"
+              width={192}
+              height={128}
               className="max-w-full max-h-full object-contain"
             />
           </div>

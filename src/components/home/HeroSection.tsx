@@ -33,6 +33,8 @@ const HeroSection = () => {
             alt="Students at Alif Global School - Best Residential School in Kerala"
             fetchPriority="high"
             loading="eager"
+            width={1920}
+            height={1080}
             className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ${showVideo ? 'md:opacity-0' : 'opacity-100'}`}
           />
         </picture>
@@ -44,6 +46,8 @@ const HeroSection = () => {
             loop
             muted
             playsInline
+            width={1920}
+            height={1080}
             className="hidden md:block absolute inset-0 w-full h-full object-cover animate-fade-in"
             aria-hidden="true"
           >
@@ -52,8 +56,8 @@ const HeroSection = () => {
         )}
       </div>
 
-      {/* Overlay */}
-      <div className="absolute inset-0 bg-gradient-to-r from-[#0A2A4F]/90 via-[#0A2A4F]/70 to-[#0A2A4F]/40" />
+      {/* Overlay - Ensuring high contrast for accessibility */}
+      <div className="absolute inset-0 bg-gradient-to-r from-[#0A2A4F]/95 via-[#0A2A4F]/80 to-[#0A2A4F]/50 md:from-[#0A2A4F]/90 md:via-[#0A2A4F]/70 md:to-[#0A2A4F]/40" />
 
       {/* Content */}
       <div className="relative z-10 container-custom text-center px-4">

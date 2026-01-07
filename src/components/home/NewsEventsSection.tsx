@@ -85,6 +85,8 @@ const NewsEventsSection = () => {
                                             src={item.image}
                                             alt={item.title}
                                             loading="lazy"
+                                            width={500}
+                                            height={281}
                                             className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                                         />
                                     </div>

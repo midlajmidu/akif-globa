@@ -124,7 +124,7 @@ const TestimonialsSection = () => {
               }`}
           >
             <div className="relative bg-primary text-primary-foreground rounded-[2rem] p-8 md:p-12 shadow-2xl overflow-hidden group h-full flex flex-col justify-center min-h-[500px]">
-              <Quote className="absolute top-8 right-8 w-24 h-24 text-white/5 group-hover:scale-110 transition-transform duration-500" />
+              <Quote className="absolute top-8 right-8 w-24 h-24 text-white/5 group-hover:scale-110 transition-transform duration-500" aria-hidden="true" />
 
               <div className="relative z-10">
                 <div className="flex items-center gap-4 mb-8">
@@ -182,14 +182,14 @@ const TestimonialsSection = () => {
                   className="p-2 rounded-full bg-primary/5 hover:bg-accent hover:text-white transition-colors"
                   aria-label="Previous parent testimonials"
                 >
-                  <ChevronUp className="w-4 h-4" />
+                  <ChevronUp className="w-4 h-4" aria-hidden="true" />
                 </button>
                 <button
                   onClick={scrollNext}
                   className="p-2 rounded-full bg-primary/5 hover:bg-accent hover:text-white transition-colors"
                   aria-label="Next parent testimonials"
                 >
-                  <ChevronDown className="w-4 h-4" />
+                  <ChevronDown className="w-4 h-4" aria-hidden="true" />
                 </button>
               </div>
             </div>
@@ -204,7 +204,7 @@ const TestimonialsSection = () => {
                         className="bg-background p-6 rounded-2xl shadow-soft border border-primary/5 hover:shadow-medium transition-all duration-300 group flex-1"
                       >
                         <div className="flex flex-col h-full">
-                          <Quote className="w-8 h-8 text-accent/20 mb-4" />
+                          <Quote className="w-8 h-8 text-accent/20 mb-4" aria-hidden="true" />
                           <p className="text-muted-foreground text-sm italic mb-4 leading-relaxed flex-grow">
                             "{parent.content}"
                           </p>

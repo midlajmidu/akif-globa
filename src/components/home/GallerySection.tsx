@@ -77,6 +77,8 @@ const GallerySection = () => {
                 src={image.src}
                 alt={image.alt}
                 loading="lazy"
+                width={400}
+                height={400}
                 className="w-full h-full object-cover"
               />
             </div>
