@@ -6,9 +6,9 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Textarea } from '@/components/ui/textarea';
 import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
-import { Checkbox } from '@/components/ui/checkbox';
 import { ArrowRight, ArrowLeft, CheckCircle2, Loader2 } from 'lucide-react';
 import { toast } from 'sonner';
+import SEO from '@/components/SEO';
 
 const Apply = () => {
   const [step, setStep] = useState(1);
@@ -38,8 +38,6 @@ const Apply = () => {
   const handleSelectChange = (name: string, value: string) => {
     setFormData(prev => ({ ...prev, [name]: value }));
   };
-
-
 
   const validateStep = (currentStep: number) => {
     if (currentStep === 1) {
@@ -103,8 +101,6 @@ const Apply = () => {
         })
       });
 
-      // Since we use no-cors, we won't get a proper response object, 
-      // but we can assume success if no error is thrown
       setIsSubmitted(true);
       toast.success("Application submitted successfully!");
     } catch (error) {
@@ -118,6 +114,16 @@ const Apply = () => {
   if (isSubmitted) {
     return (
       <Layout>
+        <SEO
+          title="Application Submitted"
+          description="Your application to Alif Global School has been successfully submitted. Our admissions team will contact you shortly."
+          canonical="/admission/apply"
+          breadcrumbs={[
+            { name: 'Home', path: '/' },
+            { name: 'Admission', path: '/admission' },
+            { name: 'Apply Online', path: '/admission/apply' }
+          ]}
+        />
         <PageHeader title="Apply Online" breadcrumb={[{ name: 'Admission', path: '/admission' }, { name: 'Apply Online' }]} />
         <section className="section-padding">
           <div className="container-custom">
@@ -141,6 +147,16 @@ const Apply = () => {
 
   return (
     <Layout>
+      <SEO
+        title="Apply Online"
+        description="Start your journey with Alif Global School. Fill out our online application form for admission. Easy step-by-step process for parents and students."
+        canonical="/admission/apply"
+        breadcrumbs={[
+          { name: 'Home', path: '/' },
+          { name: 'Admission', path: '/admission' },
+          { name: 'Apply Online', path: '/admission/apply' }
+        ]}
+      />
       <PageHeader title="Apply Online" breadcrumb={[{ name: 'Admission', path: '/admission' }, { name: 'Apply Online' }]} />
 
       <section className="section-padding bg-background">

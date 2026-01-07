@@ -1,5 +1,10 @@
 import { Helmet } from 'react-helmet-async';
 
+interface Breadcrumb {
+    name: string;
+    path: string;
+}
+
 interface SEOProps {
     title: string;
     description: string;
@@ -8,6 +13,7 @@ interface SEOProps {
     name?: string;
     image?: string;
     schema?: object;
+    breadcrumbs?: Breadcrumb[];
 }
 
 const SEO = ({
@@ -17,7 +23,8 @@ const SEO = ({
     type = 'website',
     name = 'Alif Global School',
     image = '/og-image.jpg',
-    schema
+    schema,
+    breadcrumbs
 }: SEOProps) => {
     const siteUrl = 'https://alifglobalschool.com'; // Replace with actual domain
     const fullUrl = canonical ? `${siteUrl}${canonical}` : siteUrl;
@@ -44,10 +51,21 @@ const SEO = ({
         },
         "contactPoint": {
             "@type": "ContactPoint",
-            "telephone": "+91-1234567890",
+            "telephone": "+91-8012800100",
             "contactType": "admissions"
         }
     };
+
+    const breadcrumbSchema = breadcrumbs ? {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": breadcrumbs.map((crumb, index) => ({
+            "@type": "ListItem",
+            "position": index + 1,
+            "name": crumb.name,
+            "item": `${siteUrl}${crumb.path}`
+        }))
+    } : null;
 
     return (
         <Helmet>
@@ -74,6 +92,11 @@ const SEO = ({
             <script type="application/ld+json">
                 {JSON.stringify(schema || defaultSchema)}
             </script>
+            {breadcrumbSchema && (
+                <script type="application/ld+json">
+                    {JSON.stringify(breadcrumbSchema)}
+                </script>
+            )}
         </Helmet>
     );
 };

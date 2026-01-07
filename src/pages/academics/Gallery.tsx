@@ -2,6 +2,7 @@ import Layout from '@/components/Layout';
 import PageHeader from '@/components/PageHeader';
 import { useState } from 'react';
 import { X, Maximize2 } from 'lucide-react';
+import SEO from '@/components/SEO';
 
 // Activities Images
 import act1 from '@/assets/Gallery page(ind)/activities/0F7A0214-scaled.webp';
@@ -38,37 +39,37 @@ import cam4 from '@/assets/Gallery page(ind)/campus/campus.webp';
 
 const galleryImages = [
   // Activities
-  { src: act1, category: 'Activities', title: 'Activity 1' },
-  { src: act2, category: 'Activities', title: 'Activity 2' },
-  { src: act3, category: 'Activities', title: 'Activity 3' },
-  { src: act4, category: 'Activities', title: 'Activity 4' },
-  { src: act5, category: 'Activities', title: 'Activity 5' },
-  { src: act6, category: 'Activities', title: 'Activity 6' },
-  { src: act7, category: 'Activities', title: 'Activity 7' },
-  { src: act8, category: 'Activities', title: 'Activity 8' },
-  { src: act9, category: 'Activities', title: 'Activity 9' },
-  { src: act10, category: 'Activities', title: 'Activity 10' },
-  { src: act11, category: 'Activities', title: 'Activity 11' },
-  { src: act12, category: 'Activities', title: 'Activity 12' },
-  { src: act13, category: 'Activities', title: 'Activity 13' },
-  { src: act14, category: 'Activities', title: 'Activity 14' },
-  { src: act15, category: 'Activities', title: 'Activity 15' },
+  { src: act1, category: 'Activities', title: 'Students engaged in classroom activity' },
+  { src: act2, category: 'Activities', title: 'School event celebration' },
+  { src: act3, category: 'Activities', title: 'Creative workshop for students' },
+  { src: act4, category: 'Activities', title: 'Outdoor educational trip' },
+  { src: act5, category: 'Activities', title: 'Cultural program performance' },
+  { src: act6, category: 'Activities', title: 'Sports day event' },
+  { src: act7, category: 'Activities', title: 'Science exhibition project' },
+  { src: act8, category: 'Activities', title: 'Art and craft session' },
+  { src: act9, category: 'Activities', title: 'Student presentation' },
+  { src: act10, category: 'Activities', title: 'Group activity in school' },
+  { src: act11, category: 'Activities', title: 'Music and dance program' },
+  { src: act12, category: 'Activities', title: 'Interactive learning session' },
+  { src: act13, category: 'Activities', title: 'School assembly' },
+  { src: act14, category: 'Activities', title: 'Student achievement celebration' },
+  { src: act15, category: 'Activities', title: 'Community service activity' },
 
   // Facility
-  { src: fac1, category: 'Facility', title: 'Facility 1' },
-  { src: fac2, category: 'Facility', title: 'Facility 2' },
-  { src: fac3, category: 'Facility', title: 'Facility 3' },
-  { src: fac4, category: 'Facility', title: 'Facility 4' },
-  { src: fac6, category: 'Facility', title: 'Facility 6' },
-  { src: fac7, category: 'Facility', title: 'Facility 7' },
-  { src: fac8, category: 'Facility', title: 'Facility 8' },
-  { src: fac9, category: 'Facility', title: 'Facility 9' },
+  { src: fac1, category: 'Facility', title: 'Modern smart classroom' },
+  { src: fac2, category: 'Facility', title: 'Advanced biology laboratory' },
+  { src: fac3, category: 'Facility', title: 'Fully equipped chemistry lab' },
+  { src: fac4, category: 'Facility', title: 'Comfortable student hostel' },
+  { src: fac6, category: 'Facility', title: 'Well-stocked school library' },
+  { src: fac7, category: 'Facility', title: 'Physics laboratory instruments' },
+  { src: fac8, category: 'Facility', title: 'International standard sports turf' },
+  { src: fac9, category: 'Facility', title: 'School cafeteria and dining area' },
 
   // Campus
-  { src: cam1, category: 'Campus', title: 'Campus 1' },
-  { src: cam2, category: 'Campus', title: 'Campus 2' },
-  { src: cam3, category: 'Campus', title: 'Campus 3' },
-  { src: cam4, category: 'Campus', title: 'Campus 4' },
+  { src: cam1, category: 'Campus', title: 'Alif Global School main building' },
+  { src: cam2, category: 'Campus', title: 'Scenic view of the school campus' },
+  { src: cam3, category: 'Campus', title: 'Aerial drone shot of the campus' },
+  { src: cam4, category: 'Campus', title: 'School entrance and greenery' },
 ];
 
 const Gallery = () => {
@@ -83,6 +84,16 @@ const Gallery = () => {
 
   return (
     <Layout>
+      <SEO
+        title="Gallery"
+        description="Explore the gallery of Alif Global School. View photos of our campus, facilities, and various student activities and events."
+        canonical="/academics/gallery"
+        breadcrumbs={[
+          { name: 'Home', path: '/' },
+          { name: 'Academics', path: '/academics' },
+          { name: 'Gallery', path: '/academics/gallery' }
+        ]}
+      />
       <PageHeader title="Gallery" breadcrumb={[{ name: 'Academics', path: '/academics' }, { name: 'Gallery' }]} />
 
       <section className="section-padding bg-background">

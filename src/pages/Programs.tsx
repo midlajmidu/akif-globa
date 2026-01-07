@@ -1,8 +1,9 @@
 import Layout from '@/components/Layout';
 import PageHeader from '@/components/PageHeader';
 import { useEffect, useRef, useState } from 'react';
-import { GraduationCap, BookOpen, Users, School, Award, Sparkles, ArrowRight } from 'lucide-react';
+import { GraduationCap, BookOpen, Users, School, Sparkles, ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import SEO from '@/components/SEO';
 
 const Programs = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -84,6 +85,15 @@ const Programs = () => {
 
   return (
     <Layout>
+      <SEO
+        title="Programs"
+        description="Explore the diverse academic programs at Alif Global School, from Foundation School to Senior Secondary and our specialized Mahfilul Quran program."
+        canonical="/programs"
+        breadcrumbs={[
+          { name: 'Home', path: '/' },
+          { name: 'Programs', path: '/programs' }
+        ]}
+      />
       <PageHeader title="Programs" breadcrumb="Programs" />
 
       <section ref={sectionRef} className="section-padding bg-background">

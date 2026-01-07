@@ -1,6 +1,7 @@
 import Layout from '@/components/Layout';
 import PageHeader from '@/components/PageHeader';
 import { useEffect, useRef, useState } from 'react';
+import SEO from '@/components/SEO';
 
 import logoImg from '@/assets/alif-logo.webp';
 import campusImg from '@/assets/galley in home page/campus .webp';
@@ -28,6 +29,16 @@ const Trust = () => {
 
   return (
     <Layout>
+      <SEO
+        title="Alif Edu Trust"
+        description="Discover the foundation of Alif Global School. Learn about Alif Edu Trust, our mission, vision, and our journey since 2009 in providing quality education."
+        canonical="/about/trust"
+        breadcrumbs={[
+          { name: 'Home', path: '/' },
+          { name: 'About', path: '/about' },
+          { name: 'Alif Edu Trust', path: '/about/trust' }
+        ]}
+      />
       <PageHeader title="Alif Edu Trust" breadcrumb={[{ name: 'About', path: '/about' }, { name: 'Alif Edu Trust' }]} />
 
       <section ref={sectionRef} className="section-padding bg-background">
@@ -40,7 +51,7 @@ const Trust = () => {
                 transform: isVisible ? 'translateX(0)' : 'translateX(-30px)',
               }}
             >
-              <img src={logoImg} alt="Alif Logo" className="w-32 h-auto mb-8" />
+              <img src={logoImg} alt="Alif Global School Logo" className="w-32 h-auto mb-8" />
               <span className="inline-block px-4 py-2 bg-accent/10 text-accent rounded-full text-sm font-medium mb-4">
                 Our Foundation
               </span>
@@ -56,8 +67,6 @@ const Trust = () => {
 
               <p className="text-body">
                 Our collective mission and vision is to motivate and energize students to develop the knowledge, creativity, and skill to realize their fullest potential as caring, responsible and productive citizens, leaders, and lifelong learners.
-
-
               </p>
             </div>
 
@@ -72,7 +81,7 @@ const Trust = () => {
               <div className="relative">
                 <img
                   src={campusImg}
-                  alt="Alif Campus"
+                  alt="Alif Global School Campus View"
                   className="rounded-2xl shadow-strong w-full h-auto object-cover"
                 />
                 <div className="absolute -bottom-6 -left-6 bg-accent text-accent-foreground p-6 rounded-2xl shadow-gold">

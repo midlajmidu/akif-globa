@@ -2,6 +2,7 @@ import Layout from '@/components/Layout';
 import PageHeader from '@/components/PageHeader';
 import { useEffect, useRef, useState } from 'react';
 import { FileText, Download, ExternalLink, Info, Users, Building2, BookOpen } from 'lucide-react';
+import SEO from '@/components/SEO';
 
 const Disclosure = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -78,6 +79,15 @@ const Disclosure = () => {
 
   return (
     <Layout>
+      <SEO
+        title="Mandatory Public Disclosure"
+        description="View the mandatory public disclosure of Alif Global School as per CBSE norms. Includes general information, documents, academic details, and infrastructure."
+        canonical="/disclosure"
+        breadcrumbs={[
+          { name: 'Home', path: '/' },
+          { name: 'Mandatory Public Disclosure', path: '/disclosure' }
+        ]}
+      />
       <PageHeader title="Mandatory Public Disclosure" breadcrumb={[{ name: 'About', path: '/about' }, { name: 'Disclosure' }]} />
 
       <section ref={sectionRef} className="section-padding bg-background">
@@ -88,7 +98,9 @@ const Disclosure = () => {
             <div className={`mb-16 transition-all duration-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
               <div className="flex items-center gap-3 mb-8">
                 <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center shadow-sm">
-                  <Info className="w-6 h-6 text-primary" />
+                  <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center shadow-sm">
+                    <Info className="w-6 h-6 text-primary" />
+                  </div>
                 </div>
                 <div>
                   <h2 className="text-2xl font-bold text-primary">A: General Information</h2>

@@ -1,11 +1,22 @@
 import Layout from '@/components/Layout';
 import PageHeader from '@/components/PageHeader';
 import { Sparkles, CheckCircle2, Globe, Moon, BookOpen, Heart } from 'lucide-react';
+import SEO from '@/components/SEO';
 import zeequeHeroImg from '@/assets/1-2.webp';
 
 const Zeeque = () => {
   return (
     <Layout>
+      <SEO
+        title="Alif ZeeQue International"
+        description="Discover Alif ZeeQue International, our preschool program for ages 3 to 6. We offer a nurturing environment with activity-based learning and the AZQ+ Program for spiritual growth."
+        canonical="/academics/zeeque"
+        breadcrumbs={[
+          { name: 'Home', path: '/' },
+          { name: 'Academics', path: '/academics' },
+          { name: 'Alif ZeeQue International', path: '/academics/zeeque' }
+        ]}
+      />
       <PageHeader title="Alif Zeeque Intl" breadcrumb={[{ name: 'Academics', path: '/academics' }, { name: 'Alif Zeeque Intl' }]} />
 
       <div className="bg-background">
@@ -35,7 +46,7 @@ const Zeeque = () => {
                 <div className="relative">
                   <img
                     src={zeequeHeroImg}
-                    alt="ZeeQue International"
+                    alt="Alif ZeeQue International Preschool"
                     className="rounded-3xl shadow-2xl border-8 border-white/10"
                   />
                   <div className="absolute -bottom-6 -left-6 bg-accent p-6 rounded-2xl shadow-xl hidden md:block">

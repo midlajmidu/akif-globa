@@ -1,9 +1,20 @@
 import Layout from '@/components/Layout';
 import { School, CheckCircle2, Target, Rocket, Users, Briefcase } from 'lucide-react';
+import SEO from '@/components/SEO';
 
 const Secondary = () => {
     return (
         <Layout>
+            <SEO
+                title="Secondary School"
+                description="Alif Global School's Secondary School (Grades 9 to 10) prepares students for future academic and career paths through goal setting, career orientation, and academic excellence."
+                canonical="/programs/academic-levels/secondary"
+                breadcrumbs={[
+                    { name: 'Home', path: '/' },
+                    { name: 'Programs', path: '/programs' },
+                    { name: 'Secondary School', path: '/programs/academic-levels/secondary' }
+                ]}
+            />
             <div className="pt-20">
                 {/* Hero Section */}
                 <section className="bg-primary py-20 text-primary-foreground relative overflow-hidden">
@@ -25,7 +36,7 @@ const Secondary = () => {
                             <div className="flex-1">
                                 <img
                                     src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?q=80&w=2070&auto=format&fit=crop"
-                                    alt="Secondary School"
+                                    alt="Secondary School Students"
                                     className="rounded-3xl shadow-2xl border-8 border-white/10"
                                 />
                             </div>

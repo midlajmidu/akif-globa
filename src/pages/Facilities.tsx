@@ -2,6 +2,7 @@ import Layout from '@/components/Layout';
 import PageHeader from '@/components/PageHeader';
 import { useEffect, useRef, useState } from 'react';
 import { CheckCircle2 } from 'lucide-react';
+import SEO from '@/components/SEO';
 
 import campusImg from '@/assets/alif campus.webp';
 import classroomImg from '@/assets/Gallery page(ind)/facility/0F7A8715-scaled.webp';
@@ -67,6 +68,15 @@ const Facilities = () => {
 
   return (
     <Layout>
+      <SEO
+        title="Facilities"
+        description="Discover the world-class facilities at Alif Global School, including modern classrooms, advanced science labs, international standard sports turf, and a vast library."
+        canonical="/facilities"
+        breadcrumbs={[
+          { name: 'Home', path: '/' },
+          { name: 'Facilities', path: '/facilities' }
+        ]}
+      />
       <PageHeader title="Facilities" breadcrumb="Facilities" />
 
       <section ref={sectionRef} className="section-padding bg-background">
@@ -89,7 +99,6 @@ const Facilities = () => {
               </p>
               <p className="text-body mb-8">
                 Safety is our priority, the campus is secured with CCTV surveillance and also offer transportation, a mess facility and a well-equipped medical room. With all these facilities, we make sure every child gets the best learning experience in a safe and inspiring.
-
               </p>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 {['Smart Learning Spaces', 'Advanced Science Labs', 'Professional Sports Turf', 'Secure & Safe Campus'].map((item) => (

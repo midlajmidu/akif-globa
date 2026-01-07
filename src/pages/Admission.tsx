@@ -1,8 +1,9 @@
 import Layout from '@/components/Layout';
 import PageHeader from '@/components/PageHeader';
 import { useEffect, useRef, useState } from 'react';
-import { FileText, Calendar, CheckCircle, ArrowRight } from 'lucide-react';
+import { FileText, CheckCircle, ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import SEO from '@/components/SEO';
 
 const Admission = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -45,6 +46,15 @@ const Admission = () => {
 
   return (
     <Layout>
+      <SEO
+        title="Admission"
+        description="Join Alif Global School. Learn about our streamlined admission process, required documents, and start your online application today."
+        canonical="/admission"
+        breadcrumbs={[
+          { name: 'Home', path: '/' },
+          { name: 'Admission', path: '/admission' }
+        ]}
+      />
       <PageHeader title="Admission" breadcrumb="Admission" />
 
       <section ref={sectionRef} className="section-padding bg-background">

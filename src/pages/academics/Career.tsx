@@ -2,6 +2,7 @@ import Layout from '@/components/Layout';
 import PageHeader from '@/components/PageHeader';
 import { Briefcase, Users, GraduationCap } from 'lucide-react';
 import { CareerForm } from '@/components/career/CareerForm';
+import SEO from '@/components/SEO';
 
 const openings = [
   { title: 'Mathematics Teacher', dept: 'Senior Secondary', type: 'Full-time' },
@@ -12,6 +13,16 @@ const openings = [
 const Career = () => {
   return (
     <Layout>
+      <SEO
+        title="Careers"
+        description="Join the Alif Global School team. Explore career opportunities for educators and professionals. Be part of a community that values innovation and excellence."
+        canonical="/academics/career"
+        breadcrumbs={[
+          { name: 'Home', path: '/' },
+          { name: 'Academics', path: '/academics' },
+          { name: 'Career', path: '/academics/career' }
+        ]}
+      />
       <PageHeader title="Career" breadcrumb={[{ name: 'Academics', path: '/academics' }, { name: 'Career' }]} />
 
       <section className="section-padding">

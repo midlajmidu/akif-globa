@@ -1,5 +1,6 @@
 import Layout from '@/components/Layout';
 import PageHeader from '@/components/PageHeader';
+import SEO from '@/components/SEO';
 
 import paletteImg from '@/assets/ags news/pallete news.webp';
 import alifinityImg from '@/assets/ags news/alifinity.webp';
@@ -43,6 +44,16 @@ export const newsItems = [
 const News = () => {
   return (
     <Layout>
+      <SEO
+        title="School News"
+        description="Stay informed with the latest news and updates from Alif Global School. Read about our recent events, achievements, and school announcements."
+        canonical="/academics/news"
+        breadcrumbs={[
+          { name: 'Home', path: '/' },
+          { name: 'Academics', path: '/academics' },
+          { name: 'News', path: '/academics/news' }
+        ]}
+      />
       <PageHeader title="News" breadcrumb={[{ name: 'Academics', path: '/academics' }, { name: 'News' }]} />
       <section className="section-padding">
         <div className="container-custom">

@@ -18,6 +18,9 @@ const Index = () => {
         title="Home"
         description="Alif Global School is a premier residential school in Kerala offering world-class education with a focus on holistic development, moral values, and academic excellence. CBSE affiliated."
         canonical="/"
+        breadcrumbs={[
+          { name: 'Home', path: '/' }
+        ]}
       />
       <HeroSection />
       <AboutSection />

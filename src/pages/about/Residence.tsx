@@ -1,6 +1,7 @@
 import Layout from '@/components/Layout';
 import PageHeader from '@/components/PageHeader';
 import { useEffect, useRef, useState } from 'react';
+import SEO from '@/components/SEO';
 
 import residenceImg from '@/assets/about/alif residency.webp';
 
@@ -27,6 +28,16 @@ const Residence = () => {
 
   return (
     <Layout>
+      <SEO
+        title="Alif Residence"
+        description="Learn about Alif Residence, the second home for our students. Discover our comfortable, secure, and air-conditioned boarding facilities for boys and girls."
+        canonical="/about/residence"
+        breadcrumbs={[
+          { name: 'Home', path: '/' },
+          { name: 'About', path: '/about' },
+          { name: 'Alif Residence', path: '/about/residence' }
+        ]}
+      />
       <PageHeader title="Alif Residence" breadcrumb={[{ name: 'About', path: '/about' }, { name: 'Alif Residence' }]} />
 
       <section ref={sectionRef} className="section-padding bg-background">
@@ -48,7 +59,6 @@ const Residence = () => {
 
               <p className="text-body mb-6">
                 The Alif residence is the second home for a child, where he/she feels comfortable thanks to the cosy interiors and comfortable living quarters. The tranquil campus, with its ample green space and fresh air, is home to beautiful flora and birdlife worth cherishing and is a hub of academic, social, physical and cultural activities. The students dwell in a healthy environment that helps them grow and learn without any obstacle.
-
               </p>
               <p className="text-body">
                 With both weekly and yearly boarding programs available, the rooms are designed to accommodate four students from the same age group in one room. Alif residence also boasts of separate residences for girls & boys, well-structured and homely environment, fully air-conditioned living quarters, mentors for each block to monitor academics and act as a dorm parent and various other facilities.              </p>
@@ -65,7 +75,7 @@ const Residence = () => {
               <div className="relative">
                 <img
                   src={residenceImg}
-                  alt="Alif Residence"
+                  alt="Alif Global School Residence Building"
                   className="rounded-2xl shadow-strong w-full h-auto object-cover"
                 />
                 <div className="absolute -bottom-6 -left-6 bg-accent text-accent-foreground p-6 rounded-2xl shadow-gold">

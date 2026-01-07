@@ -1,5 +1,6 @@
 import ProgramPageTemplate from '@/components/programs/ProgramPageTemplate';
 import { Mic } from 'lucide-react';
+import SEO from '@/components/SEO';
 
 const AGSTalks = () => {
   const images = Object.values(
@@ -17,13 +18,25 @@ const AGSTalks = () => {
   ];
 
   return (
-    <ProgramPageTemplate
-      title="AGS Talks"
-      description="A platform for students to share their ideas, insights, and inspirations through engaging presentations and discussions. AGS Talks encourages public speaking, critical thinking, and the sharing of diverse perspectives within our school community."
-      images={images}
-      videos={videos}
-      icon={<Mic className="w-16 h-16 text-accent" />}
-    />
+    <>
+      <SEO
+        title="AGS Talks"
+        description="AGS Talks is a platform for students at Alif Global School to share ideas and insights. It encourages public speaking, critical thinking, and diverse perspectives."
+        canonical="/programs/ags-talks"
+        breadcrumbs={[
+          { name: 'Home', path: '/' },
+          { name: 'Programs', path: '/programs' },
+          { name: 'AGS Talks', path: '/programs/ags-talks' }
+        ]}
+      />
+      <ProgramPageTemplate
+        title="AGS Talks"
+        description="A platform for students to share their ideas, insights, and inspirations through engaging presentations and discussions. AGS Talks encourages public speaking, critical thinking, and the sharing of diverse perspectives within our school community."
+        images={images}
+        videos={videos}
+        icon={<Mic className="w-16 h-16 text-accent" />}
+      />
+    </>
   );
 };
 

@@ -2,6 +2,7 @@ import Layout from '@/components/Layout';
 import PageHeader from '@/components/PageHeader';
 import { useEffect, useRef, useState } from 'react';
 import { Quote } from 'lucide-react';
+import SEO from '@/components/SEO';
 import pinarayiImg from '@/assets/testimonial/Pinarayi Vijayan.webp';
 import abdusalamImg from '@/assets/testimonial/abdusalam.webp';
 
@@ -61,6 +62,16 @@ const Testimonials = () => {
 
   return (
     <Layout>
+      <SEO
+        title="Testimonials"
+        description="Read what distinguished guests and parents have to say about Alif Global School. Watch video testimonials and learn about our commitment to excellence."
+        canonical="/about/testimonials"
+        breadcrumbs={[
+          { name: 'Home', path: '/' },
+          { name: 'About', path: '/about' },
+          { name: 'Testimonials', path: '/about/testimonials' }
+        ]}
+      />
       <PageHeader title="Testimonials" breadcrumb={[{ name: 'About', path: '/about' }, { name: 'Testimonials' }]} />
 
       <section ref={sectionRef} className="section-padding bg-background">

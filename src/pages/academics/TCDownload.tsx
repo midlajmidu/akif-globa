@@ -5,6 +5,7 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { FileDown, Search, Loader2, CheckCircle2, AlertCircle, Download } from 'lucide-react';
+import SEO from '@/components/SEO';
 
 const TCDownload = () => {
   const [tcNumber, setTcNumber] = useState('');
@@ -29,7 +30,6 @@ const TCDownload = () => {
       setIsLoading(false);
 
       if (response.status === 'found') {
-        // window.open(response.url, '_blank'); // Removed auto-redirect
         setDownloadUrl(response.url);
       } else if (response.status === 'not_found') {
         setError("TC not found. Please check the TC number.");
@@ -52,6 +52,16 @@ const TCDownload = () => {
 
   return (
     <Layout>
+      <SEO
+        title="Transfer Certificate Download"
+        description="Download your Transfer Certificate (TC) from Alif Global School. Enter your TC number to search and download the digital copy of your certificate."
+        canonical="/academics/tc-download"
+        breadcrumbs={[
+          { name: 'Home', path: '/' },
+          { name: 'Academics', path: '/academics' },
+          { name: 'TC Download', path: '/academics/tc-download' }
+        ]}
+      />
       <PageHeader title="Transfer Certificate Download" breadcrumb={[{ name: 'Academics', path: '/academics' }, { name: 'TC Download' }]} />
 
       <section className="section-padding bg-background min-h-[60vh] flex items-center">

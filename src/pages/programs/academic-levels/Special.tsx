@@ -1,9 +1,20 @@
 import Layout from '@/components/Layout';
 import { BookOpen, CheckCircle2, Sparkles, Heart, Globe, Star } from 'lucide-react';
+import SEO from '@/components/SEO';
 
 const MahfilulQuran = () => {
     return (
         <Layout>
+            <SEO
+                title="Mahfilul Quran"
+                description="Alif Global School's Mahfilul Quran is a specialized program for Quranic studies, Hifz (memorization), and Tajweed, integrated with modern academic excellence."
+                canonical="/programs/academic-levels/special"
+                breadcrumbs={[
+                    { name: 'Home', path: '/' },
+                    { name: 'Programs', path: '/programs' },
+                    { name: 'Mahfilul Quran', path: '/programs/academic-levels/special' }
+                ]}
+            />
             <div className="pt-20">
                 {/* Hero Section */}
                 <section className="bg-primary py-20 text-primary-foreground relative overflow-hidden">
@@ -25,7 +36,7 @@ const MahfilulQuran = () => {
                             <div className="flex-1">
                                 <img
                                     src="https://images.unsplash.com/photo-1585036156171-3839efc229b7?q=80&w=2070&auto=format&fit=crop"
-                                    alt="Mahfilul Quran"
+                                    alt="Mahfilul Quran Program Students"
                                     className="rounded-3xl shadow-2xl border-8 border-white/10"
                                 />
                             </div>

@@ -2,6 +2,7 @@ import Layout from '@/components/Layout';
 import PageHeader from '@/components/PageHeader';
 import { useEffect, useRef, useState } from 'react';
 import { ExternalLink } from 'lucide-react';
+import SEO from '@/components/SEO';
 
 import riyadhImg from '@/assets/about/alif international riyadh.webp';
 
@@ -28,6 +29,16 @@ const Riyadh = () => {
 
   return (
     <Layout>
+      <SEO
+        title="Alif International School, Riyadh"
+        description="Learn about Alif International School, Riyadh, our first international campus in Saudi Arabia. Discover our commitment to global educational excellence."
+        canonical="/about/riyadh"
+        breadcrumbs={[
+          { name: 'Home', path: '/' },
+          { name: 'About', path: '/about' },
+          { name: 'Alif International School, Riyadh', path: '/about/riyadh' }
+        ]}
+      />
       <PageHeader title="Alif International School, Riyadh" breadcrumb={[{ name: 'About', path: '/about' }, { name: 'Alif International School, Riyadh' }]} />
 
       <section ref={sectionRef} className="section-padding bg-background">
@@ -66,7 +77,7 @@ const Riyadh = () => {
               <div className="relative">
                 <img
                   src={riyadhImg}
-                  alt="Alif Riyadh"
+                  alt="Alif International School Riyadh Campus"
                   className="rounded-2xl shadow-strong"
                 />
                 <div className="absolute -bottom-6 -left-6 bg-accent text-accent-foreground p-6 rounded-2xl shadow-gold">

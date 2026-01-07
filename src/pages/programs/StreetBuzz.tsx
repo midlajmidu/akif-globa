@@ -1,5 +1,6 @@
 import ProgramPageTemplate from '@/components/programs/ProgramPageTemplate';
 import { Megaphone } from 'lucide-react';
+import SEO from '@/components/SEO';
 
 const StreetBuzz = () => {
   const images = [
@@ -32,13 +33,25 @@ const StreetBuzz = () => {
   ];
 
   return (
-    <ProgramPageTemplate
-      title="Street Buzz"
-      description="Capturing the vibrant energy of student life through street-style reporting, interviews, and community engagement. Street Buzz brings the latest news, trends, and voices from around the campus directly to you."
-      images={images}
-      videos={videos}
-      icon={<Megaphone className="w-16 h-16 text-accent" />}
-    />
+    <>
+      <SEO
+        title="Street Buzz Program"
+        description="Street Buzz captures the vibrant energy of student life at Alif Global School through street-style reporting, interviews, and community engagement."
+        canonical="/programs/street-buzz"
+        breadcrumbs={[
+          { name: 'Home', path: '/' },
+          { name: 'Programs', path: '/programs' },
+          { name: 'Street Buzz', path: '/programs/street-buzz' }
+        ]}
+      />
+      <ProgramPageTemplate
+        title="Street Buzz"
+        description="Capturing the vibrant energy of student life through street-style reporting, interviews, and community engagement. Street Buzz brings the latest news, trends, and voices from around the campus directly to you."
+        images={images}
+        videos={videos}
+        icon={<Megaphone className="w-16 h-16 text-accent" />}
+      />
+    </>
   );
 };
 

@@ -1,6 +1,7 @@
 import Layout from '@/components/Layout';
 import PageHeader from '@/components/PageHeader';
 import { useEffect, useRef, useState } from 'react';
+import SEO from '@/components/SEO';
 
 import markazImg from '@/assets/about/markaz knoedge city.webp';
 
@@ -27,6 +28,16 @@ const Markaz = () => {
 
   return (
     <Layout>
+      <SEO
+        title="Markaz Knowledge City"
+        description="Learn about Markaz Knowledge City, the integrated township of international excellence where Alif Global School is located. A 125-acre hub for education, health, and living."
+        canonical="/about/markaz"
+        breadcrumbs={[
+          { name: 'Home', path: '/' },
+          { name: 'About', path: '/about' },
+          { name: 'Markaz Knowledge City', path: '/about/markaz' }
+        ]}
+      />
       <PageHeader title="Markaz Knowledge City" breadcrumb={[{ name: 'About', path: '/about' }, { name: 'Markaz Knowledge City' }]} />
 
       <section ref={sectionRef} className="section-padding bg-background">
@@ -53,8 +64,6 @@ const Markaz = () => {
               </p>
               <p className="text-body">
                 Designed as a sustainable development with phased growth, the city offers strong social infrastructure including housing for students and faculty, schools, healthcare centers, and leisure amenities. This thoughtful planning creates a pleasant environment where people can walk to schools and workplaces, enjoy modern comforts, and take pride in being part of one of the finest emerging learning centers in the world.
-
-
               </p>
             </div>
 
@@ -69,7 +78,7 @@ const Markaz = () => {
               <div className="relative">
                 <img
                   src={markazImg}
-                  alt="Markaz Knowledge City"
+                  alt="Markaz Knowledge City Campus Overview"
                   className="rounded-2xl shadow-strong"
                 />
                 <div className="absolute -bottom-6 -right-6 bg-accent text-accent-foreground p-6 rounded-2xl shadow-gold">

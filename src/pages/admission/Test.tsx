@@ -6,14 +6,11 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { toast } from 'sonner';
+import SEO from '@/components/SEO';
 
 const Test = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
-
-  const syllabusItems = [
-    { class: 'Grade 1-9', link: 'https://drive.google.com/file/d/1IUvU0bOh5gGbFa79WcaJ6ivEsdeCe-tk/view?usp=sharing' },
-  ];
 
   const registrationGrades = [
     'Grade 1', 'Grade 2', 'Grade 3', 'Grade 4', 'Grade 5', 'Grade 6', 'Grade 7', 'Grade 8', 'Grade 9'
@@ -55,11 +52,23 @@ const Test = () => {
       setIsSubmitting(false);
       toast.error("Submission failed. Please try again.");
       console.error('Error!', error);
+    } finally {
+      setIsSubmitting(false);
     }
   };
 
   return (
     <Layout>
+      <SEO
+        title="Admission Test"
+        description="Register for the Alif Global School admission test. Find information about test dates, duration, subjects, and download the syllabus for Grades 1 to 9."
+        canonical="/admission/test"
+        breadcrumbs={[
+          { name: 'Home', path: '/' },
+          { name: 'Admission', path: '/admission' },
+          { name: 'Admission Test', path: '/admission/test' }
+        ]}
+      />
       <PageHeader title="Admission Test" breadcrumb={[{ name: 'Admission', path: '/admission' }, { name: 'Admission Test' }]} />
 
       <section className="section-padding bg-background">

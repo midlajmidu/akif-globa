@@ -39,6 +39,10 @@ const About = () => {
         title="About Us"
         description="Learn about Alif Global School's history, mission, and vision. Founded in 2009, we are committed to providing quality education with a holistic approach."
         canonical="/about"
+        breadcrumbs={[
+          { name: 'Home', path: '/' },
+          { name: 'About', path: '/about' }
+        ]}
       />
       <PageHeader title="About Us" breadcrumb="About" />
 
@@ -80,7 +84,7 @@ const About = () => {
               <div className="relative">
                 <img
                   src={campusImg}
-                  alt="Campus"
+                  alt="Alif Global School Campus"
                   className="rounded-2xl shadow-strong"
                 />
               </div>

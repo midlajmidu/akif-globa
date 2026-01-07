@@ -1,9 +1,20 @@
 import Layout from '@/components/Layout';
 import { BookOpen, CheckCircle2, Search, Lightbulb, Map, Heart } from 'lucide-react';
+import SEO from '@/components/SEO';
 
 const Preparatory = () => {
     return (
         <Layout>
+            <SEO
+                title="Preparatory School"
+                description="Alif Global School's Preparatory School (Grades 3 to 5) encourages inquiry and exploration, developing core competencies in a caring and supportive environment."
+                canonical="/programs/academic-levels/preparatory"
+                breadcrumbs={[
+                    { name: 'Home', path: '/' },
+                    { name: 'Programs', path: '/programs' },
+                    { name: 'Preparatory School', path: '/programs/academic-levels/preparatory' }
+                ]}
+            />
             <div className="pt-20">
                 {/* Hero Section */}
                 <section className="bg-primary py-20 text-primary-foreground relative overflow-hidden">
@@ -25,7 +36,7 @@ const Preparatory = () => {
                             <div className="flex-1">
                                 <img
                                     src="https://images.unsplash.com/photo-1509062522246-3755977927d7?q=80&w=2104&auto=format&fit=crop"
-                                    alt="Preparatory School"
+                                    alt="Preparatory School Students"
                                     className="rounded-3xl shadow-2xl border-8 border-white/10"
                                 />
                             </div>

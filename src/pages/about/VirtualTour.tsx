@@ -1,7 +1,7 @@
 import Layout from '@/components/Layout';
 import PageHeader from '@/components/PageHeader';
 import { useEffect, useRef, useState } from 'react';
-import { Play } from 'lucide-react';
+import SEO from '@/components/SEO';
 
 const VirtualTour = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -26,6 +26,16 @@ const VirtualTour = () => {
 
   return (
     <Layout>
+      <SEO
+        title="Virtual Tour"
+        description="Take a virtual tour of Alif Global School. Experience our world-class facilities, smart classrooms, and vibrant campus environment from anywhere."
+        canonical="/about/virtual-tour"
+        breadcrumbs={[
+          { name: 'Home', path: '/' },
+          { name: 'About', path: '/about' },
+          { name: 'Virtual Tour', path: '/about/virtual-tour' }
+        ]}
+      />
       <PageHeader title="Virtual Tour" breadcrumb={[{ name: 'About', path: '/about' }, { name: 'Virtual Tour' }]} />
 
       <section ref={sectionRef} className="section-padding bg-background">

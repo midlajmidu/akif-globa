@@ -1,9 +1,20 @@
 import Layout from '@/components/Layout';
 import { Sparkles, CheckCircle2, BookOpen, Heart, Globe, Moon } from 'lucide-react';
+import SEO from '@/components/SEO';
 
 const Foundation = () => {
     return (
         <Layout>
+            <SEO
+                title="Foundation School"
+                description="Alif Global School's Foundation School (LZQ to Grade 2) provides a nurturing environment with activity-based learning, spiritual growth, and foundational skills."
+                canonical="/programs/academic-levels/foundation"
+                breadcrumbs={[
+                    { name: 'Home', path: '/' },
+                    { name: 'Programs', path: '/programs' },
+                    { name: 'Foundation School', path: '/programs/academic-levels/foundation' }
+                ]}
+            />
             <div className="pt-20">
                 {/* Hero Section */}
                 <section className="bg-primary py-20 text-primary-foreground relative overflow-hidden">
@@ -25,7 +36,7 @@ const Foundation = () => {
                             <div className="flex-1">
                                 <img
                                     src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?q=80&w=2022&auto=format&fit=crop"
-                                    alt="Foundation School"
+                                    alt="Foundation School Students"
                                     className="rounded-3xl shadow-2xl border-8 border-white/10"
                                 />
                             </div>
@@ -40,7 +51,7 @@ const Foundation = () => {
                             <div className="order-2 lg:order-1">
                                 <img
                                     src="https://images.unsplash.com/photo-1587654780291-39c9404d746b?q=80&w=2070&auto=format&fit=crop"
-                                    alt="ZeeQue International"
+                                    alt="ZeeQue International Preschool"
                                     className="rounded-3xl shadow-strong"
                                 />
                             </div>

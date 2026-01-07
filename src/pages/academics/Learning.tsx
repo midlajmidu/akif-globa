@@ -1,6 +1,7 @@
 import Layout from '@/components/Layout';
 import PageHeader from '@/components/PageHeader';
 import { BookOpen, Video, FileText, Laptop } from 'lucide-react';
+import SEO from '@/components/SEO';
 
 const resources = [
   { icon: BookOpen, title: 'E-Books', desc: 'Digital library access' },
@@ -12,6 +13,16 @@ const resources = [
 const Learning = () => {
   return (
     <Layout>
+      <SEO
+        title="Learning Zone"
+        description="Access digital learning resources at Alif Global School. Explore e-books, video lessons, study materials, and our online student portal."
+        canonical="/academics/learning-zone"
+        breadcrumbs={[
+          { name: 'Home', path: '/' },
+          { name: 'Academics', path: '/academics' },
+          { name: 'Learning Zone', path: '/academics/learning-zone' }
+        ]}
+      />
       <PageHeader title="Learning Zone" breadcrumb={[{ name: 'Academics', path: '/academics' }, { name: 'Learning Zone' }]} />
       <section className="section-padding">
         <div className="container-custom">

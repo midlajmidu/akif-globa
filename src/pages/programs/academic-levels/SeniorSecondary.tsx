@@ -1,9 +1,20 @@
 import Layout from '@/components/Layout';
 import { GraduationCap, CheckCircle2, Award, BookOpen, Users, ShieldCheck } from 'lucide-react';
+import SEO from '@/components/SEO';
 
 const SeniorSecondary = () => {
     return (
         <Layout>
+            <SEO
+                title="Senior Secondary"
+                description="Alif Global School's Senior Secondary (Grades 11 and 12) offers an integrated residential curriculum combining CBSE academics with specialized coaching for JEE and NEET."
+                canonical="/programs/academic-levels/senior-secondary"
+                breadcrumbs={[
+                    { name: 'Home', path: '/' },
+                    { name: 'Programs', path: '/programs' },
+                    { name: 'Senior Secondary', path: '/programs/academic-levels/senior-secondary' }
+                ]}
+            />
             <div className="pt-20">
                 {/* Hero Section */}
                 <section className="bg-primary py-20 text-primary-foreground relative overflow-hidden">
@@ -25,7 +36,7 @@ const SeniorSecondary = () => {
                             <div className="flex-1">
                                 <img
                                     src="https://images.unsplash.com/photo-1523580494863-6f3031224c94?q=80&w=2070&auto=format&fit=crop"
-                                    alt="Senior Secondary"
+                                    alt="Senior Secondary Students"
                                     className="rounded-3xl shadow-2xl border-8 border-white/10"
                                 />
                             </div>

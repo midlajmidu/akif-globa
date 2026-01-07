@@ -21,7 +21,7 @@ const HeroSection = () => {
       <div className="absolute inset-0 w-full h-full">
         {/* Image Background (Always present initially, fades out or stays behind) */}
         <div
-          className={`absolute inset-0 bg-cover bg-center bg-no-repeat transition-opacity duration-1000 ${showVideo ? 'opacity-0' : 'opacity-100'}`}
+          className={`absolute inset-0 bg-cover bg-center bg-no-repeat transition-opacity duration-1000 ${showVideo ? 'md:opacity-0' : 'opacity-100'}`}
           style={{ backgroundImage: `url(${heroImage})` }}
         />
 
@@ -32,7 +32,7 @@ const HeroSection = () => {
             loop
             muted
             playsInline
-            className="absolute inset-0 w-full h-full object-cover animate-fade-in"
+            className="hidden md:block absolute inset-0 w-full h-full object-cover animate-fade-in"
           >
             <source src={heroVideo} type="video/mp4" />
             Your browser does not support the video tag.

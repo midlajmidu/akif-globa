@@ -2,6 +2,7 @@ import Layout from '@/components/Layout';
 import PageHeader from '@/components/PageHeader';
 import { useEffect, useRef, useState } from 'react';
 import { BookOpen, Beaker, Globe, Calculator, Palette, Music } from 'lucide-react';
+import SEO from '@/components/SEO';
 
 const Academics = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -42,8 +43,17 @@ const Academics = () => {
 
   return (
     <Layout>
+      <SEO
+        title="Academics"
+        description="Explore Alif Global School's academic approach, CBSE curriculum, and wide range of subjects designed for holistic development and excellence."
+        canonical="/academics"
+        breadcrumbs={[
+          { name: 'Home', path: '/' },
+          { name: 'Academics', path: '/academics' }
+        ]}
+      />
       <PageHeader title="Academics" breadcrumb="Academics" />
-      
+
       <section ref={sectionRef} className="section-padding bg-background">
         <div className="container-custom">
           {/* Introduction */}
@@ -53,11 +63,11 @@ const Academics = () => {
             </span>
             <h2 className="heading-primary mb-4">Our Academic Approach</h2>
             <p className="text-body">
-              We follow a comprehensive curriculum that balances academic rigor with creative exploration, 
+              We follow a comprehensive curriculum that balances academic rigor with creative exploration,
               preparing students for success in higher education and beyond.
             </p>
           </div>
-          
+
           {/* Subjects Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-20">
             {subjects.map((subject, index) => (
@@ -78,7 +88,7 @@ const Academics = () => {
               </div>
             ))}
           </div>
-          
+
           {/* Curriculum Features */}
           <div className="bg-primary rounded-3xl p-8 md:p-12">
             <div className="text-center mb-12">
@@ -89,7 +99,7 @@ const Academics = () => {
                 Our curriculum is designed to foster critical thinking, creativity, and a love for learning
               </p>
             </div>
-            
+
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               {curriculum.map((item, index) => (
                 <div

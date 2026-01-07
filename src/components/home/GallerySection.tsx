@@ -17,18 +17,18 @@ import img11 from '@/assets/galley in home page/football.webp';
 import img12 from '@/assets/galley in home page/porgram.webp';
 
 const galleryImages = [
-  { src: img1, alt: 'Gallery Image 1' },
-  { src: img2, alt: 'Gallery Image 2' },
-  { src: img3, alt: 'Gallery Image 3' },
-  { src: img4, alt: 'Gallery Image 4' },
-  { src: img5, alt: 'Gallery Image 5' },
-  { src: img6, alt: 'Gallery Image 6' },
-  { src: img7, alt: 'Gallery Image 7' },
-  { src: img8, alt: 'Gallery Image 8' },
-  { src: img9, alt: 'Gallery Image 9' },
-  { src: img10, alt: 'Gallery Image 10' },
-  { src: img11, alt: 'Gallery Image 11' },
-  { src: img12, alt: 'Gallery Image 12' },
+  { src: img1, alt: 'Students participating in school activity' },
+  { src: img2, alt: 'Alif Global School Hostel Building' },
+  { src: img3, alt: 'Classroom learning session' },
+  { src: img4, alt: 'School event celebration' },
+  { src: img5, alt: 'Students in the school library' },
+  { src: img6, alt: 'Science laboratory experiment' },
+  { src: img7, alt: 'Art and craft workshop' },
+  { src: img8, alt: 'Cultural program performance' },
+  { src: img9, alt: 'Aerial view of Alif Global School campus' },
+  { src: img10, alt: 'Main entrance of Alif Global School' },
+  { src: img11, alt: 'Students playing football on the school turf' },
+  { src: img12, alt: 'School assembly and program' },
 ];
 
 const GallerySection = () => {

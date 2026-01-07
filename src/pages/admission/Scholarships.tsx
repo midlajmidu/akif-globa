@@ -8,6 +8,7 @@ import { Label } from '@/components/ui/label';
 import { Textarea } from '@/components/ui/textarea';
 import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
 import { toast } from 'sonner';
+import SEO from '@/components/SEO';
 
 const Scholarships = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -60,6 +61,16 @@ const Scholarships = () => {
 
   return (
     <Layout>
+      <SEO
+        title="Scholarships"
+        description="Apply for scholarships at Alif Global School. We offer financial aid and scholarship opportunities for deserving students. Fill out our scholarship application form."
+        canonical="/admission/scholarships"
+        breadcrumbs={[
+          { name: 'Home', path: '/' },
+          { name: 'Admission', path: '/admission' },
+          { name: 'Scholarships', path: '/admission/scholarships' }
+        ]}
+      />
       <PageHeader title="Scholarships" breadcrumb={[{ name: 'Admission', path: '/admission' }, { name: 'Scholarships' }]} />
 
       <section className="section-padding bg-background">

@@ -1,9 +1,20 @@
 import Layout from '@/components/Layout';
 import PageHeader from '@/components/PageHeader';
+import SEO from '@/components/SEO';
 
 const Calendar = () => {
   return (
     <Layout>
+      <SEO
+        title="Academic Calendar"
+        description="View the Alif Global School academic calendar for the current year. Stay updated on school holidays, exam schedules, and important events."
+        canonical="/academics/calendar"
+        breadcrumbs={[
+          { name: 'Home', path: '/' },
+          { name: 'Academics', path: '/academics' },
+          { name: 'Academic Calendar', path: '/academics/calendar' }
+        ]}
+      />
       <PageHeader title="Academic Calendar" breadcrumb={[{ name: 'Academics', path: '/academics' }, { name: 'Academic Calendar' }]} />
       <section className="section-padding">
         <div className="container-custom">

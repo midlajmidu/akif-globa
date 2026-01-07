@@ -1,10 +1,21 @@
 import Layout from '@/components/Layout';
 import PageHeader from '@/components/PageHeader';
-import { Heart, Star, Smile, Sparkles, CheckCircle2, Music, Palette, Sun } from 'lucide-react';
+import { Heart, Star, Smile, Sparkles, Music, Palette, Sun } from 'lucide-react';
+import SEO from '@/components/SEO';
 
 const LittleWorld = () => {
   return (
     <Layout>
+      <SEO
+        title="Alif Little World"
+        description="Welcome to Alif Little World, the preschool wing of Alif Global School. Discover our nurturing, play-based learning environment for early childhood education."
+        canonical="/academics/little-world"
+        breadcrumbs={[
+          { name: 'Home', path: '/' },
+          { name: 'Academics', path: '/academics' },
+          { name: 'Alif Little World', path: '/academics/little-world' }
+        ]}
+      />
       <PageHeader title="Alif Little World" breadcrumb={[{ name: 'Academics', path: '/academics' }, { name: 'Alif Little World' }]} />
 
       <div className="bg-background">
@@ -29,7 +40,7 @@ const LittleWorld = () => {
                 <div className="relative">
                   <img
                     src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?q=80&w=2022&auto=format&fit=crop"
-                    alt="Alif Little World"
+                    alt="Happy children learning at Alif Little World Preschool"
                     className="rounded-3xl shadow-strong border-8 border-white"
                   />
                   <div className="absolute -top-6 -right-6 bg-white p-4 rounded-2xl shadow-xl animate-bounce">
@@ -85,8 +96,8 @@ const LittleWorld = () => {
             {/* Features Grid */}
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
               <div className="order-2 lg:order-1 grid grid-cols-2 gap-4">
-                <img src="https://images.unsplash.com/photo-1516627145497-ae6968895b74?q=80&w=2070&auto=format&fit=crop" alt="Activity 1" className="rounded-2xl shadow-medium" />
-                <img src="https://images.unsplash.com/photo-1540479859555-17af45c78602?q=80&w=2070&auto=format&fit=crop" alt="Activity 2" className="rounded-2xl shadow-medium mt-8" />
+                <img src="https://images.unsplash.com/photo-1516627145497-ae6968895b74?q=80&w=2070&auto=format&fit=crop" alt="Preschool students engaged in creative play" className="rounded-2xl shadow-medium" />
+                <img src="https://images.unsplash.com/photo-1540479859555-17af45c78602?q=80&w=2070&auto=format&fit=crop" alt="Children participating in group learning activity" className="rounded-2xl shadow-medium mt-8" />
               </div>
               <div className="order-1 lg:order-2">
                 <h2 className="heading-primary mb-6">Creative Learning Spaces</h2>

@@ -2,6 +2,7 @@ import Layout from '@/components/Layout';
 import PageHeader from '@/components/PageHeader';
 import { useEffect, useRef, useState } from 'react';
 import { MapPin, Phone, Mail, Clock, Send } from 'lucide-react';
+import SEO from '@/components/SEO';
 
 const Contact = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -33,6 +34,15 @@ const Contact = () => {
 
   return (
     <Layout>
+      <SEO
+        title="Contact Us"
+        description="Get in touch with Alif Global School. Find our address, phone number, email, and office hours. Send us a message or find directions on Google Maps."
+        canonical="/contact"
+        breadcrumbs={[
+          { name: 'Home', path: '/' },
+          { name: 'Contact Us', path: '/contact' }
+        ]}
+      />
       <PageHeader title="Contact Us" breadcrumb="Contact" />
 
       <section ref={sectionRef} className="section-padding bg-background">

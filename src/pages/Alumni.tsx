@@ -2,6 +2,7 @@ import Layout from '@/components/Layout';
 import PageHeader from '@/components/PageHeader';
 import { useEffect, useRef, useState } from 'react';
 import { Users, GraduationCap, Calendar, MapPin, Camera } from 'lucide-react';
+import SEO from '@/components/SEO';
 
 const Alumni = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -81,14 +82,6 @@ const Alumni = () => {
         body: JSON.stringify(formData)
       });
 
-      // Since mode is no-cors, we can't read the response directly.
-      // We'll assume success if no error is thrown, or you can use JSONP if you need to read the response.
-      // However, for POST requests, no-cors is standard for Google Apps Script forms.
-      // If you need to read the response, you might need a proxy or change the script to GET/JSONP (but POST is better for file uploads).
-
-      // For this specific requirement "If response status is 'success'", we usually can't read it with no-cors.
-      // But typically with these scripts, if it doesn't throw, it worked.
-
       setStatus({ type: 'success', message: 'Thank you for joining the Alumni Network.' });
       setFormData({
         firstName: '',
@@ -114,6 +107,15 @@ const Alumni = () => {
 
   return (
     <Layout>
+      <SEO
+        title="Alumni Network"
+        description="Join the Alif Global School Alumni Network. Stay connected with fellow graduates, access exclusive events, and contribute to our growing community."
+        canonical="/alumni"
+        breadcrumbs={[
+          { name: 'Home', path: '/' },
+          { name: 'Alumni', path: '/alumni' }
+        ]}
+      />
       <PageHeader title="Join Our Alumni" breadcrumb="Alumni" />
 
       <section ref={sectionRef} className="section-padding bg-background">

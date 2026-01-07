@@ -2,6 +2,7 @@ import Layout from '@/components/Layout';
 import PageHeader from '@/components/PageHeader';
 import { useState } from 'react';
 import { X, ChevronLeft, ChevronRight } from 'lucide-react';
+import SEO from '@/components/SEO';
 
 const imageModules = import.meta.glob('@/assets/summer camp/*.{png,jpg,jpeg,PNG,JPG,JPEG,webp}', { eager: true });
 const images = Object.values(imageModules).map((mod: any) => mod.default);
@@ -35,6 +36,16 @@ const SummerCamp = () => {
 
     return (
         <Layout>
+            <SEO
+                title="Summer Camp"
+                description="Explore the fun and learning at Alif Global School's Summer Camp. View our gallery of activities, workshops, and memorable moments from our annual summer programs."
+                canonical="/academics/summer-camp"
+                breadcrumbs={[
+                    { name: 'Home', path: '/' },
+                    { name: 'Academics', path: '/academics' },
+                    { name: 'Summer Camp', path: '/academics/summer-camp' }
+                ]}
+            />
             <PageHeader title="Summer Camp" breadcrumb={[{ name: 'Academics', path: '/academics' }, { name: 'Summer Camp' }]} />
 
             <section className="section-padding bg-background">
@@ -48,7 +59,7 @@ const SummerCamp = () => {
                             >
                                 <img
                                     src={src}
-                                    alt={`Summer Camp ${index + 1}`}
+                                    alt={`Summer Camp Activity ${index + 1}`}
                                     className="w-full h-full object-cover"
                                 />
                             </div>
@@ -80,7 +91,7 @@ const SummerCamp = () => {
                     <div className="relative max-w-5xl max-h-full flex items-center justify-center">
                         <img
                             src={images[selectedImage]}
-                            alt="Summer Camp Full View"
+                            alt={`Summer Camp Activity Full View ${selectedImage + 1}`}
                             className="max-w-full max-h-[85vh] object-contain rounded-lg shadow-2xl"
                             onClick={(e) => e.stopPropagation()}
                         />

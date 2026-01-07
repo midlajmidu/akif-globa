@@ -1,6 +1,6 @@
 import Layout from '@/components/Layout';
 import PageHeader from '@/components/PageHeader';
-import { Calendar } from 'lucide-react';
+import SEO from '@/components/SEO';
 
 export const events = [
   { date: '15', month: 'JAN', title: 'Annual Day', desc: 'Annual day celebrations with cultural performances' },
@@ -12,6 +12,16 @@ export const events = [
 const Events = () => {
   return (
     <Layout>
+      <SEO
+        title="Events"
+        description="Stay updated with the latest events and activities at Alif Global School. View our upcoming events, cultural programs, sports days, and academic fairs."
+        canonical="/academics/events"
+        breadcrumbs={[
+          { name: 'Home', path: '/' },
+          { name: 'Academics', path: '/academics' },
+          { name: 'Events', path: '/academics/events' }
+        ]}
+      />
       <PageHeader title="Events" breadcrumb={[{ name: 'Academics', path: '/academics' }, { name: 'Events' }]} />
       <section className="section-padding">
         <div className="container-custom">
