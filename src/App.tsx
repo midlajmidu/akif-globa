@@ -3,6 +3,7 @@ import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { HelmetProvider } from 'react-helmet-async';
 import Index from "./pages/Index";
 import About from "./pages/About";
 import Admission from "./pages/Admission";
@@ -32,17 +33,14 @@ import AcademicPrincipal from "./pages/academics/Principal";
 import AcademicZeeque from "./pages/academics/Zeeque";
 import AcademicCalendar from "./pages/academics/Calendar";
 import AcademicLearning from "./pages/academics/Learning";
-import AcademicEvents from "./pages/academics/Events";
 import AcademicNews from "./pages/academics/News";
 import AcademicGallery from "./pages/academics/Gallery";
-import AcademicLittleWorld from "./pages/academics/LittleWorld";
 import AcademicCareer from "./pages/academics/Career";
 import AcademicTCDownload from "./pages/academics/TCDownload";
 import AcademicSummerCamp from "./pages/academics/SummerCamp";
 
 // Program Subpages
 import ProgramAGSTalks from "./pages/programs/AGSTalks";
-import ProgramStreetBuzz from "./pages/programs/StreetBuzz";
 import ProgramPalette from "./pages/programs/Palette";
 import ProgramConnected from "./pages/programs/Connected";
 import ProgramRankkhel from "./pages/programs/Rankkhel";
@@ -58,68 +56,71 @@ import SecondaryPage from "./pages/programs/academic-levels/Secondary";
 import SeniorSecondaryPage from "./pages/programs/academic-levels/SeniorSecondary";
 import SpecialPage from "./pages/programs/academic-levels/Special";
 
+import ScrollToTop from "./components/ScrollToTop";
+
 const queryClient = new QueryClient();
 
 const App = () => (
-  <QueryClientProvider client={queryClient}>
-    <TooltipProvider>
-      <Toaster />
-      <Sonner />
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<Index />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/about/markaz" element={<AboutMarkaz />} />
-          <Route path="/about/trust" element={<AboutTrust />} />
-          <Route path="/about/riyadh" element={<AboutRiyadh />} />
-          <Route path="/about/residence" element={<AboutResidence />} />
-          <Route path="/about/testimonials" element={<AboutTestimonials />} />
-          <Route path="/about/virtual-tour" element={<AboutVirtualTour />} />
+  <HelmetProvider>
+    <QueryClientProvider client={queryClient}>
+      <TooltipProvider>
+        <Toaster />
+        <Sonner />
+        <BrowserRouter>
+          <ScrollToTop />
+          <Routes>
+            <Route path="/" element={<Index />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/about/markaz" element={<AboutMarkaz />} />
+            <Route path="/about/trust" element={<AboutTrust />} />
+            <Route path="/about/riyadh" element={<AboutRiyadh />} />
+            <Route path="/about/residence" element={<AboutResidence />} />
+            <Route path="/about/testimonials" element={<AboutTestimonials />} />
+            <Route path="/about/virtual-tour" element={<AboutVirtualTour />} />
 
-          <Route path="/admission" element={<Admission />} />
-          <Route path="/admission/test" element={<AdmissionTest />} />
-          <Route path="/admission/apply" element={<AdmissionApply />} />
-          <Route path="/admission/scholarships" element={<AdmissionScholarships />} />
+            <Route path="/admission" element={<Admission />} />
+            <Route path="/admission/test" element={<AdmissionTest />} />
+            <Route path="/admission/apply" element={<AdmissionApply />} />
+            <Route path="/admission/scholarships" element={<AdmissionScholarships />} />
 
-          <Route path="/academics" element={<Academics />} />
-          <Route path="/academics/principal" element={<AcademicPrincipal />} />
-          <Route path="/academics/zeeque" element={<AcademicZeeque />} />
-          <Route path="/academics/calendar" element={<AcademicCalendar />} />
-          <Route path="/academics/learning" element={<AcademicLearning />} />
-          <Route path="/academics/events" element={<AcademicEvents />} />
-          <Route path="/academics/news" element={<AcademicNews />} />
-          <Route path="/academics/gallery" element={<AcademicGallery />} />
-          <Route path="/academics/little-world" element={<AcademicLittleWorld />} />
-          <Route path="/academics/career" element={<AcademicCareer />} />
-          <Route path="/academics/tc-download" element={<AcademicTCDownload />} />
-          <Route path="/academics/summer-camp" element={<AcademicSummerCamp />} />
+            <Route path="/academics" element={<Academics />} />
+            <Route path="/academics/principal" element={<AcademicPrincipal />} />
+            <Route path="/academics/zeeque" element={<AcademicZeeque />} />
+            <Route path="/academics/calendar" element={<AcademicCalendar />} />
+            <Route path="/academics/learning" element={<AcademicLearning />} />
 
-          <Route path="/programs" element={<Programs />} />
-          <Route path="/programs/foundation" element={<FoundationPage />} />
-          <Route path="/programs/preparatory" element={<PreparatoryPage />} />
-          <Route path="/programs/middle" element={<MiddlePage />} />
-          <Route path="/programs/secondary" element={<SecondaryPage />} />
-          <Route path="/programs/senior-secondary" element={<SeniorSecondaryPage />} />
-          <Route path="/programs/special" element={<SpecialPage />} />
+            <Route path="/academics/news" element={<AcademicNews />} />
+            <Route path="/academics/gallery" element={<AcademicGallery />} />
+            <Route path="/academics/career" element={<AcademicCareer />} />
+            <Route path="/academics/tc-download" element={<AcademicTCDownload />} />
+            <Route path="/academics/summer-camp" element={<AcademicSummerCamp />} />
 
-          <Route path="/programs/ags-talks" element={<ProgramAGSTalks />} />
-          <Route path="/programs/street-buzz" element={<ProgramStreetBuzz />} />
-          <Route path="/programs/palette" element={<ProgramPalette />} />
-          <Route path="/programs/connected" element={<ProgramConnected />} />
-          <Route path="/programs/rankkhel" element={<ProgramRankkhel />} />
-          <Route path="/programs/skill-surge" element={<ProgramSkillSurge />} />
-          <Route path="/programs/khelo" element={<ProgramKhelo />} />
-          <Route path="/programs/cross-roads" element={<ProgramCrossRoads />} />
+            <Route path="/programs" element={<Programs />} />
+            <Route path="/programs/foundation" element={<FoundationPage />} />
+            <Route path="/programs/preparatory" element={<PreparatoryPage />} />
+            <Route path="/programs/middle" element={<MiddlePage />} />
+            <Route path="/programs/secondary" element={<SecondaryPage />} />
+            <Route path="/programs/senior-secondary" element={<SeniorSecondaryPage />} />
+            <Route path="/programs/mahfilul-quran" element={<SpecialPage />} />
 
-          <Route path="/facilities" element={<Facilities />} />
-          <Route path="/disclosure" element={<Disclosure />} />
-          <Route path="/contact" element={<Contact />} />
-          <Route path="/alumni" element={<Alumni />} />
-          <Route path="*" element={<NotFound />} />
-        </Routes>
-      </BrowserRouter>
-    </TooltipProvider>
-  </QueryClientProvider>
+            <Route path="/programs/ags-talks" element={<ProgramAGSTalks />} />
+            <Route path="/programs/palette" element={<ProgramPalette />} />
+            <Route path="/programs/connected" element={<ProgramConnected />} />
+            <Route path="/programs/rankkhel" element={<ProgramRankkhel />} />
+            <Route path="/programs/skill-surge" element={<ProgramSkillSurge />} />
+            <Route path="/programs/khelo" element={<ProgramKhelo />} />
+            <Route path="/programs/cross-roads" element={<ProgramCrossRoads />} />
+
+            <Route path="/facilities" element={<Facilities />} />
+            <Route path="/disclosure" element={<Disclosure />} />
+            <Route path="/contact" element={<Contact />} />
+            <Route path="/alumni" element={<Alumni />} />
+            <Route path="*" element={<NotFound />} />
+          </Routes>
+        </BrowserRouter>
+      </TooltipProvider>
+    </QueryClientProvider>
+  </HelmetProvider>
 );
 
 export default App;

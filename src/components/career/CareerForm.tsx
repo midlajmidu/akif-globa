@@ -45,7 +45,13 @@ const formSchema = z.object({
     resume: z.any().refine((files) => files?.length > 0, "Resume is required."),
 });
 
+import { useState } from "react";
+
+// ... (existing imports)
+
 export function CareerForm() {
+    const [isSubmitting, setIsSubmitting] = useState(false);
+
     const form = useForm<z.infer<typeof formSchema>>({
         resolver: zodResolver(formSchema),
         defaultValues: {
@@ -59,10 +65,61 @@ export function CareerForm() {
         },
     });
 
-    function onSubmit(values: z.infer<typeof formSchema>) {
-        console.log(values);
-        toast.success("Application submitted successfully! We will get back to you soon.");
-        form.reset();
+    async function onSubmit(values: z.infer<typeof formSchema>) {
+        setIsSubmitting(true);
+        try {
+            let resumeBase64 = "";
+            let resumeType = "";
+
+            if (values.resume && values.resume.length > 0) {
+                const file = values.resume[0];
+                resumeType = file.type;
+
+                const reader = new FileReader();
+                resumeBase64 = await new Promise((resolve, reject) => {
+                    reader.onload = () => {
+                        const result = reader.result as string;
+                        const matches = result.match(/^data:(.+);base64,(.+)$/);
+                        if (matches) {
+                            resolve(matches[2]);
+                        } else {
+                            resolve("");
+                        }
+                    };
+                    reader.onerror = reject;
+                    reader.readAsDataURL(file);
+                });
+            }
+
+            const payload = {
+                fullName: values.fullName,
+                email: values.email,
+                phone: values.phone,
+                field: values.position, // Mapping 'position' to 'field'
+                specialization: values.specialization,
+                experience: values.experience,
+                message: values.message,
+                resumeBase64,
+                resumeType
+            };
+
+            await fetch("https://script.google.com/macros/s/AKfycbwZiiuN30sZ-_ADUrPjsjF82D59YH4-ekmOY1op-crhzWuZY9M8kfhplfDXiffsJhhm/exec", {
+                method: "POST",
+                mode: "no-cors",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify(payload),
+            });
+
+            toast.success("Application submitted successfully! We will get back to you soon.");
+            form.reset();
+        } catch (error) {
+            console.error("Submission error:", error);
+            toast.error("Failed to submit application. Please try again.");
+        } finally {
+            setIsSubmitting(false);
+        }
     }
 
     return (
@@ -215,8 +272,8 @@ export function CareerForm() {
                         )}
                     />
 
-                    <Button type="submit" className="w-full btn-accent py-6 text-lg font-semibold">
-                        Submit Application
+                    <Button type="submit" disabled={isSubmitting} className="w-full btn-accent py-6 text-lg font-semibold">
+                        {isSubmitting ? "Submitting Application..." : "Submit Application"}
                     </Button>
                 </form>
             </Form>

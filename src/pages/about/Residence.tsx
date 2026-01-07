@@ -2,6 +2,8 @@ import Layout from '@/components/Layout';
 import PageHeader from '@/components/PageHeader';
 import { useEffect, useRef, useState } from 'react';
 
+import residenceImg from '@/assets/about/alif residency.webp';
+
 const Residence = () => {
   const [isVisible, setIsVisible] = useState(false);
   const sectionRef = useRef<HTMLDivElement>(null);
@@ -62,7 +64,7 @@ const Residence = () => {
             >
               <div className="relative">
                 <img
-                  src="https://images.unsplash.com/photo-1595841696677-6489ff3f8cd1?q=80&w=2070&auto=format&fit=crop"
+                  src={residenceImg}
                   alt="Alif Residence"
                   className="rounded-2xl shadow-strong w-full h-auto object-cover"
                 />

@@ -15,9 +15,9 @@ const Apply = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [formData, setFormData] = useState({
-    academic_year: [] as string[],
+    academic_year: '',
     academic_year_other: '',
-    class: 'LZQ (Pre-School I)',
+    class: '',
     student_name: '',
     gender: 'Male',
     dob: '',
@@ -39,18 +39,54 @@ const Apply = () => {
     setFormData(prev => ({ ...prev, [name]: value }));
   };
 
-  const handleCheckboxChange = (year: string) => {
-    setFormData(prev => {
-      const currentYears = [...prev.academic_year];
-      if (currentYears.includes(year)) {
-        return { ...prev, academic_year: currentYears.filter(y => y !== year) };
-      } else {
-        return { ...prev, academic_year: [...currentYears, year] };
+
+
+  const validateStep = (currentStep: number) => {
+    if (currentStep === 1) {
+      if (!formData.academic_year && !formData.academic_year_other) {
+        toast.error("Please select an academic year");
+        return false;
       }
-    });
+      if (!formData.class) {
+        toast.error("Please select a class");
+        return false;
+      }
+      return true;
+    }
+
+    if (currentStep === 2) {
+      if (!formData.student_name) {
+        toast.error("Please enter the student's name");
+        return false;
+      }
+      if (!formData.dob) {
+        toast.error("Please enter the date of birth");
+        return false;
+      }
+      if (!formData.nationality) {
+        toast.error("Please enter the nationality");
+        return false;
+      }
+      if (!formData.state_city) {
+        toast.error("Please enter the state/city");
+        return false;
+      }
+      if (!formData.mother_tongue) {
+        toast.error("Please enter the mother tongue");
+        return false;
+      }
+      return true;
+    }
+
+    return true;
   };
 
-  const nextStep = () => setStep(prev => prev + 1);
+  const nextStep = () => {
+    if (validateStep(step)) {
+      setStep(prev => prev + 1);
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  };
   const prevStep = () => setStep(prev => prev - 1);
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -63,7 +99,7 @@ const Apply = () => {
         mode: 'no-cors', // Google Apps Script requires no-cors for simple POST
         body: JSON.stringify({
           ...formData,
-          academic_year: formData.academic_year.join(', ')
+          academic_year: formData.academic_year
         })
       });
 
@@ -146,20 +182,20 @@ const Apply = () => {
 
                   <div className="space-y-4">
                     <Label className="text-base font-bold">Academic Year *</Label>
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <RadioGroup
+                      value={formData.academic_year}
+                      onValueChange={(val) => handleSelectChange('academic_year', val)}
+                      className="grid grid-cols-1 sm:grid-cols-2 gap-4"
+                    >
                       {['2025-2026', '2026-2027'].map((year) => (
                         <div key={year} className="flex items-center space-x-3 p-4 rounded-xl border border-border hover:border-accent/50 transition-colors">
-                          <Checkbox
-                            id={year}
-                            checked={formData.academic_year.includes(year)}
-                            onCheckedChange={() => handleCheckboxChange(year)}
-                          />
+                          <RadioGroupItem value={year} id={year} />
                           <label htmlFor={year} className="text-sm font-medium leading-none cursor-pointer flex-1">
                             {year}
                           </label>
                         </div>
                       ))}
-                    </div>
+                    </RadioGroup>
                   </div>
 
                   <div className="space-y-2">
@@ -184,6 +220,7 @@ const Apply = () => {
                       className="w-full p-3 rounded-xl border border-border bg-background focus:ring-2 focus:ring-accent/20 focus:border-accent transition-all outline-none"
                       required
                     >
+                      <option value="">Select Class</option>
                       <option value="LZQ (Pre-School I)">LZQ (Pre-School I)</option>
                       <option value="KG-1">KG-1</option>
                       <option value="KG-2">KG-2</option>

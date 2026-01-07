@@ -29,27 +29,29 @@ const Disclosure = () => {
     { label: 'AFFILIATION NO.(IF APPLICABLE)', value: '931454' },
     { label: 'SCHOOL CODE (IF APPLICABLE)', value: '76461' },
     { label: 'COMPLETE ADDRESS WITH PIN CODE', value: 'MARKAZ KNOWLEDGE CITY, KANNAMANGALAM, KOZHIKODE, KERALA-673580' },
-    { label: 'PRINCIPAL NAME & QUALIFICATION', value: 'DR. P. UNNEEN KUTTY, M.A, M.Phil, Ph.D, B.Ed' },
+    { label: 'PRINCIPAL NAME & QUALIFICATION', value: 'SHANAVAS KT, MA, MEd. SET, PGDCA, KGTE' },
     { label: 'SCHOOL EMAIL ID', value: 'alifglobalschool@gmail.com' },
     { label: 'CONTACT DETAILS (LANDLINE/MOBILE)', value: '9072500444' },
   ];
 
   const documents = [
-    { title: 'COPIES OF AFFILIATION/UPGRADATION LETTER AND RECENT EXTENSION OF AFFILIATION, IF ANY', link: '#' },
+    { title: 'COPIES OF AFFILIATION/UPGRADATION LETTER AND RECENT EXTENSION OF AFFILIATION, IF ANY', link: 'https://drive.google.com/file/d/1qtJs2V9pngjDT2IC4b2RC9RpmWVUl6LW/view?usp=sharing' },
     { title: 'COPIES OF SOCIETIES/TRUST/COMPANY REGISTRATION/RENEWAL CERTIFICATE, AS APPLICABLE', link: '#' },
     { title: 'COPY OF NO OBJECTION CERTIFICATE (NOC) ISSUED, IF APPLICABLE, BY THE STATE GOVT./UT', link: '#' },
     { title: 'COPIES OF RECOGNITION CERTIFICATE UNDER RTE ACT, 2009, AND IT’S RENEWAL IF APPLICABLE', link: '#' },
     { title: 'COPY OF VALID BUILDING SAFETY CERTIFICATE AS PER THE NATIONAL BUILDING CODE', link: '#' },
     { title: 'COPY OF VALID FIRE SAFETY CERTIFICATE ISSUED BY THE COMPETENT AUTHORITY', link: '#' },
     { title: 'COPY OF THE DEO CERTIFICATE SUBMITTED BY THE SCHOOL FOR AFFILIATION/UPGRADATION/EXTENSION OF AFFILIATIONOR SELF CERTIFICATION BY SCHOOL', link: '#' },
-    { title: 'COPIES OF VALID WATER, HEALTH AND SANITATION CERTIFICATES', link: '#' },
+    { title: 'COPY OF VALID DRINKING WATER CERTIFICATE', link: 'https://drive.google.com/file/d/1rN4SXvUotn1k4BxBmKyCAD_LJsL7Ry_x/view?usp=sharing' },
+    { title: 'COPY OF VALID HEALTH AND SANITATION CERTIFICATE', link: 'https://drive.google.com/file/d/1H7KuMzFw3HL_tRRHL8mUy77nc9Y6E5Tf/view?usp=sharing' },
   ];
 
   const academicDocs = [
     { title: 'FEE STRUCTURE OF THE SCHOOL', link: '#' },
-    { title: 'ANNUAL ACADEMIC CALANDER', link: '#' },
-    { title: 'LIST OF SCHOOL MANAGEMENT COMMITTEE (SMC)', link: '#' },
-    { title: 'LIST OF PARENTS TEACHERS ASSOCIATION (PTA) MEMBERS', link: '#' },
+    { title: 'ANNUAL ACADEMIC CALANDER', link: 'https://drive.google.com/file/d/1CsAaYYqdbohnU-N204y00wS2RsaczIKB/view?usp=sharing' },
+    { title: 'LIST OF SCHOOL MANAGEMENT COMMITTEE (SMC)', link: 'https://drive.google.com/file/d/1Fyz_A1JeHoZv0vtvsh78IK1ZMH9ByrHc/view?usp=sharing' },
+    { title: 'LIST OF PARENTS TEACHERS ASSOCIATION (PTA) MEMBERS', link: 'https://drive.google.com/file/d/1u6Pb5ZA3zy2uR_30S9CFlXTx90_4kxIM/view?usp=sharing' },
+    { title: 'TEACHING STAFF LIST', link: 'https://drive.google.com/file/d/1hYNbHEJScRN-wLL6TNCndzYUcnN2GbjL/view?usp=sharing' },
     { title: 'LAST THREE-YEAR RESULT OF THE BOARD EXAMINATION AS PER APPLICABILITY', link: '#' },
   ];
 

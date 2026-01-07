@@ -7,11 +7,11 @@ interface ProgramPageTemplateProps {
     title: string;
     description: string;
     images: string[];
-    videos: string[];
+    videos?: string[];
     icon?: React.ReactNode;
 }
 
-const ProgramPageTemplate = ({ title, description, images, videos, icon }: ProgramPageTemplateProps) => {
+const ProgramPageTemplate = ({ title, description, images, videos = [], icon }: ProgramPageTemplateProps) => {
     const [selectedImage, setSelectedImage] = useState<number | null>(null);
 
     const openLightbox = (index: number) => {

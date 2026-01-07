@@ -2,6 +2,9 @@ import Layout from '@/components/Layout';
 import PageHeader from '@/components/PageHeader';
 import { useEffect, useRef, useState } from 'react';
 
+import logoImg from '@/assets/alif-logo.webp';
+import campusImg from '@/assets/galley in home page/campus .webp';
+
 const Trust = () => {
   const [isVisible, setIsVisible] = useState(false);
   const sectionRef = useRef<HTMLDivElement>(null);
@@ -37,6 +40,7 @@ const Trust = () => {
                 transform: isVisible ? 'translateX(0)' : 'translateX(-30px)',
               }}
             >
+              <img src={logoImg} alt="Alif Logo" className="w-32 h-auto mb-8" />
               <span className="inline-block px-4 py-2 bg-accent/10 text-accent rounded-full text-sm font-medium mb-4">
                 Our Foundation
               </span>
@@ -67,9 +71,9 @@ const Trust = () => {
             >
               <div className="relative">
                 <img
-                  src="https://images.unsplash.com/photo-1521737711867-e3b97375f902?q=80&w=1974&auto=format&fit=crop"
-                  alt="Alif Edu Trust"
-                  className="rounded-2xl shadow-strong"
+                  src={campusImg}
+                  alt="Alif Campus"
+                  className="rounded-2xl shadow-strong w-full h-auto object-cover"
                 />
                 <div className="absolute -bottom-6 -left-6 bg-accent text-accent-foreground p-6 rounded-2xl shadow-gold">
                   <div className="text-4xl font-bold">Empowering</div>

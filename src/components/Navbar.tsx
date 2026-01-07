@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Menu, X, ChevronDown } from 'lucide-react';
 import { cn } from '@/lib/utils';
+import logo from '@/assets/alif-logo.webp';
 
 interface NavItem {
   name: string;
@@ -15,6 +16,7 @@ const navItems: NavItem[] = [
     path: '/about',
     children: [
       { name: 'About Alif', path: '/about' },
+      { name: "Principal's Message", path: '/academics/principal' },
       { name: 'Markaz Knowledge City', path: '/about/markaz' },
       { name: 'Alif Edu Trust', path: '/about/trust' },
       { name: 'Alif International School, Riyadh', path: '/about/riyadh' },
@@ -36,14 +38,11 @@ const navItems: NavItem[] = [
     name: 'Academics',
     path: '/academics',
     children: [
-      { name: "Principal's Message", path: '/academics/principal' },
       { name: 'Alif Zeeque Intl', path: '/academics/zeeque' },
       { name: 'Academic Calendar', path: '/academics/calendar' },
       { name: 'Learning Zone', path: '/academics/learning' },
-      { name: 'Events', path: '/academics/events' },
       { name: 'News', path: '/academics/news' },
       { name: 'Gallery', path: '/academics/gallery' },
-      { name: 'Alif Little World', path: '/academics/little-world' },
       { name: 'Career', path: '/academics/career' },
       { name: 'Transfer Certificate Download', path: '/academics/tc-download' },
       { name: 'Summer Camp', path: '/academics/summer-camp' },
@@ -54,7 +53,6 @@ const navItems: NavItem[] = [
     path: '/programs',
     children: [
       { name: 'AGS Talks', path: '/programs/ags-talks' },
-      { name: 'Street Buzz', path: '/programs/street-buzz' },
       { name: 'Palette', path: '/programs/palette' },
       { name: 'Connected', path: '/programs/connected' },
       { name: 'Rankkhel', path: '/programs/rankkhel' },
@@ -87,7 +85,7 @@ const Navbar = () => {
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
           <Link to="/" className="flex items-center">
-            <img src="/src/assets/alif-logo.png" alt="Alif Global School" className="h-16 w-auto object-contain" />
+            <img src={logo} alt="Alif Global School" className="h-16 w-auto object-contain" />
           </Link>
 
           {/* Desktop Navigation */}

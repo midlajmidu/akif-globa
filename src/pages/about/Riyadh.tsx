@@ -3,6 +3,8 @@ import PageHeader from '@/components/PageHeader';
 import { useEffect, useRef, useState } from 'react';
 import { ExternalLink } from 'lucide-react';
 
+import riyadhImg from '@/assets/about/alif international riyadh.webp';
+
 const Riyadh = () => {
   const [isVisible, setIsVisible] = useState(false);
   const sectionRef = useRef<HTMLDivElement>(null);
@@ -63,7 +65,7 @@ const Riyadh = () => {
             >
               <div className="relative">
                 <img
-                  src="https://images.unsplash.com/photo-1512453979798-5ea266f8880c?q=80&w=2070&auto=format&fit=crop"
+                  src={riyadhImg}
                   alt="Alif Riyadh"
                   className="rounded-2xl shadow-strong"
                 />

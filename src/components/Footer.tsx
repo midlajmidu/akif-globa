@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import { MapPin, Phone, Mail, Clock, Facebook, Twitter, Youtube, Instagram, ArrowRight } from 'lucide-react';
+import logo from '@/assets/alif-logo.webp';
 
 const quickLinks = [
   { name: 'About Us', path: '/about' },
@@ -18,7 +19,7 @@ const Footer = () => {
           {/* School Info */}
           <div className="space-y-4">
             <Link to="/" className="inline-block">
-              <img src="/src/assets/alif-logo.png" alt="Alif Global School" className="h-16 w-auto object-contain brightness-0 invert" />
+              <img src={logo} alt="Alif Global School" className="h-16 w-auto object-contain brightness-0 invert" />
             </Link>
             <p className="text-sm opacity-80 leading-relaxed">
               a top-notch international school in Kozhikode, we believe that every child has the potential to succeed.

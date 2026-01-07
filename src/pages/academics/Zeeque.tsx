@@ -1,6 +1,7 @@
 import Layout from '@/components/Layout';
 import PageHeader from '@/components/PageHeader';
 import { Sparkles, CheckCircle2, Globe, Moon, BookOpen, Heart } from 'lucide-react';
+import zeequeHeroImg from '@/assets/1-2.webp';
 
 const Zeeque = () => {
   return (
@@ -33,7 +34,7 @@ const Zeeque = () => {
               <div className="flex-1">
                 <div className="relative">
                   <img
-                    src="https://images.unsplash.com/photo-1587654780291-39c9404d746b?q=80&w=2070&auto=format&fit=crop"
+                    src={zeequeHeroImg}
                     alt="ZeeQue International"
                     className="rounded-3xl shadow-2xl border-8 border-white/10"
                   />

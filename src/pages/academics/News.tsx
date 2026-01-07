@@ -1,36 +1,42 @@
 import Layout from '@/components/Layout';
 import PageHeader from '@/components/PageHeader';
 
+import paletteImg from '@/assets/ags news/pallete news.webp';
+import alifinityImg from '@/assets/ags news/alifinity.webp';
+import kheloImg from '@/assets/ags news/khelo news.webp';
+import aplImg from '@/assets/ags news/premier league.webp';
+import wonderPopImg from '@/assets/ags news/wonder pop news.webp';
+
 export const newsItems = [
   {
-    date: 'Dec 1, 2024',
-    title: 'Students Excel in Science Olympiad',
-    desc: 'Our students secured top positions in the state-level science olympiad, showcasing their dedication and academic excellence.',
-    image: 'https://images.unsplash.com/photo-1532094349884-543bc11b234d?q=80&w=2070&auto=format&fit=crop'
+    date: 'Dec 20, 2025',
+    title: 'Wonder Pop – One Day Camp',
+    desc: 'Wonder Pop was a fun-filled one-day camp organized for up grade students aged 3 to 10 years. The camp featured interactive learning sessions, creative activities, and exciting games, giving students a joyful and enriching experience beyond the classroom.',
+    image: wonderPopImg
   },
   {
-    date: 'Nov 25, 2024',
-    title: 'New Computer Lab Inaugurated',
-    desc: 'State-of-the-art computer lab with latest equipment now open to enhance digital literacy and technical skills.',
-    image: 'https://images.unsplash.com/photo-1517694712202-14dd9538aa97?q=80&w=2070&auto=format&fit=crop'
+    date: 'Dec 02, 2025',
+    title: 'APL – Alif Premier League',
+    desc: 'APL (Alif Premier League) is AGS\'s exciting football program designed to encourage a spirit of sportsmanship and healthy competition. The program provided students with an opportunity to showcase their football skills while learning teamwork, discipline, and leadership on the field.',
+    image: aplImg
   },
   {
-    date: 'Nov 15, 2024',
-    title: 'Annual Sports Meet Announced',
-    desc: 'Registration is now open for the upcoming annual sports meet. Prepare for a day of athletic excellence and team spirit.',
-    image: 'https://images.unsplash.com/photo-1517649763962-0c623066013b?q=80&w=2070&auto=format&fit=crop'
+    date: 'Nov 19, 2025',
+    title: 'Khelo Alif – Sports Program',
+    desc: 'Khelo Alif is a dynamic sports program aimed at promoting physical fitness and healthy habits among students. The program helped students develop teamwork, coordination, and sportsmanship through fun and engaging activities.',
+    image: kheloImg
   },
   {
-    date: 'Nov 05, 2024',
-    title: 'Inter-School Debate Championship',
-    desc: 'Our debate team won the regional championship, discussing critical global issues with eloquence and logic.',
-    image: 'https://images.unsplash.com/photo-1475721027785-f74eccf877e2?q=80&w=2070&auto=format&fit=crop'
+    date: 'Nov 01, 2025',
+    title: 'Alifinity – Grand Exhibition',
+    desc: 'The Alifinity Grand Exhibition was a grand celebration of creativity, innovation, and learning at AGS. Students proudly displayed their projects, artworks, and performances, making the event a memorable experience for parents, teachers, and visitors.',
+    image: alifinityImg
   },
   {
-    date: 'Oct 28, 2024',
-    title: 'Art Exhibition: Creative Minds',
-    desc: 'A showcase of stunning artworks created by our talented students, exploring various mediums and themes.',
-    image: 'https://images.unsplash.com/photo-1513364776144-60967b0f800f?q=80&w=2071&auto=format&fit=crop'
+    date: 'Aug 30, 2025',
+    title: 'Palette – Arts Program',
+    desc: 'Palette is AGS\'s vibrant arts program that nurtures creativity and self-expression among students. The program included drawing, painting, craft work, singing, Oppana, and other expressive art forms, encouraging students to explore and showcase their talents in a joyful environment.',
+    image: paletteImg
   },
 ];
 

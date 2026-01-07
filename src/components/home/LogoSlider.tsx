@@ -1,12 +1,16 @@
 import { useEffect, useRef } from 'react';
+import connectedLogo from '@/assets/slider-logos/Connected.webp';
+import rankhelLogo from '@/assets/slider-logos/Rankhel.webp';
+import crossRoadLogo from '@/assets/slider-logos/cross-road.webp';
+import paletteLogo from '@/assets/slider-logos/palette.webp';
+import skillSurgeLogo from '@/assets/slider-logos/skill-surge-logo.webp';
 
 const logos = [
-  { name: 'Connected', src: '/src/assets/slider-logos/Connected.png' },
-  { name: 'Rankhel', src: '/src/assets/slider-logos/Rankhel.png' },
-  { name: 'Cross Road', src: '/src/assets/slider-logos/cross-road.png' },
-  { name: 'Palette', src: '/src/assets/slider-logos/palette.png' },
-  { name: 'Skill Surge', src: '/src/assets/slider-logos/skill-surge-logo.png' },
-  { name: 'Squad', src: '/src/assets/slider-logos/squad-logo.png' },
+  { name: 'Connected', src: connectedLogo },
+  { name: 'Rankhel', src: rankhelLogo },
+  { name: 'Cross Road', src: crossRoadLogo },
+  { name: 'Palette', src: paletteLogo },
+  { name: 'Skill Surge', src: skillSurgeLogo },
 ];
 
 const LogoSlider = () => {

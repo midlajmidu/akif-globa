@@ -2,7 +2,8 @@ import Layout from '@/components/Layout';
 import PageHeader from '@/components/PageHeader';
 import { useEffect, useRef, useState } from 'react';
 import { Award, Users, BookOpen, Target } from 'lucide-react';
-import campusImg from '@/assets/campus.jpg';
+import campusImg from '@/assets/galley in home page/campus.webp';
+import SEO from '@/components/SEO';
 
 const About = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -34,6 +35,11 @@ const About = () => {
 
   return (
     <Layout>
+      <SEO
+        title="About Us"
+        description="Learn about Alif Global School's history, mission, and vision. Founded in 2009, we are committed to providing quality education with a holistic approach."
+        canonical="/about"
+      />
       <PageHeader title="About Us" breadcrumb="About" />
 
       <section ref={sectionRef} className="section-padding bg-background">
@@ -51,22 +57,15 @@ const About = () => {
               </span>
               <h2 className="heading-primary mb-6">
                 About Alif
-
               </h2>
               <p className="text-body mb-6">
                 At Alif, we genuinely believe that every child has the potential to succeed, and that our encouraging, balanced and caring approach can realize this. Our school with exceptional staff and superb facilities provides the foundation for outstanding achievement. Every student is valued as an individual and our ‘holistic approach’ provides multiple opportunities where our students can learn, have fun, and flourish.
-
-
               </p>
               <p className="text-body mb-6">
                 Since Alif International School was founded in Riyadh, Kingdom of Saudi Arabia in 2009 it has remained true to the spirit that guided its founders by providing an education that equips our students with the knowledge, skills and character that prepare them to contribute enormously to society. Alif Global School is one of the endeavors of Alif Group of Schools to impart quality education in international standards while nurturing human values.
-
-
               </p>
               <p className="text-body">
                 Our collective mission and vision is to motivate and energize students to develop the knowledge, creativity, and skill to realize their fullest potential as caring, responsible and productive citizens, leaders, and lifelong learners.
-
-
               </p>
             </div>
 
@@ -84,10 +83,6 @@ const About = () => {
                   alt="Campus"
                   className="rounded-2xl shadow-strong"
                 />
-                <div className="absolute -bottom-6 -left-6 bg-accent text-accent-foreground p-6 rounded-2xl shadow-gold">
-                  <div className="text-4xl font-bold">10+</div>
-                  <div className="text-sm">Years of Excellence</div>
-                </div>
               </div>
             </div>
           </div>
@@ -111,6 +106,7 @@ const About = () => {
               </div>
             ))}
           </div>
+
         </div>
       </section>
     </Layout>

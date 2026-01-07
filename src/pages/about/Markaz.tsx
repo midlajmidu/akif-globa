@@ -2,6 +2,8 @@ import Layout from '@/components/Layout';
 import PageHeader from '@/components/PageHeader';
 import { useEffect, useRef, useState } from 'react';
 
+import markazImg from '@/assets/about/markaz knoedge city.webp';
+
 const Markaz = () => {
   const [isVisible, setIsVisible] = useState(false);
   const sectionRef = useRef<HTMLDivElement>(null);
@@ -66,7 +68,7 @@ const Markaz = () => {
             >
               <div className="relative">
                 <img
-                  src="https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=2069&auto=format&fit=crop"
+                  src={markazImg}
                   alt="Markaz Knowledge City"
                   className="rounded-2xl shadow-strong"
                 />

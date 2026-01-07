@@ -7,12 +7,18 @@ import VisionMissionSection from '@/components/home/VisionMissionSection';
 import NewsEventsSection from '@/components/home/NewsEventsSection';
 import TestimonialsSection from '@/components/home/TestimonialsSection';
 import ProgramsSection from '@/components/home/ProgramsSection';
-import WhyChooseSection from '@/components/home/WhyChooseSection';
 import GallerySection from '@/components/home/GallerySection';
+
+import SEO from '@/components/SEO';
 
 const Index = () => {
   return (
     <Layout>
+      <SEO
+        title="Home"
+        description="Alif Global School is a premier residential school in Kerala offering world-class education with a focus on holistic development, moral values, and academic excellence. CBSE affiliated."
+        canonical="/"
+      />
       <HeroSection />
       <AboutSection />
       <LogoSlider />
@@ -21,7 +27,6 @@ const Index = () => {
       <NewsEventsSection />
       <TestimonialsSection />
       <ProgramsSection />
-      <WhyChooseSection />
       <GallerySection />
     </Layout>
   );

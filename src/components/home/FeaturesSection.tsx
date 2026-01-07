@@ -1,35 +1,44 @@
 import { useEffect, useRef, useState } from 'react';
+import { Link } from 'react-router-dom';
+
+// Import local images
+import worldCampusImg from '@/assets/home page/world campus.avif';
+import coCurricularImg from '@/assets/home page/co curricular.webp';
+import labImg from '@/assets/home page/-lab.webp';
+import libraryImg from '@/assets/home page/library-scaled.webp';
+import classroomImg from '@/assets/home page/classroom.webp';
+import sportsImg from '@/assets/home page/sports of al.webp';
 
 const features = [
   {
     title: 'World Class Campus',
     description: 'Modern infrastructure with state-of-the-art facilities and green spaces.',
-    image: 'https://images.unsplash.com/photo-1541339907198-e08756ebafe3?q=80&w=2070&auto=format&fit=crop',
+    image: worldCampusImg,
   },
   {
     title: 'Co-Curricular Programs',
     description: 'Nurturing talents through music, arts, drama, and diverse clubs.',
-    image: 'https://images.unsplash.com/photo-1503676260728-1c00da094a0b?q=80&w=2022&auto=format&fit=crop',
+    image: coCurricularImg,
   },
   {
-    title: 'Sports of All Sports',
-    description: 'Comprehensive sports training with professional coaches and facilities.',
-    image: 'https://images.unsplash.com/photo-1546519638-68e109498ffc?q=80&w=2090&auto=format&fit=crop',
+    title: 'Modern Science Labs',
+    description: 'Advanced laboratories equipped for hands-on scientific exploration and research.',
+    image: labImg,
   },
   {
     title: 'World Class Library',
     description: 'A vast collection of resources in a modern, inspiring learning environment.',
-    image: 'https://images.unsplash.com/photo-1521587760476-6c12a4b040da?q=80&w=2070&auto=format&fit=crop',
+    image: libraryImg,
   },
   {
     title: 'Smart Classroom',
     description: 'Technology-integrated learning spaces for interactive education.',
-    image: 'https://images.unsplash.com/photo-1509062522246-3755977927d7?q=80&w=2104&auto=format&fit=crop',
+    image: classroomImg,
   },
   {
     title: 'Sports Activities',
-    description: 'Engaging physical activities to promote health and team spirit.',
-    image: 'https://images.unsplash.com/photo-1461896836934-ffe607ba8211?q=80&w=2070&auto=format&fit=crop',
+    description: 'Engaging physical activities to promote health, team spirit, and athletic excellence.',
+    image: sportsImg,
   },
 ];
 
@@ -66,9 +75,10 @@ const FeaturesSection = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {features.map((feature, index) => (
-            <div
+            <Link
               key={feature.title}
-              className={`group relative overflow-hidden rounded-2xl aspect-video cursor-pointer transition-all duration-700 shadow-md hover:shadow-xl`}
+              to="/facilities"
+              className={`group relative overflow-hidden rounded-2xl aspect-video cursor-pointer transition-all duration-700 shadow-md hover:shadow-xl block`}
               style={{
                 transitionDelay: `${index * 100}ms`,
                 opacity: isVisible ? 1 : 0,
@@ -89,7 +99,7 @@ const FeaturesSection = () => {
                   {feature.description}
                 </p>
               </div>
-            </div>
+            </Link>
           ))}
         </div>
       </div>

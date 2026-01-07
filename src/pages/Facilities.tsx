@@ -3,6 +3,14 @@ import PageHeader from '@/components/PageHeader';
 import { useEffect, useRef, useState } from 'react';
 import { CheckCircle2 } from 'lucide-react';
 
+import campusImg from '@/assets/alif campus.webp';
+import classroomImg from '@/assets/Gallery page(ind)/facility/0F7A8715-scaled.webp';
+import bioLabImg from '@/assets/Gallery page(ind)/facility/biology-lab-scaled.webp';
+import physicsLabImg from '@/assets/Gallery page(ind)/facility/physics-lab-.webp';
+import chemLabImg from '@/assets/Gallery page(ind)/facility/chemistry-scaled.webp';
+import turfImg from '@/assets/Gallery page(ind)/facility/turf.webp';
+import libraryImg from '@/assets/Gallery page(ind)/facility/library-scaled.webp';
+
 const Facilities = () => {
   const [isVisible, setIsVisible] = useState(false);
   const sectionRef = useRef<HTMLDivElement>(null);
@@ -27,33 +35,33 @@ const Facilities = () => {
   const infrastructure = [
     {
       title: 'Modern Classrooms',
-      image: 'https://images.unsplash.com/photo-1509062522246-3755977927d7?q=80&w=2070&auto=format&fit=crop',
+      image: classroomImg,
       description: 'Spacious, air-conditioned classrooms equipped with smart boards and ergonomic furniture.'
     },
     {
       title: 'Biology Lab',
-      image: 'https://images.unsplash.com/photo-1532187863486-abf51ad9f69d?q=80&w=2070&auto=format&fit=crop',
+      image: bioLabImg,
       description: 'Advanced biological equipment and specimens for hands-on life science exploration.'
     },
     {
       title: 'Physics Lab',
-      image: 'https://images.unsplash.com/photo-1581093458791-9f3c3900df4b?q=80&w=2070&auto=format&fit=crop',
+      image: physicsLabImg,
       description: 'Precision instruments and experimental setups to master the laws of physics.'
     },
     {
       title: 'Chemistry Lab',
-      image: 'https://images.unsplash.com/photo-1532187643603-ba119ca4109e?q=80&w=2070&auto=format&fit=crop',
+      image: chemLabImg,
       description: 'Modern laboratory with safety features for conducting diverse chemical experiments.'
     },
     {
       title: 'Football Turf',
-      image: 'https://images.unsplash.com/photo-1574629810360-7efbbe195018?q=80&w=2070&auto=format&fit=crop',
+      image: turfImg,
       description: 'International standard artificial turf for football and other outdoor sports activities.'
     },
     {
-      title: 'Computer Lab',
-      image: 'https://images.unsplash.com/photo-1517694712202-14dd9538aa97?q=80&w=2070&auto=format&fit=crop',
-      description: 'High-speed internet and latest computing systems for digital literacy and coding.'
+      title: 'Library',
+      image: libraryImg,
+      description: 'A vast collection of books, digital resources, and quiet reading spaces to foster a love for learning.'
     }
   ];
 
@@ -103,7 +111,7 @@ const Facilities = () => {
             >
               <div className="relative rounded-3xl overflow-hidden shadow-strong border-8 border-white">
                 <img
-                  src="https://images.unsplash.com/photo-1523050853064-85a17f009c5f?q=80&w=2070&auto=format&fit=crop"
+                  src={campusImg}
                   alt="Alif Campus"
                   className="w-full h-full object-cover"
                 />

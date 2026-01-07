@@ -1,7 +1,7 @@
 import Layout from '@/components/Layout';
-import { Award, CheckCircle2, Sparkles, Cpu, Globe, Palette } from 'lucide-react';
+import { BookOpen, CheckCircle2, Sparkles, Heart, Globe, Star } from 'lucide-react';
 
-const Special = () => {
+const MahfilulQuran = () => {
     return (
         <Layout>
             <div className="pt-20">
@@ -12,11 +12,11 @@ const Special = () => {
                         <div className="flex flex-col md:flex-row items-center gap-12">
                             <div className="flex-1">
                                 <div className="w-16 h-16 rounded-2xl bg-accent/20 flex items-center justify-center mb-6">
-                                    <Award className="w-8 h-8 text-accent" />
+                                    <BookOpen className="w-8 h-8 text-accent" />
                                 </div>
-                                <h1 className="text-4xl md:text-5xl font-bold mb-6 text-accent">Special Programs</h1>
+                                <h1 className="text-4xl md:text-5xl font-bold mb-6 text-accent">Mahfilul Quran</h1>
                                 <p className="text-xl text-primary-foreground/80 leading-relaxed">
-                                    Enrichment programs designed to challenge gifted students and develop specialized skills beyond the standard curriculum.
+                                    A specialized program dedicated to Quranic studies, Hifz (memorization), and Tajweed, integrated with modern academic excellence.
                                 </p>
                                 <div className="mt-8 inline-block px-6 py-2 bg-accent/10 border border-accent/20 rounded-full text-accent font-semibold">
                                     Grades: All Grades
@@ -24,8 +24,8 @@ const Special = () => {
                             </div>
                             <div className="flex-1">
                                 <img
-                                    src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?q=80&w=2070&auto=format&fit=crop"
-                                    alt="Special Programs"
+                                    src="https://images.unsplash.com/photo-1585036156171-3839efc229b7?q=80&w=2070&auto=format&fit=crop"
+                                    alt="Mahfilul Quran"
                                     className="rounded-3xl shadow-2xl border-8 border-white/10"
                                 />
                             </div>
@@ -39,22 +39,22 @@ const Special = () => {
                         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
                             <div>
                                 <span className="inline-block px-4 py-2 bg-accent/10 text-accent rounded-full text-sm font-medium mb-4">
-                                    Beyond Academics
+                                    Spiritual Excellence
                                 </span>
-                                <h2 className="heading-primary mb-6">Enrichment & Excellence</h2>
+                                <h2 className="heading-primary mb-6">Nurturing Hearts & Minds</h2>
                                 <p className="text-body mb-6">
-                                    Our Special Programs are designed to go beyond the standard curriculum. We provide opportunities for students to excel in various fields, from academic competitions to creative arts and technical skills.
+                                    Mahfilul Quran is Alif Global School's flagship spiritual program. We believe in providing a balanced education where spiritual growth goes hand-in-hand with academic success.
                                 </p>
                                 <p className="text-body mb-8">
-                                    These programs are led by experts and are aimed at nurturing the unique talents and interests of our students, helping them stand out in their academic and professional journeys.
+                                    Our program is designed to help students memorize the Holy Quran with proper Tajweed while understanding its meanings and applying its values in their daily lives.
                                 </p>
 
                                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                                     {[
-                                        'Olympiad Training',
-                                        'Robotics & Coding',
-                                        'Foreign Languages',
-                                        'Creative Arts'
+                                        'Hifz-ul-Quran',
+                                        'Tajweed Excellence',
+                                        'Quranic Arabic',
+                                        'Islamic Values'
                                     ].map((item) => (
                                         <div key={item} className="flex items-center gap-3">
                                             <CheckCircle2 className="w-5 h-5 text-accent" />
@@ -67,24 +67,24 @@ const Special = () => {
                             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                                 {[
                                     {
-                                        title: 'Skill Development',
-                                        desc: 'Workshops in Coding, Robotics, and emerging technologies.',
-                                        icon: Cpu
+                                        title: 'Hifz Program',
+                                        desc: 'Systematic memorization of the Quran with personalized tracking.',
+                                        icon: Star
                                     },
                                     {
-                                        title: 'Competitive Edge',
-                                        desc: 'Intensive training for Olympiads and competitive exams.',
+                                        title: 'Tajweed Rules',
+                                        desc: 'Mastering the art of recitation with proper pronunciation.',
                                         icon: Sparkles
                                     },
                                     {
-                                        title: 'Global Languages',
-                                        desc: 'Foreign language classes to build global communication skills.',
-                                        icon: Globe
+                                        title: 'Spiritual Mentoring',
+                                        desc: 'One-on-one guidance to build character and moral values.',
+                                        icon: Heart
                                     },
                                     {
-                                        title: 'Creative Arts',
-                                        desc: 'Advanced programs in music, dance, and visual arts.',
-                                        icon: Palette
+                                        title: 'Integrated Learning',
+                                        desc: 'Balancing Quranic studies with mainstream academic subjects.',
+                                        icon: Globe
                                     }
                                 ].map((item, index) => (
                                     <div key={index} className="bg-cream p-8 rounded-3xl shadow-soft hover:shadow-medium transition-all duration-300">
@@ -104,4 +104,4 @@ const Special = () => {
     );
 };
 
-export default Special;
+export default MahfilulQuran;

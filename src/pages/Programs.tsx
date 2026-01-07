@@ -72,13 +72,13 @@ const Programs = () => {
       link: '/programs/senior-secondary',
     },
     {
-      icon: Award,
-      title: 'Special Programs',
+      icon: BookOpen,
+      title: 'Mahfilul Quran',
       grades: 'All Grades',
       age: 'All Ages',
-      description: 'Additional enrichment programs including Olympiad training, robotics, coding, foreign languages, and various skill development courses.',
-      features: ['Olympiad Training', 'Robotics & Coding', 'Foreign Languages', 'Skill Workshops'],
-      link: '/programs/special',
+      description: 'A specialized program dedicated to Quranic studies, Hifz (memorization), and Tajweed, integrated with modern academic excellence to nurture spiritually grounded and intellectually capable students.',
+      features: ['Hifz & Tajweed', 'Quranic Understanding', 'Spiritual Mentoring', 'Integrated Curriculum'],
+      link: '/programs/mahfilul-quran',
     },
   ];
 

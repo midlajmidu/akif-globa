@@ -12,9 +12,9 @@ const TCDownload = () => {
   const [error, setError] = useState<string | null>(null);
   const [downloadUrl, setDownloadUrl] = useState<string | null>(null);
 
-  const API_URL = "https://script.google.com/macros/s/AKfycbzaG6E-Kya-Hnrn5FeX7ykWxc7iPfCc_Tno-i-IXGjnbTfYp5rgB5X9Ktnt_2I3ArRZng/exec";
+  const API_URL = "https://script.google.com/macros/s/AKfycbxpm798YqeaTZD6kjE50E-YiXStsJYhX6FEjzVaD6DzAfbPIot-nQ12ZIKLcNru7c_IzA/exec";
 
-  const handleSearch = async (e: React.FormEvent) => {
+  const handleSearch = (e: React.FormEvent) => {
     e.preventDefault();
     if (!tcNumber.trim()) return;
 
@@ -22,22 +22,32 @@ const TCDownload = () => {
     setError(null);
     setDownloadUrl(null);
 
-    try {
-      const tc = tcNumber.trim().toUpperCase();
-      const res = await fetch(`${API_URL}?tc=${encodeURIComponent(tc)}`);
-      const data = await res.json();
+    const tc = tcNumber.trim().toUpperCase();
 
-      if (data.url) {
-        setDownloadUrl(data.url);
-      } else {
-        setError(data.error || "Transfer Certificate not found.");
-      }
-    } catch (err) {
-      console.error(err);
-      setError("Error connecting to server. Please try again later.");
-    } finally {
+    // Define global callback
+    (window as any).handleTC = (response: any) => {
       setIsLoading(false);
-    }
+
+      if (response.status === 'found') {
+        // window.open(response.url, '_blank'); // Removed auto-redirect
+        setDownloadUrl(response.url);
+      } else if (response.status === 'not_found') {
+        setError("TC not found. Please check the TC number.");
+      } else if (response.status === 'error') {
+        setError(response.message || "An error occurred.");
+      }
+
+      // Cleanup
+      delete (window as any).handleTC;
+      const script = document.getElementById('tc-script');
+      if (script) script.remove();
+    };
+
+    // Create and append script tag for JSONP
+    const script = document.createElement('script');
+    script.id = 'tc-script';
+    script.src = `${API_URL}?tc=${encodeURIComponent(tc)}&callback=handleTC`;
+    document.body.appendChild(script);
   };
 
   return (

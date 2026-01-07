@@ -39,11 +39,11 @@ const programs = [
     link: '/programs/senior-secondary',
   },
   {
-    icon: Award,
-    title: 'Special Programs',
-    description: 'Olympiad training, skill development, and enrichment courses',
+    icon: BookOpen,
+    title: 'Mahfilul Quran',
+    description: 'Specialized Quranic studies and Hifz program integrated with academics',
     grades: 'All Grades',
-    link: '/programs/special',
+    link: '/programs/mahfilul-quran',
   },
 ];
 

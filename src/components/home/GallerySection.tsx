@@ -1,18 +1,34 @@
 import { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
-import campusImg from '@/assets/campus.jpg';
-import activitiesImg from '@/assets/activities.jpg';
-import sportsImg from '@/assets/sports.jpg';
-import heroImg from '@/assets/hero-school.jpg';
+
+// Import local images
+import img1 from '@/assets/galley in home page/0F1A0799.webp';
+import img2 from '@/assets/galley in home page/HOSTEL .webp';
+import img3 from '@/assets/galley in home page/IMG_0056.webp';
+import img4 from '@/assets/galley in home page/IMG_5430.webp';
+import img5 from '@/assets/galley in home page/IMG_9126.webp';
+import img6 from '@/assets/galley in home page/Untitled-04-1.webp';
+import img7 from '@/assets/galley in home page/Untitled-1-26-1.webp';
+import img8 from '@/assets/galley in home page/Untitled-2-12-1.webp';
+import img9 from '@/assets/galley in home page/campus .webp';
+import img10 from '@/assets/galley in home page/campus.webp';
+import img11 from '@/assets/galley in home page/football.webp';
+import img12 from '@/assets/galley in home page/porgram.webp';
 
 const galleryImages = [
-  { src: heroImg, alt: 'School Building' },
-  { src: campusImg, alt: 'Campus Overview' },
-  { src: activitiesImg, alt: 'Student Activities' },
-  { src: sportsImg, alt: 'Sports Facilities' },
-  { src: activitiesImg, alt: 'Learning Environment' },
-  { src: campusImg, alt: 'Campus Life' },
+  { src: img1, alt: 'Gallery Image 1' },
+  { src: img2, alt: 'Gallery Image 2' },
+  { src: img3, alt: 'Gallery Image 3' },
+  { src: img4, alt: 'Gallery Image 4' },
+  { src: img5, alt: 'Gallery Image 5' },
+  { src: img6, alt: 'Gallery Image 6' },
+  { src: img7, alt: 'Gallery Image 7' },
+  { src: img8, alt: 'Gallery Image 8' },
+  { src: img9, alt: 'Gallery Image 9' },
+  { src: img10, alt: 'Gallery Image 10' },
+  { src: img11, alt: 'Gallery Image 11' },
+  { src: img12, alt: 'Gallery Image 12' },
 ];
 
 const GallerySection = () => {
@@ -46,11 +62,11 @@ const GallerySection = () => {
           <h2 className="heading-primary">Campus Gallery</h2>
         </div>
 
-        <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
           {galleryImages.map((image, index) => (
             <div
               key={index}
-              className={`group relative overflow-hidden rounded-xl aspect-square transition-all duration-500 cursor-pointer`}
+              className={`relative overflow-hidden rounded-xl aspect-square transition-all duration-500`}
               style={{
                 transitionDelay: `${index * 100}ms`,
                 opacity: isVisible ? 1 : 0,
@@ -60,13 +76,8 @@ const GallerySection = () => {
               <img
                 src={image.src}
                 alt={image.alt}
-                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                className="w-full h-full object-cover"
               />
-              <div className="absolute inset-0 bg-primary/0 group-hover:bg-primary/60 transition-all duration-300 flex items-center justify-center">
-                <span className="text-primary-foreground font-medium opacity-0 group-hover:opacity-100 transition-opacity">
-                  {image.alt}
-                </span>
-              </div>
             </div>
           ))}
         </div>
