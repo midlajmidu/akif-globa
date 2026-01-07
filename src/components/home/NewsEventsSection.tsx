@@ -103,7 +103,7 @@ const NewsEventsSection = () => {
                                             className="text-primary font-bold text-xs flex items-center gap-1 hover:gap-2 transition-all uppercase tracking-widest"
                                             aria-label={`Read more about ${item.title}`}
                                         >
-                                            Read More <ArrowRight className="w-3 h-3" aria-hidden="true" />
+                                            Read More School News <ArrowRight className="w-3 h-3" aria-hidden="true" />
                                         </Link>
                                     </div>
                                 </div>
@@ -125,14 +125,14 @@ const NewsEventsSection = () => {
                                     to="/academics/calendar"
                                     className="inline-flex items-center gap-2 bg-accent text-white px-5 py-2.5 rounded-xl font-bold text-sm hover:bg-white hover:text-primary transition-all self-start"
                                 >
-                                    View Calendar <ArrowRight className="w-4 h-4" />
+                                    View Academic Calendar <ArrowRight className="w-4 h-4" />
                                 </Link>
                             </div>
                         </div>
 
                         <div className="mt-6 text-center md:text-right">
                             <Link to="/academics/news" className="text-accent font-bold inline-flex items-center gap-2 hover:underline group text-sm">
-                                View All News <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                                View All School News <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                             </Link>
                         </div>
                     </div>
@@ -171,7 +171,7 @@ const NewsEventsSection = () => {
                                     to="/about"
                                     className="w-full flex items-center justify-center gap-2 bg-primary text-primary-foreground py-3 rounded-xl font-semibold hover:bg-primary/90 transition-all"
                                 >
-                                    Learn More About Us
+                                    Discover More About Alif Global School
                                 </Link>
                             </div>
                         </div>

@@ -137,9 +137,9 @@ const TestimonialsSection = () => {
                     />
                   </div>
                   <div>
-                    <h4 className="text-2xl font-bold text-white">
+                    <h3 className="text-2xl font-bold text-white">
                       {testimonials.current[currentIndex].name}
-                    </h4>
+                    </h3>
                     <p className="text-accent font-medium">
                       {testimonials.current[currentIndex].designation}
                     </p>
@@ -209,7 +209,7 @@ const TestimonialsSection = () => {
                             "{parent.content}"
                           </p>
                           <div className="mt-auto">
-                            <h5 className="font-bold text-primary text-sm">{parent.parentName}</h5>
+                            <h4 className="font-bold text-primary text-sm">{parent.parentName}</h4>
                             <p className="text-accent text-xs font-bold mt-1">{parent.place}</p>
                           </div>
                         </div>

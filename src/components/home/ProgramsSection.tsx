@@ -108,7 +108,7 @@ const ProgramsSection = () => {
                   className="text-primary font-medium text-sm flex items-center gap-1 group-hover:text-accent transition-colors"
                   aria-label={`Learn more about our ${program.title} program`}
                 >
-                  Learn More
+                  Explore {program.title}
                   <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" aria-hidden="true" />
                 </Link>
               </div>

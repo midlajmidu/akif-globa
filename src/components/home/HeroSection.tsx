@@ -82,7 +82,7 @@ const HeroSection = () => {
               className="group flex items-center gap-2 bg-[#E6B65C] text-[#0A2A4F] px-8 py-4 rounded-full font-semibold transition-all duration-300 hover:bg-[#d4a347] hover:shadow-[0_0_20px_rgba(230,182,92,0.5)] hover:-translate-y-1"
               aria-label="Get Admission to Alif Global School"
             >
-              Get Admission
+              Apply for Admission
               <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" aria-hidden="true" />
             </Link>
             <Link
@@ -90,7 +90,7 @@ const HeroSection = () => {
               className="flex items-center gap-2 bg-white/10 text-white px-8 py-4 rounded-full font-semibold backdrop-blur-md border border-white/20 transition-all duration-300 hover:bg-white/20 hover:border-white/40 hover:-translate-y-1"
               aria-label="Learn more about Alif Global School"
             >
-              Learn More
+              Explore Alif Global School
             </Link>
           </div>
         </div>
