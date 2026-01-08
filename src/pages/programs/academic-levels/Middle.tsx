@@ -2,6 +2,8 @@ import Layout from '@/components/Layout';
 import { Users, CheckCircle2, Compass, Award, MessageSquare, Brain } from 'lucide-react';
 import SEO from '@/components/SEO';
 
+import middleImg from '@/assets/programs(classes)/middle.jpg';
+
 const Middle = () => {
     return (
         <Layout>
@@ -35,9 +37,9 @@ const Middle = () => {
                             </div>
                             <div className="flex-1">
                                 <img
-                                    src="https://images.unsplash.com/photo-1577891772227-d263f5e3c9a7?q=80&w=2070&auto=format&fit=crop"
+                                    src={middleImg}
                                     alt="Middle School Students"
-                                    className="rounded-3xl shadow-2xl border-8 border-white/10"
+                                    className="rounded-3xl shadow-2xl border-8 border-white/10 w-full h-auto object-cover"
                                 />
                             </div>
                         </div>

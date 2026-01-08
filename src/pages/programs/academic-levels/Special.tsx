@@ -2,6 +2,8 @@ import Layout from '@/components/Layout';
 import { BookOpen, CheckCircle2, Sparkles, Heart, Globe, Star } from 'lucide-react';
 import SEO from '@/components/SEO';
 
+import mahfilulQuranImg from '@/assets/programs(classes)/mehfil quran.png';
+
 const MahfilulQuran = () => {
     return (
         <Layout>
@@ -35,9 +37,9 @@ const MahfilulQuran = () => {
                             </div>
                             <div className="flex-1">
                                 <img
-                                    src="https://images.unsplash.com/photo-1585036156171-3839efc229b7?q=80&w=2070&auto=format&fit=crop"
+                                    src={mahfilulQuranImg}
                                     alt="Mahfilul Quran Program Students"
-                                    className="rounded-3xl shadow-2xl border-8 border-white/10"
+                                    className="rounded-3xl shadow-2xl border-8 border-white/10 w-full h-auto object-cover"
                                 />
                             </div>
                         </div>

@@ -2,6 +2,9 @@ import Layout from '@/components/Layout';
 import { Sparkles, CheckCircle2, BookOpen, Heart, Globe, Moon } from 'lucide-react';
 import SEO from '@/components/SEO';
 
+import foundationImg from '@/assets/programs(classes)/foundation school.jpeg';
+import zeequeImg from '@/assets/programs(classes)/mehfil quran.png';
+
 const Foundation = () => {
     return (
         <Layout>
@@ -35,9 +38,9 @@ const Foundation = () => {
                             </div>
                             <div className="flex-1">
                                 <img
-                                    src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?q=80&w=2022&auto=format&fit=crop"
+                                    src={foundationImg}
                                     alt="Foundation School Students"
-                                    className="rounded-3xl shadow-2xl border-8 border-white/10"
+                                    className="rounded-3xl shadow-2xl border-8 border-white/10 w-full h-auto object-cover"
                                 />
                             </div>
                         </div>
@@ -50,9 +53,9 @@ const Foundation = () => {
                         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
                             <div className="order-2 lg:order-1">
                                 <img
-                                    src="https://images.unsplash.com/photo-1587654780291-39c9404d746b?q=80&w=2070&auto=format&fit=crop"
+                                    src={zeequeImg}
                                     alt="ZeeQue International Preschool"
-                                    className="rounded-3xl shadow-strong"
+                                    className="rounded-3xl shadow-strong w-full h-auto object-cover"
                                 />
                             </div>
                             <div className="order-1 lg:order-2">

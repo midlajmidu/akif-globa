@@ -2,6 +2,8 @@ import Layout from '@/components/Layout';
 import { BookOpen, CheckCircle2, Search, Lightbulb, Map, Heart } from 'lucide-react';
 import SEO from '@/components/SEO';
 
+import preparatoryImg from '@/assets/programs(classes)/prepratory.jpeg';
+
 const Preparatory = () => {
     return (
         <Layout>
@@ -35,9 +37,9 @@ const Preparatory = () => {
                             </div>
                             <div className="flex-1">
                                 <img
-                                    src="https://images.unsplash.com/photo-1509062522246-3755977927d7?q=80&w=2104&auto=format&fit=crop"
+                                    src={preparatoryImg}
                                     alt="Preparatory School Students"
-                                    className="rounded-3xl shadow-2xl border-8 border-white/10"
+                                    className="rounded-3xl shadow-2xl border-8 border-white/10 w-full h-auto object-cover"
                                 />
                             </div>
                         </div>

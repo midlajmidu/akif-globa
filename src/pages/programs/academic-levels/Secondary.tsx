@@ -2,6 +2,8 @@ import Layout from '@/components/Layout';
 import { School, CheckCircle2, Target, Rocket, Users, Briefcase } from 'lucide-react';
 import SEO from '@/components/SEO';
 
+import secondaryImg from '@/assets/home page/classroom.webp';
+
 const Secondary = () => {
     return (
         <Layout>
@@ -35,9 +37,9 @@ const Secondary = () => {
                             </div>
                             <div className="flex-1">
                                 <img
-                                    src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?q=80&w=2070&auto=format&fit=crop"
+                                    src={secondaryImg}
                                     alt="Secondary School Students"
-                                    className="rounded-3xl shadow-2xl border-8 border-white/10"
+                                    className="rounded-3xl shadow-2xl border-8 border-white/10 w-full h-auto object-cover"
                                 />
                             </div>
                         </div>
