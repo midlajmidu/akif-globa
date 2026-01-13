@@ -1,7 +1,6 @@
 import { ArrowRight, Newspaper, ChevronLeft, ChevronRight, Calendar, Leaf, Heart, Shield } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import { useRef } from 'react';
-import { newsItems } from '@/pages/academics/News';
+import { useRef, useState, useEffect } from 'react';
 
 const NewsEventsSection = () => {
     const scrollRef = useRef<HTMLDivElement>(null);
@@ -13,6 +12,31 @@ const NewsEventsSection = () => {
             scrollRef.current.scrollTo({ left: scrollTo, behavior: 'smooth' });
         }
     };
+
+    const [news, setNews] = useState<any[]>(() => {
+        const cached = sessionStorage.getItem('news_data_v2');
+        return cached ? JSON.parse(cached) : [];
+    });
+    const [loading, setLoading] = useState(!news.length);
+
+    useEffect(() => {
+        fetch('https://script.google.com/macros/s/AKfycbwjANLBOP1mAudtHF5uYQ9ItQuWCqGkGLFS-9DALRJWAJ2aMo834VE-QY5uQk1LA0U/exec?action=news')
+            .then(res => res.json())
+            .then(data => {
+                if (Array.isArray(data)) {
+                    const sorted = data
+                        .filter((item: any) => item.status === 'PUBLISHED')
+                        .sort((a, b) => (b.id || 0) - (a.id || 0));
+                    setNews(sorted);
+                    sessionStorage.setItem('news_data_v2', JSON.stringify(sorted));
+                }
+                setLoading(false);
+            })
+            .catch(err => {
+                console.error("Error fetching news:", err);
+                setLoading(false);
+            });
+    }, []);
 
     const stats = [
         {
@@ -75,39 +99,50 @@ const NewsEventsSection = () => {
                             className="flex gap-6 overflow-x-auto snap-x snap-mandatory no-scrollbar pb-4"
                             style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
                         >
-                            {newsItems.slice(0, 5).map((item, index) => (
-                                <div
-                                    key={index}
-                                    className="flex-shrink-0 w-full md:w-[calc(50%-12px)] snap-start group bg-white rounded-2xl overflow-hidden shadow-soft border border-border hover:shadow-medium transition-all duration-300"
-                                >
-                                    <div className="aspect-video overflow-hidden">
-                                        <img
-                                            src={item.image}
-                                            alt={item.title}
-                                            loading="lazy"
-                                            width={500}
-                                            height={281}
-                                            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                                        />
+                            {loading && news.length === 0 ? (
+                                [1, 2].map((i) => (
+                                    <div key={`skeleton-${i}`} className="flex-shrink-0 w-full md:w-[calc(50%-12px)] snap-start bg-white rounded-2xl overflow-hidden shadow-soft border border-border animate-pulse">
+                                        <div className="aspect-video bg-gray-200" />
+                                        <div className="p-5 space-y-4">
+                                            <div className="h-3 bg-gray-200 rounded w-1/4" />
+                                            <div className="h-5 bg-gray-200 rounded w-3/4" />
+                                            <div className="h-4 bg-gray-200 rounded w-full" />
+                                            <div className="h-3 bg-gray-200 rounded w-1/2" />
+                                        </div>
                                     </div>
-                                    <div className="p-5">
-                                        <span className="text-xs font-bold text-accent uppercase tracking-wider">{item.date}</span>
-                                        <h3 className="text-lg font-bold text-primary mt-2 mb-3 line-clamp-2 group-hover:text-accent transition-colors">
-                                            {item.title}
-                                        </h3>
-                                        <p className="text-body text-sm line-clamp-2 mb-4">
-                                            {item.desc}
-                                        </p>
-                                        <Link
-                                            to="/academics/news"
-                                            className="text-primary font-bold text-xs flex items-center gap-1 hover:gap-2 transition-all uppercase tracking-widest"
-                                            aria-label={`Read more about ${item.title}`}
-                                        >
-                                            Read More School News <ArrowRight className="w-3 h-3" aria-hidden="true" />
-                                        </Link>
-                                    </div>
-                                </div>
-                            ))}
+                                ))
+                            ) : (
+                                news.slice(0, 5).map((item, index) => (
+                                    <Link
+                                        key={index}
+                                        to={`/news/${item.slug || ''}`}
+                                        className="flex-shrink-0 w-full md:w-[calc(50%-12px)] snap-start group bg-white rounded-2xl overflow-hidden shadow-soft border border-border hover:shadow-medium transition-all duration-300"
+                                    >
+                                        <div className="aspect-video overflow-hidden">
+                                            <img
+                                                src={`https://drive.google.com/thumbnail?id=${item.image_url}&sz=w1000`}
+                                                alt={item.title}
+                                                loading="lazy"
+                                                width={500}
+                                                height={281}
+                                                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                                            />
+                                        </div>
+                                        <div className="p-5">
+                                            <span className="text-xs font-bold text-accent uppercase tracking-wider">{item.date}</span>
+                                            <h3 className="text-lg font-bold text-primary mt-2 mb-3 line-clamp-2 group-hover:text-accent transition-colors">
+                                                {item.title}
+                                            </h3>
+                                            <p className="text-body text-sm line-clamp-2 mb-4">
+                                                {item.short_desc}
+                                            </p>
+                                            <div className="text-primary font-bold text-xs flex items-center gap-1 hover:gap-2 transition-all uppercase tracking-widest">
+                                                Read More School News <ArrowRight className="w-3 h-3" aria-hidden="true" />
+                                            </div>
+                                        </div>
+                                    </Link>
+                                ))
+                            )}
 
                             {/* Academic Calendar Card */}
                             <div className="flex-shrink-0 w-full md:w-[calc(50%-12px)] snap-start group bg-primary rounded-2xl overflow-hidden shadow-soft border border-border p-6 text-white flex flex-col justify-between relative">
@@ -178,8 +213,8 @@ const NewsEventsSection = () => {
                     </div>
 
                 </div>
-            </div>
-        </section>
+            </div >
+        </section >
     );
 };
 

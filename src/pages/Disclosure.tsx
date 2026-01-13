@@ -35,26 +35,34 @@ const Disclosure = () => {
     { label: 'CONTACT DETAILS (LANDLINE/MOBILE)', value: '9072500444' },
   ];
 
-  const documents = [
-    { title: 'COPIES OF AFFILIATION/UPGRADATION LETTER AND RECENT EXTENSION OF AFFILIATION, IF ANY', link: 'https://drive.google.com/file/d/1qtJs2V9pngjDT2IC4b2RC9RpmWVUl6LW/view?usp=sharing' },
-    { title: 'COPIES OF SOCIETIES/TRUST/COMPANY REGISTRATION/RENEWAL CERTIFICATE, AS APPLICABLE', link: '#' },
-    { title: 'COPY OF NO OBJECTION CERTIFICATE (NOC) ISSUED, IF APPLICABLE, BY THE STATE GOVT./UT', link: '#' },
-    { title: 'COPIES OF RECOGNITION CERTIFICATE UNDER RTE ACT, 2009, AND IT’S RENEWAL IF APPLICABLE', link: '#' },
-    { title: 'COPY OF VALID BUILDING SAFETY CERTIFICATE AS PER THE NATIONAL BUILDING CODE', link: '#' },
-    { title: 'COPY OF VALID FIRE SAFETY CERTIFICATE ISSUED BY THE COMPETENT AUTHORITY', link: '#' },
-    { title: 'COPY OF THE DEO CERTIFICATE SUBMITTED BY THE SCHOOL FOR AFFILIATION/UPGRADATION/EXTENSION OF AFFILIATIONOR SELF CERTIFICATION BY SCHOOL', link: '#' },
-    { title: 'COPY OF VALID DRINKING WATER CERTIFICATE', link: 'https://drive.google.com/file/d/1rN4SXvUotn1k4BxBmKyCAD_LJsL7Ry_x/view?usp=sharing' },
-    { title: 'COPY OF VALID HEALTH AND SANITATION CERTIFICATE', link: 'https://drive.google.com/file/d/1H7KuMzFw3HL_tRRHL8mUy77nc9Y6E5Tf/view?usp=sharing' },
-  ];
+  const [documents, setDocuments] = useState<any[]>(() => {
+    const cached = sessionStorage.getItem('disclosure_data');
+    return cached ? JSON.parse(cached).filter((item: any) => item.category?.trim() === 'B') : [];
+  });
+  const [academicDocs, setAcademicDocs] = useState<any[]>(() => {
+    const cached = sessionStorage.getItem('disclosure_data');
+    return cached ? JSON.parse(cached).filter((item: any) => item.category?.trim() === 'C') : [];
+  });
+  const [loading, setLoading] = useState(!(documents.length || academicDocs.length));
 
-  const academicDocs = [
-    { title: 'FEE STRUCTURE OF THE SCHOOL', link: '#' },
-    { title: 'ANNUAL ACADEMIC CALANDER', link: 'https://drive.google.com/file/d/1CsAaYYqdbohnU-N204y00wS2RsaczIKB/view?usp=sharing' },
-    { title: 'LIST OF SCHOOL MANAGEMENT COMMITTEE (SMC)', link: 'https://drive.google.com/file/d/1Fyz_A1JeHoZv0vtvsh78IK1ZMH9ByrHc/view?usp=sharing' },
-    { title: 'LIST OF PARENTS TEACHERS ASSOCIATION (PTA) MEMBERS', link: 'https://drive.google.com/file/d/1u6Pb5ZA3zy2uR_30S9CFlXTx90_4kxIM/view?usp=sharing' },
-    { title: 'TEACHING STAFF LIST', link: 'https://drive.google.com/file/d/1hYNbHEJScRN-wLL6TNCndzYUcnN2GbjL/view?usp=sharing' },
-    { title: 'LAST THREE-YEAR RESULT OF THE BOARD EXAMINATION AS PER APPLICABILITY', link: '#' },
-  ];
+  useEffect(() => {
+    fetch('https://script.google.com/macros/s/AKfycbxvrytvVpP9WMalL6MuFs-qtgfI3mbcEG1JocCiKLzjmiPTM3uPC5ESVdJJNwPEWGjPWA/exec?action=mandatory')
+      .then(res => res.json())
+      .then(data => {
+        if (Array.isArray(data)) {
+          const docsB = data.filter((item: any) => item.category?.trim() === 'B');
+          const docsC = data.filter((item: any) => item.category?.trim() === 'C');
+          setDocuments(docsB);
+          setAcademicDocs(docsC);
+          sessionStorage.setItem('disclosure_data', JSON.stringify(data));
+        }
+        setLoading(false);
+      })
+      .catch(err => {
+        console.error("Error fetching mandatory disclosure data:", err);
+        setLoading(false);
+      });
+  }, []);
 
   const staffDetails = [
     { label: 'PRINCIPAL', value: '1' },
@@ -133,24 +141,42 @@ const Disclosure = () => {
                 </div>
               </div>
               <div className="grid grid-cols-1 gap-4">
-                {documents.map((doc, i) => (
-                  <div key={i} className="flex items-center justify-between p-5 bg-white rounded-xl border border-border hover:border-accent/30 hover:shadow-medium transition-all group">
-                    <div className="flex items-start gap-4">
-                      <span className="flex-shrink-0 w-6 h-6 rounded-full bg-primary/5 text-primary text-xs font-bold flex items-center justify-center border border-primary/10">
-                        {i + 1}
-                      </span>
-                      <span className="text-sm font-semibold text-primary/80 leading-snug uppercase">{doc.title}</span>
+                {loading && documents.length === 0 ? (
+                  [1, 2, 3, 4, 5, 6].map((i) => (
+                    <div key={`skeleton-b-${i}`} className="flex items-center justify-between p-5 bg-white rounded-xl border border-border animate-pulse">
+                      <div className="flex items-start gap-4 flex-1">
+                        <div className="flex-shrink-0 w-6 h-6 rounded-full bg-gray-200" />
+                        <div className="h-4 bg-gray-200 rounded w-full max-w-[300px]" />
+                      </div>
+                      <div className="w-16 h-8 bg-gray-200 rounded-lg ml-4" />
                     </div>
-                    <a
-                      href={doc.link}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex items-center gap-2 text-accent font-bold text-xs whitespace-nowrap px-4 py-2 rounded-lg bg-accent/5 hover:bg-accent hover:text-white transition-all ml-4"
-                    >
-                      VIEW <ExternalLink className="w-3.5 h-3.5" />
-                    </a>
-                  </div>
-                ))}
+                  ))
+                ) : (
+                  documents.map((doc) => (
+                    <div key={`b-${doc.number}`} className="flex items-center justify-between p-5 bg-white rounded-xl border border-border hover:border-accent/30 hover:shadow-medium transition-all group">
+                      <div className="flex items-start gap-4">
+                        <span className="flex-shrink-0 w-6 h-6 rounded-full bg-primary/5 text-primary text-xs font-bold flex items-center justify-center border border-primary/10">
+                          {doc.number}
+                        </span>
+                        <span className="text-sm font-semibold text-primary/80 leading-snug uppercase">{doc.title}</span>
+                      </div>
+                      {doc.pdf_url ? (
+                        <a
+                          href={doc.pdf_url}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="flex items-center gap-2 text-accent font-bold text-xs whitespace-nowrap px-4 py-2 rounded-lg bg-accent/5 hover:bg-accent hover:text-white transition-all ml-4"
+                        >
+                          VIEW <ExternalLink className="w-3.5 h-3.5" />
+                        </a>
+                      ) : (
+                        <span className="flex items-center gap-2 text-accent/50 font-bold text-xs whitespace-nowrap px-4 py-2 rounded-lg bg-accent/5 cursor-not-allowed opacity-60 ml-4 pointer-events-none">
+                          VIEW <ExternalLink className="w-3.5 h-3.5" />
+                        </span>
+                      )}
+                    </div>
+                  ))
+                )}
               </div>
               <div className="mt-6 p-4 bg-amber-50 rounded-xl border border-amber-100 flex gap-3 items-start">
                 <Info className="w-5 h-5 text-amber-600 flex-shrink-0 mt-0.5" />
@@ -172,19 +198,37 @@ const Disclosure = () => {
                 </div>
               </div>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                {academicDocs.map((doc, i) => (
-                  <div key={i} className="flex items-center justify-between p-5 bg-cream/20 rounded-xl border border-primary/5 hover:bg-primary/5 transition-all group">
-                    <div className="flex items-center gap-3">
-                      <div className="w-8 h-8 rounded-lg bg-primary/5 flex items-center justify-center text-primary font-bold text-xs">
-                        {i + 1}
+                {loading && academicDocs.length === 0 ? (
+                  [1, 2, 3, 4].map((i) => (
+                    <div key={`skeleton-c-${i}`} className="flex items-center justify-between p-5 bg-cream/20 rounded-xl border border-primary/5 animate-pulse">
+                      <div className="flex items-center gap-3 flex-1">
+                        <div className="w-8 h-8 rounded-lg bg-gray-200 flex-shrink-0" />
+                        <div className="h-3 bg-gray-200 rounded w-full max-w-[200px]" />
                       </div>
-                      <span className="text-xs font-bold text-primary uppercase tracking-wide">{doc.title}</span>
+                      <div className="w-8 h-8 bg-gray-200 rounded-lg ml-2" />
                     </div>
-                    <a href={doc.link} className="p-2 rounded-lg hover:bg-accent/10 text-accent transition-colors">
-                      <Download className="w-5 h-5" />
-                    </a>
-                  </div>
-                ))}
+                  ))
+                ) : (
+                  academicDocs.map((doc) => (
+                    <div key={`c-${doc.number}`} className="flex items-center justify-between p-5 bg-cream/20 rounded-xl border border-primary/5 hover:bg-primary/5 transition-all group">
+                      <div className="flex items-center gap-3">
+                        <div className="w-8 h-8 rounded-lg bg-primary/5 flex items-center justify-center text-primary font-bold text-xs">
+                          {doc.number}
+                        </div>
+                        <span className="text-xs font-bold text-primary uppercase tracking-wide">{doc.title}</span>
+                      </div>
+                      {doc.pdf_url ? (
+                        <a href={doc.pdf_url} target="_blank" rel="noopener noreferrer" className="p-2 rounded-lg hover:bg-accent/10 text-accent transition-colors">
+                          <Download className="w-5 h-5" />
+                        </a>
+                      ) : (
+                        <span className="p-2 rounded-lg text-accent/50 cursor-not-allowed opacity-50 pointer-events-none">
+                          <Download className="w-5 h-5" />
+                        </span>
+                      )}
+                    </div>
+                  ))
+                )}
               </div>
             </div>
 

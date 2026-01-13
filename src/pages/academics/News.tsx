@@ -1,47 +1,36 @@
+import { useState, useEffect } from 'react';
 import Layout from '@/components/Layout';
 import PageHeader from '@/components/PageHeader';
 import SEO from '@/components/SEO';
+import { Link } from 'react-router-dom';
 
-import paletteImg from '@/assets/ags news/pallete news.webp';
-import alifinityImg from '@/assets/ags news/alifinity.webp';
-import kheloImg from '@/assets/ags news/khelo news.webp';
-import aplImg from '@/assets/ags news/premier league.webp';
-import wonderPopImg from '@/assets/ags news/wonder pop news.webp';
-
-export const newsItems = [
-  {
-    date: 'Dec 20, 2025',
-    title: 'Wonder Pop – One Day Camp',
-    desc: 'Wonder Pop was a fun-filled one-day camp organized for up grade students aged 3 to 10 years. The camp featured interactive learning sessions, creative activities, and exciting games, giving students a joyful and enriching experience beyond the classroom.',
-    image: wonderPopImg
-  },
-  {
-    date: 'Dec 02, 2025',
-    title: 'APL – Alif Premier League',
-    desc: 'APL (Alif Premier League) is AGS\'s exciting football program designed to encourage a spirit of sportsmanship and healthy competition. The program provided students with an opportunity to showcase their football skills while learning teamwork, discipline, and leadership on the field.',
-    image: aplImg
-  },
-  {
-    date: 'Nov 19, 2025',
-    title: 'Khelo Alif – Sports Program',
-    desc: 'Khelo Alif is a dynamic sports program aimed at promoting physical fitness and healthy habits among students. The program helped students develop teamwork, coordination, and sportsmanship through fun and engaging activities.',
-    image: kheloImg
-  },
-  {
-    date: 'Nov 01, 2025',
-    title: 'Alifinity – Grand Exhibition',
-    desc: 'The Alifinity Grand Exhibition was a grand celebration of creativity, innovation, and learning at AGS. Students proudly displayed their projects, artworks, and performances, making the event a memorable experience for parents, teachers, and visitors.',
-    image: alifinityImg
-  },
-  {
-    date: 'Aug 30, 2025',
-    title: 'Palette – Arts Program',
-    desc: 'Palette is AGS\'s vibrant arts program that nurtures creativity and self-expression among students. The program included drawing, painting, craft work, singing, Oppana, and other expressive art forms, encouraging students to explore and showcase their talents in a joyful environment.',
-    image: paletteImg
-  },
-];
+export const newsItems = []; // Keep export to avoid breaking other imports, but it's empty now
 
 const News = () => {
+  const [news, setNews] = useState<any[]>(() => {
+    const cached = sessionStorage.getItem('news_data_v2');
+    return cached ? JSON.parse(cached) : [];
+  });
+  const [loading, setLoading] = useState(!news.length);
+
+  useEffect(() => {
+    fetch('https://script.google.com/macros/s/AKfycbwjANLBOP1mAudtHF5uYQ9ItQuWCqGkGLFS-9DALRJWAJ2aMo834VE-QY5uQk1LA0U/exec?action=news')
+      .then(res => res.json())
+      .then(data => {
+        if (Array.isArray(data)) {
+          const sorted = data
+            .filter((item: any) => item.status === 'PUBLISHED')
+            .sort((a, b) => (b.id || 0) - (a.id || 0));
+          setNews(sorted);
+          sessionStorage.setItem('news_data_v2', JSON.stringify(sorted));
+        }
+        setLoading(false);
+      })
+      .catch(err => {
+        console.error("Error fetching news:", err);
+        setLoading(false);
+      });
+  }, []);
   return (
     <Layout>
       <SEO
@@ -60,26 +49,41 @@ const News = () => {
           <div className="max-w-6xl mx-auto">
             <h2 className="heading-secondary mb-12 text-center">Latest News</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {newsItems.map((item, index) => (
-                <div key={index} className="group bg-white rounded-2xl overflow-hidden shadow-soft border border-border hover:shadow-medium transition-all duration-300">
-                  <div className="aspect-video overflow-hidden">
-                    <img
-                      src={item.image}
-                      alt={item.title}
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                    />
+              {loading && news.length === 0 ? (
+                [1, 2, 3, 4, 5, 6].map((i) => (
+                  <div key={`skeleton-${i}`} className="bg-white rounded-2xl overflow-hidden shadow-soft border border-border animate-pulse">
+                    <div className="aspect-video bg-gray-200" />
+                    <div className="p-6 space-y-4">
+                      <div className="h-3 bg-gray-200 rounded w-1/4" />
+                      <div className="h-6 bg-gray-200 rounded w-3/4" />
+                      <div className="h-4 bg-gray-200 rounded w-full" />
+                      <div className="h-4 bg-gray-200 rounded w-full" />
+                    </div>
                   </div>
-                  <div className="p-6">
-                    <span className="text-xs font-bold text-accent uppercase tracking-wider">{item.date}</span>
-                    <h3 className="text-xl font-bold text-primary mt-2 mb-3 line-clamp-2 group-hover:text-accent transition-colors">
-                      {item.title}
-                    </h3>
-                    <p className="text-body text-sm line-clamp-3 mb-4">
-                      {item.desc}
-                    </p>
-                  </div>
-                </div>
-              ))}
+                ))
+              ) : (
+                news.map((item, index) => (
+                  <Link to={`/news/${item.slug}`} key={index} className="group bg-white rounded-2xl overflow-hidden shadow-soft border border-border hover:shadow-medium transition-all duration-300">
+                    <div className="aspect-video overflow-hidden">
+                      <img
+                        src={`https://drive.google.com/thumbnail?id=${item.image_url}&sz=w1000`}
+                        alt={item.title}
+                        loading="lazy"
+                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                      />
+                    </div>
+                    <div className="p-6">
+                      <span className="text-xs font-bold text-accent uppercase tracking-wider">{item.date}</span>
+                      <h3 className="text-xl font-bold text-primary mt-2 mb-3 line-clamp-2 group-hover:text-accent transition-colors">
+                        {item.title}
+                      </h3>
+                      <p className="text-body text-sm line-clamp-3 mb-4">
+                        {item.short_desc}
+                      </p>
+                    </div>
+                  </Link>
+                ))
+              )}
             </div>
           </div>
         </div>
