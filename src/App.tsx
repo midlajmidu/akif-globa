@@ -8,58 +8,58 @@ import { Suspense, lazy } from 'react';
 import ScrollToTop from "./components/ScrollToTop";
 
 // Lazy loaded pages
-const Index = lazy(() => import("./pages/Index"));
-const About = lazy(() => import("./pages/About"));
-const Admission = lazy(() => import("./pages/Admission"));
-const Academics = lazy(() => import("./pages/Academics"));
-const Programs = lazy(() => import("./pages/Programs"));
-const Facilities = lazy(() => import("./pages/Facilities"));
-const Disclosure = lazy(() => import("./pages/Disclosure"));
-const Contact = lazy(() => import("./pages/Contact"));
-const Alumni = lazy(() => import("./pages/Alumni"));
-const NotFound = lazy(() => import("./pages/NotFound"));
+const Index = lazy(() => import("@/pages/Index"));
+const About = lazy(() => import("@/pages/About"));
+const Admission = lazy(() => import("@/pages/Admission"));
+const Academics = lazy(() => import("@/pages/Academics"));
+const Programs = lazy(() => import("@/pages/Programs"));
+const Facilities = lazy(() => import("@/pages/Facilities"));
+const Disclosure = lazy(() => import("@/pages/Disclosure"));
+const Contact = lazy(() => import("@/pages/Contact"));
+const Alumni = lazy(() => import("@/pages/Alumni"));
+const NotFound = lazy(() => import("@/pages/NotFound"));
 
 // About Subpages
-const AboutMarkaz = lazy(() => import("./pages/about/Markaz"));
-const AboutTrust = lazy(() => import("./pages/about/Trust"));
-const AboutRiyadh = lazy(() => import("./pages/about/Riyadh"));
-const AboutResidence = lazy(() => import("./pages/about/Residence"));
-const AboutTestimonials = lazy(() => import("./pages/about/Testimonials"));
-const AboutVirtualTour = lazy(() => import("./pages/about/VirtualTour"));
+const AboutMarkaz = lazy(() => import("@/pages/about/Markaz"));
+const AboutTrust = lazy(() => import("@/pages/about/Trust"));
+const AboutRiyadh = lazy(() => import("@/pages/about/Riyadh"));
+const AboutResidence = lazy(() => import("@/pages/about/Residence"));
+const AboutTestimonials = lazy(() => import("@/pages/about/Testimonials"));
+const AboutVirtualTour = lazy(() => import("@/pages/about/VirtualTour"));
 
 // Admission Subpages
-const AdmissionTest = lazy(() => import("./pages/admission/Test"));
-const AdmissionApply = lazy(() => import("./pages/admission/Apply"));
-const AdmissionScholarships = lazy(() => import("./pages/admission/Scholarships"));
+const AdmissionTest = lazy(() => import("@/pages/admission/Test"));
+const AdmissionApply = lazy(() => import("@/pages/admission/Apply"));
+const AdmissionScholarships = lazy(() => import("@/pages/admission/Scholarships"));
 
 // Academic Subpages
-const AcademicPrincipal = lazy(() => import("./pages/academics/Principal"));
-const AcademicZeeque = lazy(() => import("./pages/academics/Zeeque"));
-const AcademicCalendar = lazy(() => import("./pages/academics/Calendar"));
-const AcademicLearning = lazy(() => import("./pages/academics/Learning"));
-const AcademicNews = lazy(() => import("./pages/academics/News"));
-const AcademicGallery = lazy(() => import("./pages/academics/Gallery"));
-const AcademicCareer = lazy(() => import("./pages/academics/Career"));
-const AcademicTCDownload = lazy(() => import("./pages/academics/TCDownload"));
-const AcademicSummerCamp = lazy(() => import("./pages/academics/SummerCamp"));
+const AcademicPrincipal = lazy(() => import("@/pages/academics/Principal"));
+const AcademicZeeque = lazy(() => import("@/pages/academics/Zeeque"));
+const AcademicCalendar = lazy(() => import("@/pages/academics/Calendar"));
+const AcademicLearning = lazy(() => import("@/pages/academics/Learning"));
+const AcademicNews = lazy(() => import("@/pages/academics/News"));
+const AcademicGallery = lazy(() => import("@/pages/academics/Gallery"));
+const AcademicCareer = lazy(() => import("@/pages/academics/Career"));
+const AcademicTCDownload = lazy(() => import("@/pages/academics/TCDownload"));
+const AcademicSummerCamp = lazy(() => import("@/pages/academics/SummerCamp"));
 
 // Program Subpages
-const ProgramAGSTalks = lazy(() => import("./pages/programs/AGSTalks"));
-const ProgramPalette = lazy(() => import("./pages/programs/Palette"));
-const ProgramConnected = lazy(() => import("./pages/programs/Connected"));
-const ProgramRankkhel = lazy(() => import("./pages/programs/Rankkhel"));
-const ProgramSkillSurge = lazy(() => import("./pages/programs/SkillSurge"));
-const ProgramKhelo = lazy(() => import("./pages/programs/Khelo"));
-const ProgramCrossRoads = lazy(() => import("./pages/programs/CrossRoads"));
+const ProgramAGSTalks = lazy(() => import("@/pages/programs/AGSTalks"));
+const ProgramPalette = lazy(() => import("@/pages/programs/Palette"));
+const ProgramConnected = lazy(() => import("@/pages/programs/Connected"));
+const ProgramRankkhel = lazy(() => import("@/pages/programs/Rankkhel"));
+const ProgramSkillSurge = lazy(() => import("@/pages/programs/SkillSurge"));
+const ProgramKhelo = lazy(() => import("@/pages/programs/Khelo"));
+const ProgramCrossRoads = lazy(() => import("@/pages/programs/CrossRoads"));
 
 // Academic Level Pages
-const FoundationPage = lazy(() => import("./pages/programs/academic-levels/Foundation"));
-const PreparatoryPage = lazy(() => import("./pages/programs/academic-levels/Preparatory"));
-const MiddlePage = lazy(() => import("./pages/programs/academic-levels/Middle"));
-const SecondaryPage = lazy(() => import("./pages/programs/academic-levels/Secondary"));
-const SeniorSecondaryPage = lazy(() => import("./pages/programs/academic-levels/SeniorSecondary"));
-const SpecialPage = lazy(() => import("./pages/programs/academic-levels/Special"));
-const NewsDetail = lazy(() => import("./pages/NewsDetail"));
+const FoundationPage = lazy(() => import("@/pages/programs/academic-levels/Foundation"));
+const PreparatoryPage = lazy(() => import("@/pages/programs/academic-levels/Preparatory"));
+const MiddlePage = lazy(() => import("@/pages/programs/academic-levels/Middle"));
+const SecondaryPage = lazy(() => import("@/pages/programs/academic-levels/Secondary"));
+const SeniorSecondaryPage = lazy(() => import("@/pages/programs/academic-levels/SeniorSecondary"));
+const SpecialPage = lazy(() => import("@/pages/programs/academic-levels/Special"));
+const NewsDetail = lazy(() => import("@/pages/NewsDetail"));
 
 const queryClient = new QueryClient();
 
