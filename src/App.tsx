@@ -2,7 +2,7 @@ import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { HashRouter, Routes, Route } from "react-router-dom";
 import { HelmetProvider } from 'react-helmet-async';
 import { Suspense, lazy } from 'react';
 import ScrollToTop from "./components/ScrollToTop";
@@ -59,6 +59,7 @@ const MiddlePage = lazy(() => import("./pages/programs/academic-levels/Middle"))
 const SecondaryPage = lazy(() => import("./pages/programs/academic-levels/Secondary"));
 const SeniorSecondaryPage = lazy(() => import("./pages/programs/academic-levels/SeniorSecondary"));
 const SpecialPage = lazy(() => import("./pages/programs/academic-levels/Special"));
+const NewsDetail = lazy(() => import("./pages/NewsDetail"));
 
 const queryClient = new QueryClient();
 
@@ -74,7 +75,7 @@ const App = () => (
       <TooltipProvider>
         <Toaster />
         <Sonner />
-        <BrowserRouter>
+        <HashRouter>
           <ScrollToTop />
           <Suspense fallback={<LoadingFallback />}>
             <Routes>
@@ -99,6 +100,7 @@ const App = () => (
               <Route path="/academics/learning" element={<AcademicLearning />} />
 
               <Route path="/academics/news" element={<AcademicNews />} />
+              <Route path="/news/:slug" element={<NewsDetail />} />
               <Route path="/academics/gallery" element={<AcademicGallery />} />
               <Route path="/academics/career" element={<AcademicCareer />} />
               <Route path="/academics/tc-download" element={<AcademicTCDownload />} />
@@ -127,7 +129,7 @@ const App = () => (
               <Route path="*" element={<NotFound />} />
             </Routes>
           </Suspense>
-        </BrowserRouter>
+        </HashRouter>
       </TooltipProvider>
     </QueryClientProvider>
   </HelmetProvider>
