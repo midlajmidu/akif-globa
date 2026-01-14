@@ -16,10 +16,10 @@ const navItems: NavItem[] = [
     path: '/about',
     children: [
       { name: 'About Alif', path: '/about' },
-      { name: "Principal's Message", path: '/academics/principal' },
       { name: 'Markaz Knowledge City', path: '/about/markaz' },
       { name: 'Alif Edu Trust', path: '/about/trust' },
       { name: 'Alif International School, Riyadh', path: '/about/riyadh' },
+      { name: "Principal's Message", path: '/about/principal' },
       { name: 'Alif Residence', path: '/about/residence' },
       { name: 'Testimonials', path: '/about/testimonials' },
       { name: 'Virtual Tour', path: '/about/virtual-tour' },

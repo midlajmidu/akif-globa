@@ -26,6 +26,7 @@ const AboutRiyadh = lazy(() => import("@/pages/about/Riyadh"));
 const AboutResidence = lazy(() => import("@/pages/about/Residence"));
 const AboutTestimonials = lazy(() => import("@/pages/about/Testimonials"));
 const AboutVirtualTour = lazy(() => import("@/pages/about/VirtualTour"));
+const AboutPrincipal = lazy(() => import("@/pages/about/Principal"));
 
 // Admission Subpages
 const AdmissionTest = lazy(() => import("@/pages/admission/Test"));
@@ -33,7 +34,6 @@ const AdmissionApply = lazy(() => import("@/pages/admission/Apply"));
 const AdmissionScholarships = lazy(() => import("@/pages/admission/Scholarships"));
 
 // Academic Subpages
-const AcademicPrincipal = lazy(() => import("@/pages/academics/Principal"));
 const AcademicZeeque = lazy(() => import("@/pages/academics/Zeeque"));
 const AcademicCalendar = lazy(() => import("@/pages/academics/Calendar"));
 const AcademicLearning = lazy(() => import("@/pages/academics/Learning"));
@@ -87,6 +87,7 @@ const App = () => (
               <Route path="/about/residence" element={<AboutResidence />} />
               <Route path="/about/testimonials" element={<AboutTestimonials />} />
               <Route path="/about/virtual-tour" element={<AboutVirtualTour />} />
+              <Route path="/about/principal" element={<AboutPrincipal />} />
 
               <Route path="/admission" element={<Admission />} />
               <Route path="/admission/test" element={<AdmissionTest />} />
@@ -94,7 +95,6 @@ const App = () => (
               <Route path="/admission/scholarships" element={<AdmissionScholarships />} />
 
               <Route path="/academics" element={<Academics />} />
-              <Route path="/academics/principal" element={<AcademicPrincipal />} />
               <Route path="/academics/zeeque" element={<AcademicZeeque />} />
               <Route path="/academics/calendar" element={<AcademicCalendar />} />
               <Route path="/academics/learning" element={<AcademicLearning />} />
