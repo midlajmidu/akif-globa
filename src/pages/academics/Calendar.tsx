@@ -20,7 +20,7 @@ const Calendar = () => {
         <div className="container-custom">
           <div className="max-w-6xl mx-auto">
             <div className="mb-12 text-center">
-              <h2 className="heading-primary mb-4">Academic Calendar 2024-25</h2>
+              <h2 className="heading-primary mb-4">Academic Calendar 2025-26</h2>
               <p className="text-body">View our complete academic schedule, holidays, and important events for the current academic year.</p>
             </div>
 

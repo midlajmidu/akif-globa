@@ -1,6 +1,6 @@
 import Layout from '@/components/Layout';
 import PageHeader from '@/components/PageHeader';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { X, Maximize2 } from 'lucide-react';
 import SEO from '@/components/SEO';
 
@@ -72,15 +72,54 @@ const galleryImages = [
   { src: cam4, category: 'Campus', title: 'School entrance and greenery' },
 ];
 
+// Persistent cache outside component to survive re-renders
+const galleryCache: Record<string, any[]> = {};
+
 const Gallery = () => {
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
   const [filter, setFilter] = useState('All');
+  const [dynamicImages, setDynamicImages] = useState<any[]>([]);
+
+  useEffect(() => {
+    const fetchDynamicGallery = async () => {
+      const section = filter.toLowerCase();
+
+      // If we have cached data, use it immediately
+      if (galleryCache[section]) {
+        setDynamicImages(galleryCache[section]);
+        // We still fetch in background to refresh cache silently if needed
+      }
+
+      try {
+        const response = await fetch(`https://script.google.com/macros/s/AKfycbwy3vKgkiLcOgaDm70Q_hJa0n7Jir8CyLccOrEcZbaVrXfaGdVWqRvux06ybGyvsdkkEA/exec?section=${section}`);
+        const data = await response.json();
+
+        // Map API response to gallery format
+        const formatted = data
+          .sort((a: any, b: any) => (a.order || 0) - (b.order || 0))
+          .map((img: any) => ({
+            src: `https://drive.google.com/thumbnail?id=${img.image_id}&sz=w1000`,
+            category: filter,
+            title: 'Alif Global School Gallery'
+          }));
+
+        galleryCache[section] = formatted;
+        setDynamicImages(formatted);
+      } catch (error) {
+        console.error('Failed to fetch dynamic gallery images:', error);
+      }
+    };
+
+    fetchDynamicGallery();
+  }, [filter]);
 
   const categories = ['All', 'Activities', 'Facility', 'Campus'];
 
-  const filteredImages = filter === 'All'
+  const staticFiltered = filter === 'All'
     ? galleryImages
     : galleryImages.filter(img => img.category === filter);
+
+  const allImages = [...staticFiltered, ...dynamicImages];
 
   return (
     <Layout>
@@ -116,7 +155,7 @@ const Gallery = () => {
 
           {/* Image Grid */}
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-            {filteredImages.map((image, index) => (
+            {allImages.map((image, index) => (
               <div
                 key={index}
                 className="group relative overflow-hidden rounded-2xl aspect-square cursor-pointer shadow-md hover:shadow-xl transition-all duration-500"
@@ -125,6 +164,7 @@ const Gallery = () => {
                 <img
                   src={image.src}
                   alt={image.title}
+                  loading="lazy"
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                 />
                 <div className="absolute inset-0 bg-primary/0 group-hover:bg-primary/40 transition-all duration-300 flex items-center justify-center">

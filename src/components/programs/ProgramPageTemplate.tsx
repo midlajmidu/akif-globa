@@ -1,6 +1,6 @@
 import Layout from '@/components/Layout';
 import PageHeader from '@/components/PageHeader';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { X, ChevronLeft, ChevronRight, Play } from 'lucide-react';
 
 interface ProgramPageTemplateProps {
@@ -11,8 +11,64 @@ interface ProgramPageTemplateProps {
     icon?: React.ReactNode;
 }
 
+const ALLOWED_SLUGS = [
+    'ags-talks',
+    'palette',
+    'connected',
+    'rankkhel',
+    'skill-surge',
+    'khelo',
+    'cross-roads'
+];
+
 const ProgramPageTemplate = ({ title, description, images, videos = [], icon }: ProgramPageTemplateProps) => {
     const [selectedImage, setSelectedImage] = useState<number | null>(null);
+    const [dynamicImages, setDynamicImages] = useState<string[]>([]);
+
+    const allImages = [...images, ...dynamicImages];
+
+    useEffect(() => {
+        const fetchDynamicImages = async () => {
+            const segments = window.location.pathname.split('/').filter(Boolean);
+            const slug = segments.pop();
+
+            // Strict check for allowed slugs and specific excluded pages
+            if (!slug || !ALLOWED_SLUGS.includes(slug)) return;
+
+            try {
+                const response = await fetch(`https://script.google.com/macros/s/AKfycbxYVL87m8IdRZ0Almumi81ZRE_M3Rnr4GzNOGUzg0B8Ggtr0vgQ_YzqqsK2Ye_tGAmc/exec?program=${slug}`);
+                const data = await response.json();
+
+                if (Array.isArray(data)) {
+                    const formatted = data.map((img: any) =>
+                        `https://drive.google.com/thumbnail?id=${img.image_id}&sz=w1000`
+                    );
+
+                    // We update the state once with the new images
+                    setDynamicImages(formatted);
+                }
+            } catch (error) {
+                console.error('Failed to fetch dynamic program images:', error);
+            }
+        };
+
+        // Non-blocking fetch using requestIdleCallback or setTimeout
+        const idleCallback = (window as any).requestIdleCallback || ((cb: any) => setTimeout(cb, 200));
+
+        // Ensure initial render is complete
+        const handleLoad = () => {
+            idleCallback(() => {
+                fetchDynamicImages();
+            });
+        };
+
+        if (document.readyState === 'complete') {
+            handleLoad();
+        } else {
+            window.addEventListener('load', handleLoad);
+            return () => window.removeEventListener('load', handleLoad);
+        }
+    }, []);
 
     const openLightbox = (index: number) => {
         setSelectedImage(index);
@@ -27,14 +83,14 @@ const ProgramPageTemplate = ({ title, description, images, videos = [], icon }: 
     const nextImage = (e: React.MouseEvent) => {
         e.stopPropagation();
         if (selectedImage !== null) {
-            setSelectedImage((selectedImage + 1) % images.length);
+            setSelectedImage((selectedImage + 1) % allImages.length);
         }
     };
 
     const prevImage = (e: React.MouseEvent) => {
         e.stopPropagation();
         if (selectedImage !== null) {
-            setSelectedImage((selectedImage - 1 + images.length) % images.length);
+            setSelectedImage((selectedImage - 1 + allImages.length) % allImages.length);
         }
     };
 
@@ -87,7 +143,7 @@ const ProgramPageTemplate = ({ title, description, images, videos = [], icon }: 
                             <h3 className="text-2xl font-bold text-primary">Event Gallery</h3>
                         </div>
                         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-2">
-                            {images.map((src, index) => (
+                            {allImages.map((src, index) => (
                                 <div
                                     key={index}
                                     className="aspect-square cursor-pointer overflow-hidden rounded-xl shadow-sm hover:shadow-md transition-all group"
@@ -96,6 +152,8 @@ const ProgramPageTemplate = ({ title, description, images, videos = [], icon }: 
                                     <img
                                         src={src}
                                         alt={`${title} ${index + 1}`}
+                                        loading="lazy"
+                                        decoding="async"
                                         className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                                     />
                                 </div>
@@ -127,13 +185,15 @@ const ProgramPageTemplate = ({ title, description, images, videos = [], icon }: 
 
                     <div className="relative max-w-5xl max-h-full flex items-center justify-center">
                         <img
-                            src={images[selectedImage]}
+                            src={allImages[selectedImage]}
                             alt={`${title} Full View`}
+                            loading="lazy"
+                            decoding="async"
                             className="max-w-full max-h-[85vh] object-contain rounded-lg shadow-2xl"
                             onClick={(e) => e.stopPropagation()}
                         />
                         <div className="absolute -bottom-12 left-0 right-0 text-center text-white font-medium">
-                            Image {selectedImage + 1} of {images.length}
+                            Image {selectedImage + 1} of {allImages.length}
                         </div>
                     </div>
 

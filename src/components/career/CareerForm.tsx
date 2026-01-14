@@ -45,11 +45,13 @@ const formSchema = z.object({
     resume: z.any().refine((files) => files?.length > 0, "Resume is required."),
 });
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
-// ... (existing imports)
+interface CareerFormProps {
+    initialValues?: Partial<z.infer<typeof formSchema>>;
+}
 
-export function CareerForm() {
+export function CareerForm({ initialValues }: CareerFormProps) {
     const [isSubmitting, setIsSubmitting] = useState(false);
 
     const form = useForm<z.infer<typeof formSchema>>({
@@ -62,8 +64,20 @@ export function CareerForm() {
             specialization: "",
             experience: "",
             message: "",
+            ...initialValues
         },
     });
+
+    // Update form values if initialValues changes
+    useEffect(() => {
+        if (initialValues) {
+            Object.entries(initialValues).forEach(([key, value]) => {
+                if (value) {
+                    form.setValue(key as any, value);
+                }
+            });
+        }
+    }, [initialValues, form]);
 
     async function onSubmit(values: z.infer<typeof formSchema>) {
         setIsSubmitting(true);
@@ -125,10 +139,7 @@ export function CareerForm() {
     return (
         <div className="bg-card p-8 rounded-2xl shadow-xl border border-border/50 backdrop-blur-sm">
             <div className="mb-8">
-                <h3 className="text-2xl font-bold text-foreground mb-2">General Application</h3>
-                <p className="text-muted-foreground">
-                    Don't see a specific role? Send us your details and we'll keep you in mind for future opportunities.
-                </p>
+                <h3 className="text-2xl font-bold text-foreground mb-2">Submit Your Application</h3>
             </div>
 
             <Form {...form}>

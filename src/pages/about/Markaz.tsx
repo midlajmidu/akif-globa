@@ -88,6 +88,30 @@ const Markaz = () => {
               </div>
             </div>
           </div>
+          {/* Riyadh Campus CTA */}
+          <div className="mt-20 pt-12 border-t border-border/50">
+            <div className="bg-gradient-to-r from-primary to-primary/90 rounded-[2.5rem] p-8 md:p-12 text-white relative overflow-hidden group">
+              <div className="absolute top-0 right-0 w-64 h-64 bg-accent/10 rounded-full -mr-32 -mt-32 blur-3xl transition-transform group-hover:scale-110 duration-700"></div>
+              <div className="absolute bottom-0 left-0 w-48 h-48 bg-white/5 rounded-full -ml-24 -mb-24 blur-2xl"></div>
+
+              <div className="relative z-10 flex flex-col md:flex-row items-center justify-between gap-8">
+                <div className="max-w-2xl">
+                  <h3 className="text-2xl md:text-3xl font-bold mb-4">Visit Alif International School, Riyadh</h3>
+                  <p className="text-primary-foreground/80 leading-relaxed text-lg">
+                    Explore our Riyadh campus website for admissions, academic programs, and more information about our international standards in Saudi Arabia.
+                  </p>
+                </div>
+                <a
+                  href="https://www.markazknowledgecity.com/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="bg-accent text-accent-foreground hover:bg-white hover:text-primary px-10 py-4 rounded-2xl font-bold transition-all shadow-gold hover:shadow-xl shrink-0 text-center"
+                >
+                  Visit Website
+                </a>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
     </Layout>

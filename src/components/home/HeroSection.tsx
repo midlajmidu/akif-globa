@@ -86,11 +86,11 @@ const HeroSection = () => {
               <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" aria-hidden="true" />
             </Link>
             <Link
-              to="/about"
+              to="/academics/news"
               className="flex items-center gap-2 bg-white/10 text-white px-8 py-4 rounded-full font-semibold backdrop-blur-md border border-white/20 transition-all duration-300 hover:bg-white/20 hover:border-white/40 hover:-translate-y-1"
-              aria-label="Learn more about Alif Global School"
+              aria-label="View latest news from Alif Global School"
             >
-              Explore Alif Global School
+              View Latest News
             </Link>
           </div>
         </div>

@@ -49,6 +49,7 @@ const testimonials = {
 const TestimonialsSection = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isVisible, setIsVisible] = useState(false);
+  const [dynamicParents, setDynamicParents] = useState<any[]>([]);
   const sectionRef = useRef<HTMLDivElement>(null);
 
   const [emblaRef, emblaApi] = useEmblaCarousel({
@@ -61,6 +62,25 @@ const TestimonialsSection = () => {
   const scrollNext = useCallback(() => emblaApi && emblaApi.scrollNext(), [emblaApi]);
 
   useEffect(() => {
+    const fetchDynamicParents = async () => {
+      try {
+        const res = await fetch('https://script.google.com/macros/s/AKfycbyiNsPkL7oDIIdhWReFwg1bhzVYHfDyfika2uSSNT1Xt_M-qpvhBoc_SPrp3vGDeh0/exec?type=text');
+        const data = await res.json();
+        if (Array.isArray(data)) {
+          // Take only latest 6
+          const latest = data.slice(0, 6).map((item, idx) => ({
+            id: `dynamic-${idx}`,
+            parentName: item.parentName || item.name,
+            place: item.place || '',
+            content: item.content || item.text
+          }));
+          setDynamicParents(latest);
+        }
+      } catch (error) {
+        console.error('Failed to fetch homepage testimonials:', error);
+      }
+    };
+
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
@@ -73,6 +93,12 @@ const TestimonialsSection = () => {
     if (sectionRef.current) {
       observer.observe(sectionRef.current);
     }
+
+    // Non-blocking fetch
+    const idleCallback = (window as any).requestIdleCallback || ((cb: any) => setTimeout(cb, 100));
+    idleCallback(() => {
+      fetchDynamicParents();
+    });
 
     return () => observer.disconnect();
   }, []);
@@ -93,6 +119,9 @@ const TestimonialsSection = () => {
     return () => clearInterval(autoplay);
   }, [emblaApi]);
 
+  // Combined parents: 3 static + dynamic (max 6)
+  const allParents = [...testimonials.parents, ...dynamicParents];
+
   // Helper to chunk array
   const chunkArray = (arr: any[], size: number) => {
     const chunked = [];
@@ -102,7 +131,7 @@ const TestimonialsSection = () => {
     return chunked;
   };
 
-  const parentChunks = chunkArray(testimonials.parents, 2);
+  const parentChunks = chunkArray(allParents, 2);
 
   return (
     <section ref={sectionRef} className="section-padding bg-cream overflow-hidden">
@@ -205,7 +234,7 @@ const TestimonialsSection = () => {
                       >
                         <div className="flex flex-col h-full">
                           <Quote className="w-8 h-8 text-accent/20 mb-4" aria-hidden="true" />
-                          <p className="text-muted-foreground text-sm italic mb-4 leading-relaxed flex-grow">
+                          <p className="text-muted-foreground text-sm italic mb-4 leading-relaxed flex-grow line-clamp-4">
                             "{parent.content}"
                           </p>
                           <div className="mt-auto">
