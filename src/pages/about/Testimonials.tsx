@@ -46,7 +46,7 @@ const Testimonials = () => {
   const [dynamicVideos, setDynamicVideos] = useState<any[]>([]);
   const sectionRef = useRef<HTMLDivElement>(null);
 
-  const allTextTestimonials = [...parentTestimonials, ...dynamicText];
+  const allTextTestimonials = [...dynamicText, ...parentTestimonials];
 
   useEffect(() => {
     const fetchDynamicContent = async () => {
@@ -214,40 +214,6 @@ const Testimonials = () => {
               <h3 className="text-3xl font-bold text-primary">Video Testimonials</h3>
             </div>
             <div className="grid md:grid-cols-2 gap-10">
-              <div
-                className="relative aspect-video rounded-3xl overflow-hidden shadow-strong border-4 border-white transition-all duration-700 delay-300"
-                style={{
-                  opacity: isVisible ? 1 : 0,
-                  transform: isVisible ? 'translateY(0)' : 'translateY(30px)',
-                }}
-              >
-                <iframe
-                  className="w-full h-full"
-                  src="https://www.youtube.com/embed/6f3DuO7HQoI?si=LGmHe1tZUUcZpTDp"
-                  title="YouTube video player"
-                  frameBorder="0"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                  referrerPolicy="strict-origin-when-cross-origin"
-                  allowFullScreen
-                ></iframe>
-              </div>
-              <div
-                className="relative aspect-video rounded-3xl overflow-hidden shadow-strong border-4 border-white transition-all duration-700 delay-500"
-                style={{
-                  opacity: isVisible ? 1 : 0,
-                  transform: isVisible ? 'translateY(0)' : 'translateY(30px)',
-                }}
-              >
-                <iframe
-                  className="w-full h-full"
-                  src="https://www.youtube.com/embed/i-BDFYBn9Ds?si=h_vBQDg1yU_4zRZN"
-                  title="YouTube video player"
-                  frameBorder="0"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                  referrerPolicy="strict-origin-when-cross-origin"
-                  allowFullScreen
-                ></iframe>
-              </div>
               {/* Dynamic Videos */}
               {dynamicVideos.map((video, index) => {
                 const embedHtml = video.youtube_id || video.embed_code || video.youtube_embed || video.embedCode;
@@ -283,11 +249,45 @@ const Testimonials = () => {
                   </div>
                 );
               })}
+              <div
+                className="relative aspect-video rounded-3xl overflow-hidden shadow-strong border-4 border-white transition-all duration-700 delay-300"
+                style={{
+                  opacity: isVisible ? 1 : 0,
+                  transform: isVisible ? 'translateY(0)' : 'translateY(30px)',
+                }}
+              >
+                <iframe
+                  className="w-full h-full"
+                  src="https://www.youtube.com/embed/6f3DuO7HQoI?si=LGmHe1tZUUcZpTDp"
+                  title="YouTube video player"
+                  frameBorder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  referrerPolicy="strict-origin-when-cross-origin"
+                  allowFullScreen
+                ></iframe>
+              </div>
+              <div
+                className="relative aspect-video rounded-3xl overflow-hidden shadow-strong border-4 border-white transition-all duration-700 delay-500"
+                style={{
+                  opacity: isVisible ? 1 : 0,
+                  transform: isVisible ? 'translateY(0)' : 'translateY(30px)',
+                }}
+              >
+                <iframe
+                  className="w-full h-full"
+                  src="https://www.youtube.com/embed/i-BDFYBn9Ds?si=h_vBQDg1yU_4zRZN"
+                  title="YouTube video player"
+                  frameBorder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  referrerPolicy="strict-origin-when-cross-origin"
+                  allowFullScreen
+                ></iframe>
+              </div>
             </div>
           </div>
         </div>
       </section>
-    </Layout>
+    </Layout >
   );
 };
 

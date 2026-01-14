@@ -25,7 +25,7 @@ const ProgramPageTemplate = ({ title, description, images, videos = [], icon }: 
     const [selectedImage, setSelectedImage] = useState<number | null>(null);
     const [dynamicImages, setDynamicImages] = useState<string[]>([]);
 
-    const allImages = [...images, ...dynamicImages];
+    const allImages = [...dynamicImages, ...images];
 
     useEffect(() => {
         const fetchDynamicImages = async () => {

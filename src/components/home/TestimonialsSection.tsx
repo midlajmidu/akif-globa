@@ -120,7 +120,7 @@ const TestimonialsSection = () => {
   }, [emblaApi]);
 
   // Combined parents: 3 static + dynamic (max 6)
-  const allParents = [...testimonials.parents, ...dynamicParents];
+  const allParents = [...dynamicParents, ...testimonials.parents];
 
   // Helper to chunk array
   const chunkArray = (arr: any[], size: number) => {

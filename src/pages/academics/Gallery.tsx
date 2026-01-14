@@ -119,7 +119,7 @@ const Gallery = () => {
     ? galleryImages
     : galleryImages.filter(img => img.category === filter);
 
-  const allImages = [...staticFiltered, ...dynamicImages];
+  const allImages = [...dynamicImages, ...staticFiltered];
 
   return (
     <Layout>
