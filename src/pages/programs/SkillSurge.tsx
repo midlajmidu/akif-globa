@@ -4,7 +4,20 @@ import SEO from '@/components/SEO';
 
 const SkillSurge = () => {
   const imageModules = import.meta.glob('@/assets/programs/skill surge/*.{png,jpg,jpeg,PNG,JPG,JPEG,webp}', { eager: true });
-  const images = Object.values(imageModules).map((mod: any) => mod.default);
+  
+  // Sort images: Untitled-1-* first, then others
+  const images = Object.entries(imageModules)
+    .sort(([pathA], [pathB]) => {
+      const isAUntitled = pathA.includes('Untitled-1-');
+      const isBUntitled = pathB.includes('Untitled-1-');
+      
+      if (isAUntitled && !isBUntitled) return -1;
+      if (!isAUntitled && isBUntitled) return 1;
+      
+      // Secondary sort by filename
+      return pathA.toLowerCase().localeCompare(pathB.toLowerCase());
+    })
+    .map(([_, mod]: [string, any]) => mod.default);
 
   return (
     <>
