@@ -3,13 +3,22 @@ import { Mic } from 'lucide-react';
 import SEO from '@/components/SEO';
 
 const AGSTalks = () => {
-  const images = Object.values(
+  const allImages = Object.values(
     import.meta.glob('@/assets/programs/AGS TALKS/*.{png,jpg,jpeg,svg,webp}', {
       eager: true,
       query: '?url',
       import: 'default',
     })
   ) as string[];
+
+  // Prioritize WhatsApp images (usually newer) and sort newest first
+  const images = [...allImages].sort((a, b) => {
+    const aIsNew = a.includes('WhatsApp');
+    const bIsNew = b.includes('WhatsApp');
+    if (aIsNew && !bIsNew) return -1;
+    if (!aIsNew && bIsNew) return 1;
+    return b.localeCompare(a);
+  });
 
   const videos = [
     "UoM2BxzXtI8",
@@ -22,11 +31,11 @@ const AGSTalks = () => {
       <SEO
         title="AGS Talks"
         description="AGS Talks is a platform for students at Alif Global School to share ideas and insights. It encourages public speaking, critical thinking, and diverse perspectives."
-        canonical="/programs/ags-talks"
+        canonical="/ags-talks/"
         breadcrumbs={[
           { name: 'Home', path: '/' },
-          { name: 'Programs', path: '/programs' },
-          { name: 'AGS Talks', path: '/programs/ags-talks' }
+          { name: 'Programs', path: '/ags-talks/' },
+          { name: 'AGS Talks', path: '/ags-talks/' }
         ]}
       />
       <ProgramPageTemplate
