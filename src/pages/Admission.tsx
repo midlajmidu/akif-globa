@@ -49,10 +49,10 @@ const Admission = () => {
       <SEO
         title="Admission"
         description="Join Alif Global School. Learn about our streamlined admission process, required documents, and start your online application today."
-        canonical="/admission"
+        canonical="/admissions/"
         breadcrumbs={[
           { name: 'Home', path: '/' },
-          { name: 'Admission', path: '/admission' }
+          { name: 'Admission', path: '/admissions/' }
         ]}
       />
       <PageHeader title="Admission" breadcrumb="Admission" />
@@ -134,7 +134,7 @@ const Admission = () => {
                   Ready to join the Alif family? Start your journey today by filling out our online application form. It's quick, easy, and the first step towards a bright future.
                 </p>
                 <Link
-                  to="/admission/apply"
+                  to="/apply-online/"
                   className="inline-flex items-center justify-center gap-2 bg-accent text-accent-foreground px-8 py-4 rounded-xl font-bold text-lg transition-all duration-300 hover:bg-gold-dark hover:shadow-gold"
                 >
                   Start Application

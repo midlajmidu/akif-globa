@@ -78,7 +78,7 @@ const HeroSection = () => {
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 animate-fade-in-up animation-delay-300">
             <Link
-              to="/admission"
+              to="/admissions/"
               className="group flex items-center gap-2 bg-[#E6B65C] text-[#0A2A4F] px-8 py-4 rounded-full font-semibold transition-all duration-300 hover:bg-[#d4a347] hover:shadow-[0_0_20px_rgba(230,182,92,0.5)] hover:-translate-y-1"
               aria-label="Get Admission to Alif Global School"
             >
@@ -86,7 +86,7 @@ const HeroSection = () => {
               <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" aria-hidden="true" />
             </Link>
             <Link
-              to="/academics/news"
+              to="/news/"
               className="flex items-center gap-2 bg-white/10 text-white px-8 py-4 rounded-full font-semibold backdrop-blur-md border border-white/20 transition-all duration-300 hover:bg-white/20 hover:border-white/40 hover:-translate-y-1"
               aria-label="View latest news from Alif Global School"
             >

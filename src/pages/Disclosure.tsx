@@ -28,11 +28,11 @@ const Disclosure = () => {
   const generalInfo = [
     { label: 'NAME OF THE SCHOOL', value: 'ALIF GLOBAL SCHOOL' },
     { label: 'AFFILIATION NO.(IF APPLICABLE)', value: '931454' },
-    { label: 'SCHOOL CODE (IF APPLICABLE)', value: '76461' },
-    { label: 'COMPLETE ADDRESS WITH PIN CODE', value: 'MARKAZ KNOWLEDGE CITY, KANNAMANGALAM, KOZHIKODE, KERALA-673580' },
+    { label: 'SCHOOL CODE (IF APPLICABLE)', value: '76470' },
+    { label: 'COMPLETE ADDRESS WITH PIN CODE', value: 'MARKAZ KNOWLEDGE CITY, KAITHAPOYIL, KOZHIKODE, KERALA-673580' },
     { label: 'PRINCIPAL NAME & QUALIFICATION', value: 'SHANAVAS KT, MA, MEd. SET, PGDCA, KGTE' },
-    { label: 'SCHOOL EMAIL ID', value: 'alifglobalschool@gmail.com' },
-    { label: 'CONTACT DETAILS (LANDLINE/MOBILE)', value: '9072500444' },
+    { label: 'SCHOOL EMAIL ID', value: 'info@alifglobalschool.com' },
+    { label: 'CONTACT DETAILS (LANDLINE/MOBILE)', value: '8012800100, 8012600400' },
   ];
 
   const [documents, setDocuments] = useState<any[]>(() => {
@@ -66,22 +66,24 @@ const Disclosure = () => {
 
   const staffDetails = [
     { label: 'PRINCIPAL', value: '1' },
-    { label: 'TOTAL NO. OF TEACHERS', value: '40' },
-    { label: 'PGT', value: '10' },
+    { label: 'TOTAL NO. OF TEACHERS', value: '24' },
+    { label: 'PGT', value: '8' },
     { label: 'TGT', value: '10' },
-    { label: 'PRT', value: '20' },
+    { label: 'HM', value: '1' },
+    { label: 'PET', value: '1' },
+    { label: 'NTT', value: '1' },
+    { label: 'PRT', value: '1' },
     { label: 'TEACHERS SECTION RATIO', value: '1:1.5' },
     { label: 'DETAILS OF SPECIAL EDUCATOR', value: '1' },
-    { label: 'DETAILS OF COUNSELLOR AND WELLNESS TEACHER', value: '1' },
   ];
 
   const infrastructure = [
-    { label: 'TOTAL CAMPUS AREA OF THE SCHOOL (IN SQUARE MTR)', value: '10117.14' },
-    { label: 'NO. AND SIZE OF THE CLASS ROOMS (IN SQ FTMTR)', value: '30 & 46' },
-    { label: 'NO. AND SIZE OF LABORATORIES INCLUDING COMPUTER LABS (IN SQ MTR)', value: '5 & 60' },
+    { label: 'TOTAL CAMPUS AREA OF THE SCHOOL (IN SQUARE MTR)', value: '13285' },
+    { label: 'NO. AND SIZE OF THE CLASS ROOMS (IN SQ MTR)', value: '20 & 46.45' },
+    { label: 'NO. AND SIZE OF LABORATORIES INCLUDING COMPUTER LABS (IN SQ MTR)', value: '5 & 98' },
     { label: 'INTERNET FACILITY (Y/N)', value: 'YES' },
-    { label: 'NO. OF GIRLS TOILETS', value: '20' },
-    { label: 'NO. OF BOYS TOILETS', value: '20' },
+    { label: 'NO. OF GIRLS TOILETS', value: '12' },
+    { label: 'NO. OF BOYS TOILETS', value: '12' },
     { label: 'YOUTUBE VIDEO OF THE INSPECTION OF SCHOOL', value: 'Link', isLink: true, link: 'https://www.youtube.com/watch?v=-ZK14Lg7HI8' },
   ];
 
@@ -90,13 +92,13 @@ const Disclosure = () => {
       <SEO
         title="Mandatory Public Disclosure"
         description="View the mandatory public disclosure of Alif Global School as per CBSE norms. Includes general information, documents, academic details, and infrastructure."
-        canonical="/disclosure"
+        canonical="/mandatory-public-disclosure/"
         breadcrumbs={[
           { name: 'Home', path: '/' },
-          { name: 'Mandatory Public Disclosure', path: '/disclosure' }
+          { name: 'Mandatory Public Disclosure', path: '/mandatory-public-disclosure/' }
         ]}
       />
-      <PageHeader title="Mandatory Public Disclosure" breadcrumb={[{ name: 'About', path: '/about' }, { name: 'Disclosure' }]} />
+      <PageHeader title="Mandatory Public Disclosure" breadcrumb={[{ name: 'About', path: '/about/' }, { name: 'Disclosure' }]} />
 
       <section ref={sectionRef} className="section-padding bg-background">
         <div className="container-custom">

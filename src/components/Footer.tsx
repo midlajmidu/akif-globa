@@ -75,15 +75,8 @@ const Footer = () => {
               <div className="flex items-start gap-3">
                 <Clock className="w-5 h-5 text-accent shrink-0 mt-0.5" aria-hidden="true" />
                 <div className="text-sm opacity-80">
-                  <p className="font-medium text-primary-foreground">Monday - Friday</p>
-                  <p>8:00 AM - 4:00 PM</p>
-                </div>
-              </div>
-              <div className="flex items-start gap-3">
-                <Clock className="w-5 h-5 text-accent shrink-0 mt-0.5" aria-hidden="true" />
-                <div className="text-sm opacity-80">
-                  <p className="font-medium text-primary-foreground">Saturday</p>
-                  <p>9:00 AM - 1:00 PM</p>
+                  <p className="font-medium text-primary-foreground">Monday - Saturday</p>
+                  <p>8:00 AM - 5:00 PM</p>
                 </div>
               </div>
               <p className="text-sm opacity-60">Closed on Sundays & Public Holidays</p>

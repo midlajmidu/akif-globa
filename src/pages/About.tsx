@@ -38,10 +38,10 @@ const About = () => {
       <SEO
         title="About Us"
         description="Learn about Alif Global School's history, mission, and vision. Founded in 2009, we are committed to providing quality education with a holistic approach."
-        canonical="/about"
+        canonical="/about/"
         breadcrumbs={[
           { name: 'Home', path: '/' },
-          { name: 'About', path: '/about' }
+          { name: 'About', path: '/about/' }
         ]}
       />
       <PageHeader title="About Us" breadcrumb="About" />

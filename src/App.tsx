@@ -60,6 +60,7 @@ const SecondaryPage = lazy(() => import("@/pages/programs/academic-levels/Second
 const SeniorSecondaryPage = lazy(() => import("@/pages/programs/academic-levels/SeniorSecondary"));
 const SpecialPage = lazy(() => import("@/pages/programs/academic-levels/Special"));
 const NewsDetail = lazy(() => import("@/pages/NewsDetail"));
+const PlaceholderPage = lazy(() => import("@/pages/PlaceholderPage"));
 
 const queryClient = new QueryClient();
 
@@ -79,53 +80,80 @@ const App = () => (
           <ScrollToTop />
           <Suspense fallback={<LoadingFallback />}>
             <Routes>
+              {/* Mapped Slugs */}
               <Route path="/" element={<Index />} />
-              <Route path="/about" element={<About />} />
-              <Route path="/about/markaz" element={<AboutMarkaz />} />
-              <Route path="/about/trust" element={<AboutTrust />} />
-              <Route path="/about/riyadh" element={<AboutRiyadh />} />
-              <Route path="/about/residence" element={<AboutResidence />} />
-              <Route path="/about/testimonials" element={<AboutTestimonials />} />
-              <Route path="/about/virtual-tour" element={<AboutVirtualTour />} />
-              <Route path="/about/principal" element={<AboutPrincipal />} />
+              <Route path="/virtual-tour/" element={<AboutVirtualTour />} />
+              <Route path="/about/" element={<About />} />
+              <Route path="/news/" element={<AcademicNews />} />
+              <Route path="/admissions/" element={<Admission />} />
+              <Route path="/mkc/" element={<AboutMarkaz />} />
+              <Route path="/testimonials/" element={<AboutTestimonials />} />
+              <Route path="/contact-us/" element={<Contact />} />
+              <Route path="/alif-edu-trust/" element={<AboutTrust />} />
+              <Route path="/principal-message/" element={<AboutPrincipal />} />
+              <Route path="/academic-calendar/" element={<AcademicCalendar />} />
+              <Route path="/alif-residence/" element={<AboutResidence />} />
+              <Route path="/facilities/" element={<Facilities />} />
+              <Route path="/downloads/" element={<AcademicTCDownload />} />
+              <Route path="/career/" element={<AcademicCareer />} />
+              <Route path="/gallery/" element={<AcademicGallery />} />
+              <Route path="/learning-zone/" element={<AcademicLearning />} />
+              <Route path="/summer-camp/" element={<AcademicSummerCamp />} />
+              <Route path="/mandatory-public-disclosure/" element={<Disclosure />} />
+              <Route path="/admission-test/" element={<AdmissionTest />} />
+              <Route path="/alif-international-school-riyadh-ksa/" element={<AboutRiyadh />} />
+              <Route path="/alif-zeeque-intl/" element={<AcademicZeeque />} />
+              <Route path="/ags-talks/" element={<ProgramAGSTalks />} />
+              <Route path="/rankhel/" element={<ProgramRankkhel />} />
+              <Route path="/cross-roads/" element={<ProgramCrossRoads />} />
+              <Route path="/connect-ed/" element={<ProgramConnected />} />
+              <Route path="/skill-surge/" element={<ProgramSkillSurge />} />
+              <Route path="/palette/" element={<ProgramPalette />} />
+              <Route path="/khelo/" element={<ProgramKhelo />} />
+              <Route path="/apply-online/" element={<AdmissionApply />} />
+              <Route path="/scholarships/" element={<AdmissionScholarships />} />
+              <Route path="/join-our-alumni/" element={<Alumni />} />
+              <Route path="/foundation-school/" element={<FoundationPage />} />
+              <Route path="/preparatory-school/" element={<PreparatoryPage />} />
+              <Route path="/middle-school/" element={<MiddlePage />} />
+              <Route path="/secondary-school/" element={<SecondaryPage />} />
+              <Route path="/senior-secondary-school/" element={<SeniorSecondaryPage />} />
 
-              <Route path="/admission" element={<Admission />} />
-              <Route path="/admission/test" element={<AdmissionTest />} />
-              <Route path="/admission/apply" element={<AdmissionApply />} />
-              <Route path="/admission/scholarships" element={<AdmissionScholarships />} />
+              {/* Missing Slugs (Placeholders) */}
+              <Route path="/about/our-teachers/" element={<PlaceholderPage title="Our Teachers" />} />
+              <Route path="/meetings/" element={<PlaceholderPage title="Meetings" />} />
+              <Route path="/applications-faq/" element={<PlaceholderPage title="Applications FAQ" />} />
+              <Route path="/multimedia/" element={<PlaceholderPage title="Multimedia" />} />
+              <Route path="/courses-offered/" element={<PlaceholderPage title="Courses Offered" />} />
+              <Route path="/timetable/" element={<PlaceholderPage title="Timetable" />} />
+              <Route path="/academicsold/" element={<PlaceholderPage title="Academics Old" />} />
+              <Route path="/apply-online22/" element={<PlaceholderPage title="Apply Online 22" />} />
+              <Route path="/alif-little-world/" element={<PlaceholderPage title="Alif Little World" />} />
+              <Route path="/admission-request/" element={<PlaceholderPage title="Admission Request" />} />
+              <Route path="/learning-zone/lkg-2/" element={<PlaceholderPage title="LKG learning zone" />} />
+              <Route path="/learning-zone/ukg-2/" element={<PlaceholderPage title="UKG learning zone" />} />
+              <Route path="/learning-zone/grade1-2/" element={<PlaceholderPage title="Grade 1 learning zone" />} />
+              <Route path="/learnactiv/" element={<PlaceholderPage title="LearnActiv" />} />
+              <Route path="/directors/" element={<PlaceholderPage title="Directors" />} />
+              <Route path="/learning-zone/grade2-2/" element={<PlaceholderPage title="Grade 2 learning zone" />} />
+              <Route path="/learning-zone/grade3-2/" element={<PlaceholderPage title="Grade 3 learning zone" />} />
+              <Route path="/learning-zone/grade4-2/" element={<PlaceholderPage title="Grade 4 learning zone" />} />
+              <Route path="/summer-camp-21/" element={<PlaceholderPage title="Summer Camp 21" />} />
+              <Route path="/blog/" element={<PlaceholderPage title="Blog" />} />
+              <Route path="/our-activities/" element={<PlaceholderPage title="Our Activities" />} />
+              <Route path="/street-buzz/" element={<PlaceholderPage title="Street Buzz" />} />
+              <Route path="/feedback/" element={<PlaceholderPage title="Feedback" />} />
+              <Route path="/feedbacks/" element={<PlaceholderPage title="Feedbacks" />} />
+              <Route path="/sample-page/" element={<PlaceholderPage title="Sample Page" />} />
+              <Route path="/transfer-certificate/" element={<PlaceholderPage title="Transfer Certificate" />} />
+              <Route path="/admisssion/" element={<PlaceholderPage title="Admission" />} />
+              <Route path="/admission-portal/" element={<PlaceholderPage title="Admission Portal" />} />
 
-              <Route path="/academics" element={<Academics />} />
-              <Route path="/academics/zeeque" element={<AcademicZeeque />} />
-              <Route path="/academics/calendar" element={<AcademicCalendar />} />
-              <Route path="/academics/learning" element={<AcademicLearning />} />
-
-              <Route path="/academics/news" element={<AcademicNews />} />
+              {/* Extra / Dynamic Routes */}
               <Route path="/news/:slug" element={<NewsDetail />} />
-              <Route path="/academics/gallery" element={<AcademicGallery />} />
-              <Route path="/academics/career" element={<AcademicCareer />} />
-              <Route path="/academics/tc-download" element={<AcademicTCDownload />} />
-              <Route path="/academics/summer-camp" element={<AcademicSummerCamp />} />
+              <Route path="/programs/mahfilul-quran/" element={<SpecialPage />} />
 
-              <Route path="/programs" element={<Programs />} />
-              <Route path="/programs/foundation" element={<FoundationPage />} />
-              <Route path="/programs/preparatory" element={<PreparatoryPage />} />
-              <Route path="/programs/middle" element={<MiddlePage />} />
-              <Route path="/programs/secondary" element={<SecondaryPage />} />
-              <Route path="/programs/senior-secondary" element={<SeniorSecondaryPage />} />
-              <Route path="/programs/mahfilul-quran" element={<SpecialPage />} />
-
-              <Route path="/programs/ags-talks" element={<ProgramAGSTalks />} />
-              <Route path="/programs/palette" element={<ProgramPalette />} />
-              <Route path="/programs/connected" element={<ProgramConnected />} />
-              <Route path="/programs/rankkhel" element={<ProgramRankkhel />} />
-              <Route path="/programs/skill-surge" element={<ProgramSkillSurge />} />
-              <Route path="/programs/khelo" element={<ProgramKhelo />} />
-              <Route path="/programs/cross-roads" element={<ProgramCrossRoads />} />
-
-              <Route path="/facilities" element={<Facilities />} />
-              <Route path="/disclosure" element={<Disclosure />} />
-              <Route path="/contact" element={<Contact />} />
-              <Route path="/alumni" element={<Alumni />} />
+              {/* Catch-all */}
               <Route path="*" element={<NotFound />} />
             </Routes>
           </Suspense>

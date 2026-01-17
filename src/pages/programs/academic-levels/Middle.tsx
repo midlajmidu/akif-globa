@@ -9,12 +9,12 @@ const Middle = () => {
         <Layout>
             <SEO
                 title="Middle School"
-                description="Alif Global School's Middle School (Grades 6 to 8) focuses on self-exploration, critical thinking, and nurturing responsibility in a supportive environment."
-                canonical="/programs/academic-levels/middle"
+                description="Alif Middle School (Grade 6 to 8) prepares students for higher academic challenges with a focus on subject expertise and critical inquiry."
+                canonical="/middle-school/"
                 breadcrumbs={[
                     { name: 'Home', path: '/' },
-                    { name: 'Programs', path: '/programs' },
-                    { name: 'Middle School', path: '/programs/academic-levels/middle' }
+                    { name: 'Programs', path: '/ags-talks/' },
+                    { name: 'Middle School', path: '/middle-school/' }
                 ]}
             />
             <div className="pt-20">

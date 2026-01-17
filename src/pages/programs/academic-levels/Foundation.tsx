@@ -10,12 +10,12 @@ const Foundation = () => {
         <Layout>
             <SEO
                 title="Foundation School"
-                description="Alif Global School's Foundation School (LZQ to Grade 2) provides a nurturing environment with activity-based learning, spiritual growth, and foundational skills."
-                canonical="/programs/academic-levels/foundation"
+                description="Alif Foundation School offers a nurturing environment for early childhood education (LZQ to Grade 2), focusing on play-based learning and character building."
+                canonical="/foundation-school/"
                 breadcrumbs={[
                     { name: 'Home', path: '/' },
-                    { name: 'Programs', path: '/programs' },
-                    { name: 'Foundation School', path: '/programs/academic-levels/foundation' }
+                    { name: 'Programs', path: '/ags-talks/' },
+                    { name: 'Foundation School', path: '/foundation-school/' }
                 ]}
             />
             <div className="pt-20">

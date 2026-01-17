@@ -110,10 +110,10 @@ const Alumni = () => {
       <SEO
         title="Alumni Network"
         description="Join the Alif Global School Alumni Network. Stay connected with fellow graduates, access exclusive events, and contribute to our growing community."
-        canonical="/alumni"
+        canonical="/join-our-alumni/"
         breadcrumbs={[
           { name: 'Home', path: '/' },
-          { name: 'Alumni', path: '/alumni' }
+          { name: 'Alumni', path: '/join-our-alumni/' }
         ]}
       />
       <PageHeader title="Join Our Alumni" breadcrumb="Alumni" />

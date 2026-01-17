@@ -64,14 +64,13 @@ const Scholarships = () => {
       <SEO
         title="Scholarships"
         description="Apply for scholarships at Alif Global School. We offer financial aid and scholarship opportunities for deserving students. Fill out our scholarship application form."
-        canonical="/admission/scholarships"
+        canonical="/scholarships"
         breadcrumbs={[
           { name: 'Home', path: '/' },
-          { name: 'Admission', path: '/admission' },
-          { name: 'Scholarships', path: '/admission/scholarships' }
+          { name: 'Scholarships', path: '/scholarships' }
         ]}
       />
-      <PageHeader title="Scholarships" breadcrumb={[{ name: 'Admission', path: '/admission' }, { name: 'Scholarships' }]} />
+      <PageHeader title="Scholarships" breadcrumb={[{ name: 'Scholarships' }]} />
 
       <section className="section-padding bg-background">
         <div className="container-custom">

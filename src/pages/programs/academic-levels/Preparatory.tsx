@@ -9,12 +9,12 @@ const Preparatory = () => {
         <Layout>
             <SEO
                 title="Preparatory School"
-                description="Alif Global School's Preparatory School (Grades 3 to 5) encourages inquiry and exploration, developing core competencies in a caring and supportive environment."
-                canonical="/programs/academic-levels/preparatory"
+                description="Our Preparatory School (Grade 3 to 5) builds strong fundamentals in literacy, numeracy, and critical thinking with an engaging curriculum."
+                canonical="/preparatory-school/"
                 breadcrumbs={[
                     { name: 'Home', path: '/' },
-                    { name: 'Programs', path: '/programs' },
-                    { name: 'Preparatory School', path: '/programs/academic-levels/preparatory' }
+                    { name: 'Programs', path: '/ags-talks/' },
+                    { name: 'Preparatory School', path: '/preparatory-school/' }
                 ]}
             />
             <div className="pt-20">

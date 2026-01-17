@@ -29,7 +29,7 @@ const Contact = () => {
     { icon: MapPin, title: 'Address', content: 'Markaz Knowledge City, Unnikulam,\nKozhikode, Kerala 673574' },
     { icon: Phone, title: 'Phone', content: '+91 8012800100' },
     { icon: Mail, title: 'Email', content: 'info@alifglobalschool.com' },
-    { icon: Clock, title: 'Office Hours', content: 'Mon - Fri: 8:00 AM - 4:00 PM\nSat: 9:00 AM - 1:00 PM' },
+    { icon: Clock, title: 'Office Hours', content: 'Mon - Sat: 8:00 AM - 5:00 PM' },
   ];
 
   return (
@@ -37,10 +37,10 @@ const Contact = () => {
       <SEO
         title="Contact Us"
         description="Get in touch with Alif Global School. Find our address, phone number, email, and office hours. Send us a message or find directions on Google Maps."
-        canonical="/contact"
+        canonical="/contact-us/"
         breadcrumbs={[
           { name: 'Home', path: '/' },
-          { name: 'Contact Us', path: '/contact' }
+          { name: 'Contact Us', path: '/contact-us/' }
         ]}
       />
       <PageHeader title="Contact Us" breadcrumb="Contact" />

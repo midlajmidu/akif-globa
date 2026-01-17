@@ -9,12 +9,12 @@ const SeniorSecondary = () => {
         <Layout>
             <SEO
                 title="Senior Secondary"
-                description="Alif Global School's Senior Secondary (Grades 11 and 12) offers an integrated residential curriculum combining CBSE academics with specialized coaching for JEE and NEET."
-                canonical="/programs/academic-levels/senior-secondary"
+                description="The Senior Secondary program (Grade 11 to 12) offers specialized streams in Science and Commerce, preparing students for higher education and careers."
+                canonical="/senior-secondary-school/"
                 breadcrumbs={[
                     { name: 'Home', path: '/' },
-                    { name: 'Programs', path: '/programs' },
-                    { name: 'Senior Secondary', path: '/programs/academic-levels/senior-secondary' }
+                    { name: 'Programs', path: '/ags-talks/' },
+                    { name: 'Senior Secondary', path: '/senior-secondary-school/' }
                 ]}
             />
             <div className="pt-20">

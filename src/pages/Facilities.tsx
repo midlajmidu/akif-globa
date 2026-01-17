@@ -71,10 +71,10 @@ const Facilities = () => {
       <SEO
         title="Facilities"
         description="Discover the world-class facilities at Alif Global School, including modern classrooms, advanced science labs, international standard sports turf, and a vast library."
-        canonical="/facilities"
+        canonical="/facilities/"
         breadcrumbs={[
           { name: 'Home', path: '/' },
-          { name: 'Facilities', path: '/facilities' }
+          { name: 'Facilities', path: '/facilities/' }
         ]}
       />
       <PageHeader title="Facilities" breadcrumb="Facilities" />
