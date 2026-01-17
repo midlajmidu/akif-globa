@@ -142,7 +142,7 @@ const Admission = () => {
                 </Link>
                 <p className="mt-6 text-sm text-muted-foreground">
                   Need help? Contact our admissions office at <br />
-                  <a href="tel:+918012800100" className="text-primary font-semibold hover:text-accent transition-colors">+91 8012800100</a>
+                  <a href="tel:+918012800100" className="text-primary font-semibold hover:text-accent transition-colors">+91 8012800100, 8012600400</a>
                 </p>
               </div>
             </div>
