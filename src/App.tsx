@@ -51,6 +51,8 @@ const ProgramRankkhel = lazy(() => import("@/pages/programs/Rankkhel"));
 const ProgramSkillSurge = lazy(() => import("@/pages/programs/SkillSurge"));
 const ProgramKhelo = lazy(() => import("@/pages/programs/Khelo"));
 const ProgramCrossRoads = lazy(() => import("@/pages/programs/CrossRoads"));
+const ProgramQitafFiesta = lazy(() => import("@/pages/programs/QitafFiesta"));
+
 
 // Academic Level Pages
 const FoundationPage = lazy(() => import("@/pages/programs/academic-levels/Foundation"));
@@ -110,7 +112,9 @@ const App = () => (
               <Route path="/skill-surge/" element={<ProgramSkillSurge />} />
               <Route path="/palette/" element={<ProgramPalette />} />
               <Route path="/khelo/" element={<ProgramKhelo />} />
+              <Route path="/qitaf-fiesta/" element={<ProgramQitafFiesta />} />
               <Route path="/apply-online/" element={<AdmissionApply />} />
+
               <Route path="/scholarships/" element={<AdmissionScholarships />} />
               <Route path="/join-our-alumni/" element={<Alumni />} />
               <Route path="/foundation-school/" element={<FoundationPage />} />

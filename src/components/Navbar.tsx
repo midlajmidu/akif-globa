@@ -59,6 +59,7 @@ const navItems: NavItem[] = [
       { name: 'Skill Surge', path: '/skill-surge/' },
       { name: 'Khelo', path: '/khelo/' },
       { name: 'Cross Roads', path: '/cross-roads/' },
+      { name: 'Qitaf Fiesta', path: '/qitaf-fiesta/' },
     ],
   },
   { name: 'Facilities', path: '/facilities/' },
