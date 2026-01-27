@@ -26,7 +26,7 @@ const Contact = () => {
   }, []);
 
   const contactInfo = [
-    { icon: MapPin, title: 'Address', content: 'Markaz Knowledge City, Unnikulam,\nKozhikode, Kerala 673574' },
+    { icon: MapPin, title: 'Address', content: 'Markaz Knowledge City, Kaithapoyil,\nKozhikode, Kerala 673580' },
     { icon: Phone, title: 'Phone', content: '+91 8012800100, 8012600400' },
     { icon: Mail, title: 'Email', content: 'info@alifglobalschool.com' },
     { icon: Clock, title: 'Office Hours', content: 'Mon - Sat: 8:00 AM - 5:00 PM' },

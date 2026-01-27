@@ -2,7 +2,7 @@ import Layout from '@/components/Layout';
 import PageHeader from '@/components/PageHeader';
 import SEO from '@/components/SEO';
 
-import principalImg from '@/assets/about/principle.webp';
+import principalImg from '@/assets/principle.jpeg';
 
 const Principal = () => {
     return (

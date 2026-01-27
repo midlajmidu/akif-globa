@@ -50,8 +50,8 @@ const Footer = () => {
               <div className="flex items-start gap-3">
                 <MapPin className="w-5 h-5 text-accent shrink-0 mt-0.5" aria-hidden="true" />
                 <p className="text-sm opacity-80">
-                  Markaz Knowledge City, Unnikulam,<br />
-                  Kozhikode, Kerala 673574
+                  Markaz Knowledge City, Kaithapoyil,<br />
+                  Kozhikode, Kerala 673580
                 </p>
               </div>
               <div className="flex items-center gap-3">

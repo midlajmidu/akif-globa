@@ -166,7 +166,7 @@ const NewsEventsSection = () => {
                         </div>
 
                         <div className="mt-6 text-center md:text-right">
-                            <Link to="/academics/news" className="text-accent font-bold inline-flex items-center gap-2 hover:underline group text-sm">
+                            <Link to="/news/" className="text-accent font-bold inline-flex items-center gap-2 hover:underline group text-sm">
                                 View All School News <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                             </Link>
                         </div>

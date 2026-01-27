@@ -36,14 +36,13 @@ const News = () => {
       <SEO
         title="School News"
         description="Stay informed with the latest news and updates from Alif Global School. Read about our recent events, achievements, and school announcements."
-        canonical="/academics/news"
+        canonical="/news/"
         breadcrumbs={[
           { name: 'Home', path: '/' },
-          { name: 'Academics', path: '/academics' },
-          { name: 'News', path: '/academics/news' }
+          { name: 'News', path: '/news/' }
         ]}
       />
-      <PageHeader title="News" breadcrumb={[{ name: 'Academics', path: '/academics' }, { name: 'News' }]} />
+      <PageHeader title="News" breadcrumb={[{ name: 'News' }]} />
       <section className="section-padding">
         <div className="container-custom">
           <div className="max-w-6xl mx-auto">

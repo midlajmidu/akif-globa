@@ -74,7 +74,7 @@ const NewsDetail = () => {
                 description={news.short_desc}
                 canonical={`/news/${slug}`}
             />
-            <PageHeader title="School News" breadcrumb={[{ name: 'News', path: '/academics/news' }, { name: 'Article' }]} />
+            <PageHeader title="School News" breadcrumb={[{ name: 'News', path: '/news/' }, { name: 'Article' }]} />
 
             <article className="section-padding bg-background">
                 <div className="container-custom">

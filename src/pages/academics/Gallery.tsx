@@ -126,14 +126,13 @@ const Gallery = () => {
       <SEO
         title="Gallery"
         description="Explore the gallery of Alif Global School. View photos of our campus, facilities, and various student activities and events."
-        canonical="/academics/gallery"
+        canonical="/gallery/"
         breadcrumbs={[
           { name: 'Home', path: '/' },
-          { name: 'Academics', path: '/academics' },
-          { name: 'Gallery', path: '/academics/gallery' }
+          { name: 'Gallery', path: '/gallery/' }
         ]}
       />
-      <PageHeader title="Gallery" breadcrumb={[{ name: 'Academics', path: '/academics' }, { name: 'Gallery' }]} />
+      <PageHeader title="Gallery" breadcrumb={[{ name: 'Gallery' }]} />
 
       <section className="section-padding bg-background">
         <div className="container-custom">
